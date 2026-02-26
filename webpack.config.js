@@ -20,17 +20,17 @@ module.exports = (env, argv) => {
 
     entry: {
       index: "./src/pages/index.js",
-     // 404: "./src/pages/404.js",
+      404: "./src/pages/404.js",
       calendar: "./src/pages/calendar.js",
-     // news: "./src/pages/news.js",
-      /*aboutus: "./src/pages/aboutus.js",
+      news: "./src/pages/news.js",
+      aboutus: "./src/pages/aboutus.js",
       gallery: "./src/pages/gallery.js",
-      leaderboard: "./src/pages/club/leaderboard.js",
+      clubleaderboard: "./src/pages/club/leaderboard.js",
       clubrules: "./src/pages/club/rules.js",
       clubmerch: "./src/pages/club/merch.js",
       clubmember: "./src/pages/club/member.js",
-      cubhistory: "./src/pages/club/history.js",
-      clubweather: "./src/pages/club/weather.js",*/
+      clubhistory: "./src/pages/club/history.js",
+      clubweather: "./src/pages/club/weather.js",
       styles: "./src/scss/styles.scss",
     },
     output: {
