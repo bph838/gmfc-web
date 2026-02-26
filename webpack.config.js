@@ -88,6 +88,7 @@ module.exports = (env, argv) => {
       new ProcessNewsPlugin({
         sourceFile: "./src/data/site/news.json",
         outputFile: "./src/data/news.json",
+        postsFolderName: "./src/data/generated/"
       }),
 
       

@@ -1,0 +1,35 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/news/helpneededtea.png",
+      "text": "February maintenance help needed",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "itemtype": "text",
+        "text": [
+          "We really could use your help 9-12!",
+          "Come along and lend a hand! Coffee/tea, biscuits and dougnuts too. And good company!",
+          "Fly or drive afterwards and enjoy our facilities."
+        ]
+      },
+      {
+        "itemtype": "list",
+        "listitems": [
+          "Clubhouse - needs a sweep. And sofa needs a good polish with leather restorers. I cleaned it last week as minor mould spots appeared. But needs protecting.<br><i>2 helpers? With the necessary polish items. We have broom.</i>",
+          "Club Room needs sweeping and table polished and tidy up.<br><i>2 helpers? With the necessary polish items. We have broom.</i>",
+          "Site tidy up - numerous bottles, cans and misc items need collecting and taking to tip<br><i>2-4 helpers with gloves , we have black bags.</i>",
+          "Memorial ‘garden’ needs weeding and tidy u<br><i>2 helpers with weeding stuff and ‘green’ fingers. I’ve cut off most of offending branches and bramble. Quick task.",
+          "Also we need to re-stack and tidy up outside rear of clubhouse<br><i>2-4 helpers with gloves</i>.",
+          "The remains of the fallen tree is ‘parked’ in parking area . Chainsaw enthusiasts welcome to help themselves to firewood. BUT at own risk! Not a club task!",
+          "Hopefully we will  also arrange a quick mow of strip."
+        ]
+      }
+    ]
+  }
+}

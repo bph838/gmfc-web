@@ -60,8 +60,7 @@ export function createInput(
   if (name) el.name = name;
   if (id) el.id = id;
   if (value) el.value = value;
-  if (checked) {
-    console.log("a");
+  if (checked) {    
     el.checked = checked;
   }
 

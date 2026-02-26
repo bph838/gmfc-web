@@ -10,7 +10,7 @@ class ProcessNewsPlugin {
 
   apply(compiler) {
     compiler.hooks.environment.tap('ProcessNewsPlugin', () => {
-      const srcDir = path.resolve(compiler.context, '');
+      const srcDir = path.resolve(compiler.context, 'src');
       const sourcePath = path.resolve(srcDir, this.sourceFile);
       const outputPath = path.resolve(srcDir, this.outputFile);
 

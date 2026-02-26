@@ -9,8 +9,8 @@ import {
   isAbsoluteUrl,
 } from "@framework/utils";
 const { SITE_TITLE, SITE_ADDRESS } = require("@components/constants");
+import data from "@data/pages/news.json";
 
-const newsUrl = "/data/pages/news.json";
 const newsItemUrl = "news";
 
 setupMenuCommands("page-news");
@@ -18,24 +18,12 @@ console.log("Rending news");
 if (window.MY_NEWS_ITEM && window.MY_NEWS_ITEM.hash) {
   let hash = window.MY_NEWS_ITEM.hash;
   let jsonUrl = `/data/newsitems/${hash}.json`;
-  renderNewsItem(jsonUrl);
+  //renderNewsItem(jsonUrl);
 } else {
-  renderNews(newsUrl);
+  renderNews(data);
 }
 
-function renderNews(url) {
-  fetchJson(url).then((data) => {
-    console.log(`Looking for news ${url}`);
-
-    if (!data) {
-      console.log("No news to render");
-    } else {
-      renderClubNews(data);
-    }
-  });
-}
-
-function renderClubNews(data) {
+function renderNews(data) {
   console.log(data);
   if (data.content.hero) renderHero(data.content.hero);
 
@@ -43,24 +31,19 @@ function renderClubNews(data) {
   if (!contentarea) return;
   const sectionsdiv = createDiv(contentarea, "sections");
 
-  //render the news
-  if (data.content.sections && data.content.sections.length > 0) {
-    const newsSections = data.content.sections;
-    newsSections.sort(
-      (a, b) =>
-        new Date(b.date.replace(" ", "T")) - new Date(a.date.replace(" ", "T")),
-    );
+  const newUrl = data.newsUrl;
+  console.log(newUrl);
+  fetchJson(newUrl).then((news) => {    
 
-    data.content.sections.forEach((section) => {
-      console.log("Check show hide");
+    news.forEach((section) => { 
       let showhide = section.showhide ?? true;
       if (showhide)
         renderSection(sectionsdiv, section, newsItemUrl, "sectionline");
     });
-  }
+  });
 }
 
-function renderNewsItem(jsonUrl) {
+/*function renderNewsItem(jsonUrl) {
   fetchJson(jsonUrl).then((data) => {
     console.log(`Looking for news ${jsonUrl}`);
     if (!data) {
@@ -71,7 +54,7 @@ function renderNewsItem(jsonUrl) {
         setDiscoverables(data.content.sections[0]);
     }
   });
-}
+}*/
 
 function setDiscoverables(data) {
   console.log("setDiscoverables");
@@ -95,3 +78,5 @@ function setDiscoverables(data) {
     setMeta("og:description", description);
   }
 }
+
+function renderNewItem(data) {}
