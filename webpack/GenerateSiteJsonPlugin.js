@@ -30,6 +30,7 @@ class GenerateSiteJsonPlugin {
             title: p.title,
             page: p.page,
             url: p.url,
+            chunks: p.chunks,
             template: p.template,
             keywords: p.keywords,
             description: p.description,

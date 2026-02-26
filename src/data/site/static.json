@@ -4,12 +4,25 @@
       "title": "Gordano Model Flying Club",
       "page": "@/index.html",
       "template": "main.html",
+      "chunks": "index",
       "keywords": "RC Model Flying",
       "description": "About flying",
       "url": "@/",
       "jdb": "@jdbpages/index.json",
       "datetype": "filemodified",
       "date_modified": "2026-02-23T10:34:49.495Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Calendar",
+      "page": "@/calendar.html",
+      "template": "main.html",
+      "chunks": "calendar",
+      "keywords": "RC Model Flying",
+      "description": "About flying",
+      "url": "@/",
+      "jdb": "@jdbpages/calendar.json",
+      "datetype": "filemodified",
+      "date_modified": "2026-02-15T14:15:14.517Z"
     }
   ]
 }

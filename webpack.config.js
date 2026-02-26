@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const PrerenderSPAPlugin = require("prerender-spa-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const UpdateStaticJsonPlugin = require("./webpack/UpdateStaticJsonPlugin");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
@@ -43,7 +44,20 @@ module.exports = (env, argv) => {
       static: "./dist",
       hot: true, // Enables Hot Module Replacement (updates without full refresh)
       port: 8080, // You can change this to any number you like
-      open: true, // Automatically opens your browser
+      //open: true, // Automatically opens your browser
+      historyApiFallback: {
+        index: "/404.html",
+        rewrites: [
+          // specific exception
+          { from: /^\/news\/?$/, to: "/news.html" },
+
+          // only rewrite paths WITHOUT extensions
+          {
+            from: /^(?!.*\.\w+$).*/,
+            to: (ctx) => `${ctx.parsedUrl.pathname.replace(/\/$/, "")}.html`,
+          },
+        ],
+      },
     },
     resolve: {
       alias: {
@@ -107,6 +121,33 @@ module.exports = (env, argv) => {
         sourceFile: "./src/data/site/site.json",
         partials: partials,
       }),
+
+      /*
+      new PrerenderSPAPlugin({
+        staticDir: path.join(__dirname, "dist"),
+
+        // URL routes, NOT filenames
+        routes: [
+          "/",
+                "/aboutus",
+          "/gallery",
+          "/calendar",
+          "/news",
+          "/club",
+          "/club/history",
+          "/club/rules",
+          "/club/leaderboard",
+          "/club/weather",
+        ],
+
+        renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
+          headless: false, // true for CI/build
+          renderAfterDocumentEvent: "render-ready",
+          maxConcurrentRoutes: 4, // faster builds
+          timeout: 30000,
+        }),
+      }),
+      */
     ],
     optimization: {
       minimize: isProduction,

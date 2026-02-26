@@ -43,12 +43,14 @@ class DynamicHtmlManagerPlugin {
         let pageurl = "https://www.gmfc.uk/" + outputFilename;
         let keywords = pageData.keywords;
         let description = pageData.description;
+        let chunks = pageData.chunks;
 
         // Programmatically add a new HtmlWebpackPlugin to the compiler
         new HtmlWebpackPlugin({
           title: pageData.title,
           template: template,
           filename: outputFilename,
+          chunks: chunks,
           inject: "body",
           templateParameters: {
             pageurl: pageurl,
