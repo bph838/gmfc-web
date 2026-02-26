@@ -7,6 +7,10 @@ const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
+const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
+
+
+
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -81,6 +85,12 @@ module.exports = (env, argv) => {
         sourceFile: "./src/data/site/alerts.json",
         outputFile: "./src/data/alerts.json",
       }),
+      new ProcessNewsPlugin({
+        sourceFile: "./src/data/site/news.json",
+        outputFile: "./src/data/news.json",
+      }),
+
+      
       /* new GenerateSiteJsonPlugin({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/site/site.json",
