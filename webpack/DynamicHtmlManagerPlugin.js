@@ -42,6 +42,8 @@ class DynamicHtmlManagerPlugin {
         }
 
         let pageurl = "https://www.gmfc.uk/" + outputFilename;
+        let keywords = pageData.keywords;
+        let description = pageData.description;
 
         // Programmatically add a new HtmlWebpackPlugin to the compiler
         new HtmlWebpackPlugin({
@@ -52,8 +54,8 @@ class DynamicHtmlManagerPlugin {
           templateParameters: {
             pageurl: pageurl,
             partials: this.partials,
-            keywords: pageData.page.keywords,
-            description: pageData.page.description,
+            keywords: keywords,
+            description: description,
             site: site,
           },
         }).apply(compiler);
