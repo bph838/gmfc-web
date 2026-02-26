@@ -1,0 +1,9 @@
+{
+  "pages": [
+    {
+      "title": "Gordano Model Flying Club",
+      "page": "@/index.html",
+      "url": "@/"
+    }
+  ]
+}

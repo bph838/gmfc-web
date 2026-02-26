@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const UpdateStaticJsonPlugin = require("./webpack/UpdateStaticJsonPlugin");
 
 module.exports = {
@@ -42,6 +43,10 @@ module.exports = {
     new UpdateStaticJsonPlugin({
       filename: "@data/site/static.json", // You can now pass the filename here
       jdblocation: "@jdbpages",
+    }),
+    new GenerateSiteJsonPlugin({
+      sourceFile: "./src/data/site/static.json",
+      outputFile: "./src/data/site/site.json"
     }),
     new HtmlWebpackPlugin({ template: "./src/index.html" }),
   ],
