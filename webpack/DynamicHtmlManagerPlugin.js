@@ -50,8 +50,8 @@ class DynamicHtmlManagerPlugin {
           title: pageData.title,
           template: template,
           filename: outputFilename,
-          chunks: chunks,
-          inject: "body",
+          chunks: [chunks],
+          //inject: "body",
           templateParameters: {
             pageurl: pageurl,
             partials: this.partials,

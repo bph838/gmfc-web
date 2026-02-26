@@ -1,0 +1,44 @@
+{
+  "alerts": [
+    {
+      "title": "Feb maintenance cancelled",
+      "message": "Due to the weather, the maintenance planned for this weekend has been cancelled.",
+      "type": "warning",
+      "date_from": "2026-02-18 10:00:00",
+      "date_to": "2026-02-21 10:00:00",
+      "hash": "db4bc2f71775803fb65224581dd99c4b"
+    },
+    {
+      "title": "Test alert process",
+      "message": "Bla bla bla testing <strong>alert</strong> system",
+      "type": "warning",
+      "date_from": "2026-02-01 10:00:00",
+      "date_to": "2026-02-01 12:00:00",
+      "hash": "b29e367c931502aba403fbb62e581e86"
+    },
+    {
+      "title": "Second alert process",
+      "message": "Bla bla bla testing <strong>alert</strong> system bla vla bla ",
+      "type": "danger",
+      "date_from": "2026-02-01 10:00:00",
+      "date_to": "2026-02-01 12:00:00",
+      "hash": "9d326c6ff7ff1f40682945dd13321c53"
+    },
+    {
+      "title": "New website",
+      "message": "you can have alerts",
+      "type": "primary",
+      "date_from": "2026-02-01 10:00:00",
+      "date_to": "2026-02-02 11:00:00",
+      "hash": "06647c37519c6c144fc9ae7a099d1f75"
+    },
+    {
+      "title": "Christmas Countdown",
+      "message": "It is <span class='countdown' data-cd-date='2026-12-25T12:00:00' data-cd-type='datetimetoseconds'></span> till christmas!",
+      "type": "primary",
+      "date_from": "2026-02-01 10:00:00",
+      "date_to": "2026-02-02 18:00:00",
+      "hash": "fde7548c7a023087f09ef9294fcb6e64"
+    }
+  ]
+}

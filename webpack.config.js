@@ -20,10 +20,10 @@ module.exports = (env, argv) => {
 
     entry: {
       index: "./src/pages/index.js",
-      /*404: "./src/pages/404.js",
+     // 404: "./src/pages/404.js",
       calendar: "./src/pages/calendar.js",
-      news: "./src/pages/news.js",
-      aboutus: "./src/pages/aboutus.js",
+     // news: "./src/pages/news.js",
+      /*aboutus: "./src/pages/aboutus.js",
       gallery: "./src/pages/gallery.js",
       leaderboard: "./src/pages/club/leaderboard.js",
       clubrules: "./src/pages/club/rules.js",

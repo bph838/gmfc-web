@@ -1,0 +1,23 @@
+[
+  {
+    "Participant": "Charlie",
+    "Course": "Trophy Course",
+    "Battery": "2S",
+    "Date": 45984.65138888889,
+    "Laptime": 19.63
+  },
+  {
+    "Participant": "Charlie",
+    "Course": "Trophy Course",
+    "Battery": "2S",
+    "Date": 45984.638194444444,
+    "Laptime": 18.8
+  },
+  {
+    "Participant": "Charlie",
+    "Course": "Trophy Course",
+    "Battery": "2S",
+    "Date": 45984.61041666667,
+    "Laptime": 19.3
+  }
+]
