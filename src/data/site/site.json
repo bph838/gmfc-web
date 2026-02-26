@@ -3,7 +3,10 @@
     {
       "title": "Gordano Model Flying Club",
       "page": "@/index.html",
-      "url": "@/"
+      "url": "@/",
+      "template": "main.html",
+      "keywords": "RC Model Flying",
+      "description": "About flying"
     }
   ]
 }

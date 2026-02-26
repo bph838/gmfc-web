@@ -1,8 +1,11 @@
 {
   "pages": [
     {
-      "title":"Gordano Model Flying Club",
+      "title": "Gordano Model Flying Club",
       "page": "@/index.html",
+      "template": "main.html",
+      "keywords": "RC Model Flying",
+      "description": "About flying",
       "url": "@/",
       "jdb": "@jdbpages/index.json",
       "datetype": "filemodified",
