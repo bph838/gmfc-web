@@ -119,7 +119,7 @@ module.exports = (env, argv) => {
       }),
       // 3. Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
-        sourceFile: "./src/data/site/site.json",
+        sourceFile: "./src/data/generated/site.json",
         partials: partials,
       }),
 
