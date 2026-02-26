@@ -3,7 +3,6 @@ const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let site = { sitename: "GMFC" };
-let partials = {};
 
 class DynamicHtmlManagerPlugin {
   constructor(options) {

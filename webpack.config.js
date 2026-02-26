@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const UpdateStaticJsonPlugin = require("./webpack/UpdateStaticJsonPlugin");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
@@ -56,6 +57,39 @@ module.exports = (env, argv) => {
       new GenerateSiteJsonPlugin({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/site/site.json",
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "src/data",
+            to: "data",
+            globOptions: {
+              ignore: ["**/dynamic/**", "**/documents/**", "**/site.json"],
+            },
+          },
+          {
+            from: "src/images",
+            to: "images",
+            globOptions: {
+              ignore: [
+                "**/carousel/**",
+                "**/cartrack/**",
+                "**/crawl/**",
+                "**/flying/**",
+                "**/hero/**",
+                "**/news/**",
+                "**/racing/**",
+                "**/favicon/**",
+                "**/icons/**",
+                "**/siteimages/**",
+              ],
+            },
+          },
+          { from: "src/rootdir/favicon.ico", to: "." },
+          { from: "src/rootdir/site.webmanifest", to: "." },
+          { from: "src/rootdir/sitemap.xml", to: "." },
+          { from: "src/rootdir/robots.txt", to: "." },
+        ],
       }),
       // 3. Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
