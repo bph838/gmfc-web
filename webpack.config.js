@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
-const UpdateStaticJsonPlugin = require("./webpack/UpdateStaticJsonPlugin");
+const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -71,14 +71,15 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
-      new UpdateStaticJsonPlugin({
-        filename: "@data/site/static.json", // You can now pass the filename here
-        jdblocation: "@jdbpages",
+      new ProcessWebsitePaths({
+        sourceFile: "./src/data/site/static.json",
+        outputFile: "./src/data/generated/site.json",
       }),
-      new GenerateSiteJsonPlugin({
+      /* new GenerateSiteJsonPlugin({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/site/site.json",
-      }),
+      }),*/
+
       new CopyWebpackPlugin({
         patterns: [
           {
