@@ -1,0 +1,23 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/news/newfence.jpg",
+      "text": "Car Park fence replacement",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "itemtype": "text",
+        "text": [
+          "As the eagle-eyed will have noticed the fence in the car park required some work.",
+          "The fence was replaced today with a new shiny one.",
+          "Many thanks to those involved."
+        ]
+      }
+    ]
+  }
+}
