@@ -1,0 +1,109 @@
+@use "../response" as *;
+@use "./mixins.scss" as *;
+
+.section_leaderboard {
+  margin-bottom: 2em;
+}
+
+.lb_holdertimes {
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+
+  /* Outer container */
+  .lb_holdertimes {
+    text-align: center; /* center text inside */
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    h2 {
+      margin: 0 0 20px 0;
+      font-size: 24px;
+      color: #333;
+    }
+  }
+
+  /* Times container (flex) */
+  .lb_times {
+    display: flex;
+    flex-wrap: wrap; /* allows items to wrap if needed */
+    justify-content: center; /* center items horizontally */
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1em;
+    width: 400px;
+    @include respond(tablet, pc) {
+      gap: 15px;
+      width: 540px;
+    }
+    .lb_participant {
+      margin-right: auto;
+      min-width: 100px;
+      margin-left: 10px;
+      @include respond(tablet, pc) {
+        min-width: 160px;
+        margin-left: 0;
+      }
+    }
+    .lb_date {
+      @include respond(tablet, pc) {
+        width: 200px;
+      }
+    }
+    .lb_time {
+      width: 100px;
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 14px;
+      @include respond(tablet, pc) {
+        font-size: 18px;
+      }
+      color: #555;
+      background: #f0f0f0;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+  }
+}
+
+.lb_participant_holdertimes {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  width: 400px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.participantLapTimes {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.accordion-button {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+.accordion-button::before {
+  display: none;
+}
+
+.accordion-button::after {
+  margin-left: 1px;
+}
+
+.participant_fastesttime {
+  margin-left: auto;
+}

@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const UpdateStaticJsonPlugin = require("./webpack/UpdateStaticJsonPlugin");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
 
 module.exports = (env, argv) => {
@@ -15,12 +17,28 @@ module.exports = (env, argv) => {
   return {
     mode: isProduction ? "production" : "development",
 
-    entry: "./src/index.js",
-    output: {
-      filename: "bundle.js",
-      path: path.resolve(__dirname, "dist"),
-      clean: true, // This keeps your dist folder tidy!
+    entry: {
+      index: "./src/pages/index.js",
+      /*404: "./src/pages/404.js",
+      calendar: "./src/pages/calendar.js",
+      news: "./src/pages/news.js",
+      aboutus: "./src/pages/aboutus.js",
+      gallery: "./src/pages/gallery.js",
+      leaderboard: "./src/pages/club/leaderboard.js",
+      clubrules: "./src/pages/club/rules.js",
+      clubmerch: "./src/pages/club/merch.js",
+      clubmember: "./src/pages/club/member.js",
+      cubhistory: "./src/pages/club/history.js",
+      clubweather: "./src/pages/club/weather.js",*/
+      styles: "./src/scss/styles.scss",
     },
+    output: {
+      filename: "js/[name].js",
+      path: path.resolve(__dirname, "dist"),
+      publicPath: "/",
+      clean: true,
+    },
+
     devServer: {
       static: "./dist",
       hot: true, // Enables Hot Module Replacement (updates without full refresh)
@@ -37,18 +55,7 @@ module.exports = (env, argv) => {
       },
       extensions: [".js", ".json"], // optional, helps omit extensions
     },
-    module: {
-      rules: [
-        {
-          test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
-        },
-        {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: "asset/resource",
-        },
-      ],
-    },
+
     plugins: [
       new UpdateStaticJsonPlugin({
         filename: "@data/site/static.json", // You can now pass the filename here
@@ -91,11 +98,97 @@ module.exports = (env, argv) => {
           { from: "src/rootdir/robots.txt", to: "." },
         ],
       }),
+      //css
+      new MiniCssExtractPlugin({
+        filename: "styles/styles.css", // output CSS file name
+      }),
       // 3. Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
         sourceFile: "./src/data/site/site.json",
         partials: partials,
       }),
     ],
+    optimization: {
+      minimize: isProduction,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              comments: false, // Remove all comments
+            },
+            compress: {
+              drop_console: true,
+            },
+          },
+        }),
+      ],
+      splitChunks: {
+        chunks: "all",
+        cacheGroups: {
+          framework: {
+            test: /[\\/]src[\\/]js[\\/]framework[\\/]/,
+            name: "framework",
+            chunks: "all",
+            enforce: true,
+          },
+
+          components: {
+            test: /[\\/]src[\\/]js[\\/]components[\\/]/,
+            name: "components",
+            chunks: "all",
+            enforce: true,
+          },
+        },
+      },
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env"],
+            },
+          },
+        },
+        {
+          test: /\.scss$/i,
+          use: [
+            MiniCssExtractPlugin.loader, // extract CSS to separate file
+            "css-loader", // translates CSS into CommonJS
+            "postcss-loader", // optional, for autoprefixing
+            {
+              loader: "sass-loader", // compiles SCSS to CSS
+              options: {
+                sassOptions: {
+                  quietDeps: true, // <- hides warnings from dependencies like Bootstrap
+                },
+              },
+            },
+          ],
+        },
+        {
+          test: /\.css$/i,
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg|webp)$/i,
+          type: "asset/resource",
+          generator: {
+            filename: "images/[name][ext]",
+          },
+        },
+        {
+          test: /\.(woff2?|eot|ttf|otf)$/i,
+          type: "asset/resource",
+          generator: {
+            filename: "fonts/[name][ext]",
+          },
+        },
+      ],
+    },
   };
 };

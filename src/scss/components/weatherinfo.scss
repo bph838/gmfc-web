@@ -1,0 +1,119 @@
+@use "../response" as *;
+
+.weather-widget {
+  display: none;
+  position: absolute;
+
+  cursor: default;
+  &:hover {
+    cursor: pointer;
+  }
+
+  top: 180px;
+  right: 20px;
+  width: 150px;
+  padding: 1rem;
+
+  @include respond(pc, tablet) {
+    top: 250px;
+    right: 50px;
+    width: 200px;
+    padding: 20px;
+  }
+
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, #87ceeb, #f0f8ff);
+  border-radius: 12px;
+  font-family: sans-serif;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  rotate: 10deg;
+  opacity: 0.8;
+
+  .weather-icon {
+    font-size: 24px;
+    margin-bottom: 2px;
+    @include respond(pc) {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    @include respond(tablet) {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+    .temp {
+      font-weight: bold;
+      font-size: 16px;
+      @include respond(pc) {
+        font-size: 32px;
+      }
+      @include respond(tablet) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .wind {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+    font-size: 12px;
+    @include respond(pc) {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    @include respond(tablet) {
+      margin-top: 4px;
+      font-size: 12px;
+    }
+  }
+
+  .wind-arrow {
+    font-size: 14px;
+    margin-right: 6px;
+    @include respond(pc) {
+      font-size: 20px;
+      margin-right: 6px;
+    }
+    @include respond(tablet) {
+      font-size: 14px;
+      margin-right: 6px;
+    }
+    display: inline-block;
+
+    transition: transform 0.5s ease;
+  }
+}
+
+/*wind*/
+.wind-widget {
+  display: flex;
+  justify-content: center;
+}
+
+.shaft {
+  stroke: #000;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.head {
+  fill: #000;
+}
+
+.circle {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 4;
+}
+
+.speed {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  fill: #000;
+  pointer-events: none;
+}
+

@@ -1,0 +1,35 @@
+.copyurl{
+    margin-left:0.5em;
+
+    &:hover{
+         cursor: pointer;
+    }
+}
+
+.copyurl {
+position: relative;
+cursor: pointer;
+}
+
+
+.copyurl::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: 125%;
+left: 50%;
+transform: translateX(-50%);
+background: #333;
+color: #fff;
+padding: 4px 8px;
+font-size: 12px;
+border-radius: 4px;
+white-space: nowrap;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.2s ease;
+}
+
+
+.copyurl:hover::after {
+opacity: 1;
+}

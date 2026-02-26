@@ -1,0 +1,34 @@
+
+
+
+
+@use "./response.scss" as *;
+
+@use "./framework/carousel3d.scss" as *;
+@use "./components/hero.scss" as *;
+@use "./components/navbar.scss" as *;
+@use "./components/section.scss" as *;
+@use "./components/footer.scss" as *;
+@use "./components/aboutus.scss" as *;
+@use "./components/club.scss" as *;
+@use "./components/gallery.scss" as *;
+@use "./components/calendar.scss" as *;
+@use "./components/leaderboard.scss" as *;
+@use "./components/weatherinfo.scss" as *;
+@use "./components/weatherforcast.scss" as *;
+
+@import "~photoswipe/style.css";
+
+body{
+    height: 100vh;
+
+    p{
+        line-height: 2em;
+    }
+}
+
+.iFrameMemberMojo{
+    width:100%;
+    height: 1750px;
+    margin-top: 50px;
+}

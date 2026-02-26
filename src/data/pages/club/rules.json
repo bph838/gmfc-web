@@ -1,0 +1,37 @@
+{
+  "content": {
+    "hero": {
+      "generatehero":true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Club Rules",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "GMFC Rules & Procedures",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/clubhistory.jpg",
+        "text": [
+          "Please note that some content of the following documents refers to the old club name of AMARC – all rules and procedures still apply now that the club has been renamed as Gordano Model Flying Club or GMFC for short. Thank you."
+        ],
+        "pdfs": [
+          {
+            "text": "GMFC Rules 2025 – Updated March 2023",
+            "url": "https://siteimages.gmfc.uk/documents/GMFC-Rules-2025-Updated-March-2023.pdf"
+          },
+          {
+            "text": "GMFC Disciplinary Procedure",
+            "url": "https://siteimages.gmfc.uk/documents/GMFC-Disciplinary-Procedure.pdf"
+          },
+          {
+            "text": "Flying rules extract",
+            "url": "https://siteimages.gmfc.uk/documents/Flying-rules-extract.pdf"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+@use "../response" as *;
+@use "./mixins.scss" as *;
+
+$image-max-width: 20;
+$image-scale-mobile: 16;
+$image-scale-tablet: 17;
+$image-scale-pc: 18;
+
+$video-width: 16;
+$video-height: 9;
+
+$video-scale-mobile: 23;
+$video-scale-tablet: 48;
+$video-scale-pc: 55;
+
+.gallery-year-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-year-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: 10px;
+  width: 100%;
+
+  a img {
+    max-width: ($image-max-width * $image-scale-mobile) * 1px;
+    @include respond(tablet) {
+      max-width: ($image-max-width * $image-scale-tablet) * 1px;
+    }
+    @include respond(pc) {
+      max-width: ($image-max-width * $image-scale-pc) * 1px;
+    }
+
+    height: auto;
+    border: 2px solid #ccc;
+
+    @include site-image-radius;
+
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    margin: 1.33em;
+
+    &:hover {
+      transform: scale(1.05);
+      border-color: #888;
+    }
+  }
+}
+
+.gallery-year-header {
+  text-align: center;
+
+  $year-size: 2;
+  $year-scale-mobile: 1.5;
+  $year-scale-tablet: 2;
+  $year-scale-pc: 3;
+
+  h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    font-weight: 700 !important;
+    color: white;
+    font-size: ($year-size * $year-scale-mobile) * 1rem;
+    @include respond(tablet) {
+      font-size: ($year-size * $year-scale-tablet) * 1rem;
+    }
+    @include respond(pc) {
+      font-size: ($year-size * $year-scale-pc) * 1rem;
+    }
+
+    color: #fdfdf5;
+    text-shadow:
+      0 0 2px rgba(0, 0, 0, 0.85),
+      // normal shadow
+      0 3px 4px rgba(255, 0, 0, 0.5); // very soft red under-glow
+  }
+}
+
+.gallery_video_holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+
+  width: ($video-width * $video-scale-mobile) * 1px;
+  height: ($video-height * $video-scale-mobile) * 1px;
+  @include respond(tablet) {
+    width: ($video-width * $video-scale-tablet) * 1px;
+    height: ($video-height * $video-scale-tablet) * 1px;
+  }
+  @include respond(pc) {
+    width: ($video-width * $video-scale-pc) * 1px;
+    height: ($video-height * $video-scale-pc) * 1px;
+  }
+  margin-right: 20px;
+  margin-bottom: 20px;
+  float: left;
+  .if_video {
+    width: 100%;
+    height: 100%;
+    @include site-image-radius;
+  }
+}
+
+.gallery_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .gallery_selector {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Leaderboard",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "RC Track Leaderboard",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/racing/checkeredflag.png",
+        "text": [
+          "A little friendly competition on the RC car track!",
+          "Submit your times to Ben via WhatsApp. It's an honour system we are running here....🫡",
+          "If anyone wants to put a transponder on their car for automatic timing, people are using the <a href='https://lapmonitor.com/store/en/' target='_blank'>LapMonitor</a> system.",
+          "The leaderboard is only for the last year! after that your time disappears."
+        ],
+        "leaderboard": {
+          "url": "/data/leaderboard.json"
+        }
+      }
+    ]
+  }
+}

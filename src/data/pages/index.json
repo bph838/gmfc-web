@@ -1,0 +1,107 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Gordano Model Flying Club",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "Welcome to Gordano Model Flying Club",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
+        "text": [
+          "The website has had a little make over!",
+          "We are aiming for the site to be a resource for everyone to keep up to date with the <a href='/calendar'>events</a> and maybe some of the fun we have most weekends.",
+          "Anyone wishing to contact us, please use the methods found <a href='\\aboutus#contactus' target='_self'>here</a>.",
+          "If you are interested in the weather at the site at the moment or over the next 7 days check out the new <a href='\\club\\weather' target='_self'>weather</a> page."
+        ]
+      },
+      {
+        "type": "carousel",
+        "customsection": "sectionfullwidth",
+        "images": [
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-01.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-02.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-03.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-04.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-05.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/carousel/carousel-06.jpg"
+          }
+        ]
+      },
+
+      {
+        "type": "imagesLeft",
+        "images": [
+          {
+            "src": "https://siteimages.gmfc.uk/flying/flying_site_01.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/flying/flying_site_02.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/flying/flying_site_03.jpg"
+          }
+        ],
+        "text": [
+          "Our wonderful south-south-west facing flying site sits on 12 acres of land."
+        ]
+      },
+
+      {
+        "type": "imagesRight",
+        "images": [
+          {
+            "src": "https://siteimages.gmfc.uk/cartrack/cartrack1.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/cartrack/cartrack2.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/cartrack/cartrack3.jpg"
+          }
+        ],
+        "text": [
+          "We now have an RC track that is perfectly suited to 1:10 scale cars, and for those with the skill and confidence, 1:8 scale cars can really stretch their legs too.",
+          "Gordano Model Flying Club unfortunately can not host any race competitions due to site access and facilities.",
+          "But for those members though who would like to take part in a little healthy competition, there is a <a href='/club/leaderboard'>leaderboard</a> of fastest laps.   "
+        ]
+      },
+
+      {
+        "type": "imagesLeft",
+        "images": [
+          {
+            "src": "https://siteimages.gmfc.uk/crawl/crawl1.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/crawl/crawl2.jpg"
+          },
+          {
+            "src": "https://siteimages.gmfc.uk/crawl/crawl3.jpg"
+          }
+        ],
+        "text": [
+          "Our new crawler track is now open for members.",
+          "Featuring technical obstacles and challenging lines, it’s ideal for drivers who enjoy skill, patience, and realism over outright speed."
+        ]
+      }
+    ]
+  }
+}

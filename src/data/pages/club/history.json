@@ -1,0 +1,41 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Club History",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "AMARC (2002) Ltd Win Full Planning Permission for their Flying Site",
+        "date": "2009-02-01",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/history/article-2009-photo.jpg",
+        "text": [
+          "Avon Model Aero Radio Club was formed in the late fifties by a group of like-minded enthusiasts to forward the sport and recreation of building and flying model aircraft. The chosen venue for this, from then to the present day is the old disused Bristol Airport now known as Hengrove Park in Bristol. The park covers some 60 acres and with Bristol City Council permission we share it with the general public and a local Rugby club. Bristol City Council has been keen to increase the utilisation and realise the potential of this site to include under cover sports, leisure, industry, 500 houses and a new Hospital. The formal planning consultation is now well underway and this will in the very near future make model flying non-viable at this site.",
+          "In preparation for this the club, who affiliated to the BMFA a long time ago, started to look for alternative sites, bearing in mind that there were very limited funds available from our eighty members, a half of which are juniors or Senior Citizens. In November 2001, much to our surprise we managed, with a bid of £1000 successfully to purchase at auction an area of land that was formerly a waste disposal tip in the Gordano Valley within North Somerset. Since then we have changed the club to a Limited Company, secured the site from the ever-present motor bikes and tried to realise the potential of this site for our purpose by removing some of the 20 acres of brambles, rubbish and scrub.",
+          "The Site is in an area of outstanding natural beauty surrounded on all four sides by nature reserves, two SSSIs and a wetland Wading Bird sanctuary four hundred metres away, all of which we thought should have made it very easy to obtain planning permission for the flying of model aircraft in such a lovely tranquil rural setting.",
+          "Phew, how wrong can we be! When our planning application was made public the local press ran banner headlines warning people to stay indoors while V1 bombers tore up and down the valley shattering the rural calm, and model Meteors crashed into their rooftops destroying all the cash in the attic. Residents over ten miles away objected and told us in no uncertain terms to “get back to the city and fly your infernal machines there”. Natural England objected, the Environment Agency objected on the grounds that our development could flood Weston-Super-Mare to a considerable depth should it be allowed to go ahead and the Avon Wildlife Trust had a go as well, warning of localised carnage to breeding waders, flora with a nervous disposition and any fauna with ears or lungs.",
+          "It was at this stage we discovered the existence of a gentleman by the name of Roger Bellingham who is the BMFA’s Flying Site Advisor for the BMFA, and what a find he was. With Roger’s guidance we withdrew our application and started again, but this time properly. We gave the local Parish Council a presentation of our requirements and from that meeting came away with their support if we amended our application to include the words “non residential” in our siting of two caravans for storage purposes. It transpired they were more concerned over a secret Caravan park than in the impact of our model aircraft. Natural England visited the site along with the District Councils Strategic Projects Officer and the upshot of that was Natural England withdrew their objection and our site was added to the County Nature reserve as a shining example of Nature Conservation. The Environment Agency withdrew their objection after a lively telephone conversation between AMARC’s Secretary (me) and their Office of the day. So as we were on a roll in went the revised Planning Application.",
+          "Avon Wildlife Trust still objected and after a Planning Committee meeting held on our site we were given a two year temporary permission to fly while a Survey on the Impact of Model Flying to the Local Wildlife was commissioned. Here the club is indebted to Dave Phipps and Roger Bellingham of the BMFA who obtained the considerable funding required for the study which was well beyond the means available to AMARC.",
+          "We presented the excellent findings of that report to the Planning Department in May of this year and on submission of yet another report for a Ten Year Landscape and Improvement Plan, this time funded by ourselves have been given full Planning Permission for 365 days a year with the usual conditions of a noise and a 10 am ‘til sunset flying envelope.",
+          "It is also worth noting the irony that if we were not there it would still be an ex rubbish tip plagued by motor bikes and fly tipping whereas our flying site is now almost a centre of excellence with regard to the conservation of Flora and Fauna within the Gordano Valley and sometimes interested sightseeing visitors outnumber the flyers.",
+          "Without access to the help, experience, guidance and funds of the BMFA it is unlikely that our application would have been successful and AMARC will always be grateful and mindful that it is not only the excellent insurance on offer when you affiliate your club to the BMFA. The whole organisation is ready, willing and eager to help you all.",
+          "With many thanks to the BMFA on behalf of AMARC 2002 Ltd",
+          "<strong>Pete Viner (Hon. Sec)</strong>",
+          "<strong>February 2009</strong>"
+        ],
+        "pdfs": [
+          {
+            "text": "Original article",
+            "url": "https://siteimages.gmfc.uk/documents/AMARC%282002%29-Ltd-Win-Full-Planning-Permission.pdf"
+          }
+        ]
+      }
+    ]
+  }
+}

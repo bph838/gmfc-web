@@ -1,0 +1,94 @@
+@use "../response" as *;
+
+footer {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  padding-block: calc(var(--bs-spacer) * 1.5);
+  display: flex;
+  flex-wrap: wrap;
+
+  flex-direction: column;
+  @include respond(pc, tablet) {
+    flex-direction: row;
+  }
+
+  .circleimg {
+    border-radius: 50%;
+  }
+}
+
+#footer-logo {
+  display: none;
+
+  @include respond(pc, tablet) {
+    display: flex;
+    flex: 0 0 120px; /* exactly 33% each */
+    max-width: 120px;
+
+    padding: 1rem;
+    img {
+      max-width: 64px;
+      max-height: 64px;
+    }
+  }
+}
+
+#footer-content {
+  flex: 1;
+  padding: 1rem;
+  p {
+    margin: 0;
+    font-size: 0.75rem;
+  }
+  a {
+    margin: 0;
+    font-size: 0.6rem;
+  }
+  text-align: center;
+  .copywrite {
+    font-size: 0.6rem;
+    margin-bottom: 1em;
+  }
+}
+
+.footer-links-general {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin-bottom: 20px;
+  @include respond(pc, tablet) {
+    flex: 0 0 10%;
+    justify-content: flex-end;
+    max-width: 10%;
+    padding: 1rem;
+  }
+
+  align-items: center; /* vertical alignment */
+  gap: 0.75rem; /* spacing between icons */
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  i {
+    font-size: 2rem;
+  }
+
+  .colour_red {
+    color: #ff0000;
+  }
+}
+
+#footer-content {
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: white;
+  }
+}

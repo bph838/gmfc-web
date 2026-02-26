@@ -1,0 +1,56 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "About Us",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "findus": {
+      "title": "Find Us",
+      "class": "findusholder",
+      "type": "wrappedTextLeft",
+      "image": "https://siteimages.gmfc.uk/siteimages/findus.jpg",
+      "text": [
+        "The  Gordano Model Flying Club site is located between <strong>Portishead</strong> and <strong>Clevedon</strong>.",
+        "Please use the Google Map location below for directions.",
+        "What 3 Words – ///magnets.downcast.flirts"
+      ],
+      "mapCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "About Gordano Model Flying Club",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
+        "text": [
+          "<strong>Gordano Model Flying Club</strong> (AMARC2002 Ltd) has been in existence for over forty-five years and currently has a membership of over 70. If you want to learn more about our club, you can take part in one of our regular meetings. Admission is free, you do not have to be a member of GMFC to attend the meeting. Please look in the <a href='/calendar'>events</a> section to see where and when the next meeting will take place. We aim to hold a ‘Club Day’ once a month all year round, these tend to be on the third weekend of the month. We spend a couple of hours doing site maintenance on one of the days followed by an afternoon of flying, fun competitions and catching up with friends. The other day is general member flying. We often have Tea and Cakes on these days and in the summer sometimes have a BBQ as well.",
+          "<strong>Gordano Model Flying Club</strong> has its own flying field in the Gordano Valley, between Portishead and Clevedon. Members can fly all year round in daylight hours.",
+          "We fly fixed wing aircraft, drones, gliders and helicopters but please note we DO NOT fly gas turbine engines due to noise. EDFs are allowed. The noise limit at GMFC is 82db. All members are expected to follow the rules of the club, these can be found on here, as well as a hard copy in the Club room.",
+          "Drone flyers are welcome, but you must have a spotter, and if you are taking aerial pictures please be aware not to include any surrounding private property….especially if you plan to upload them to an online platform.",
+          "Our site is set in a beautiful location and is equipped with a picnic area to relax in, including an under cover decking area.",
+          "Local dog walkers are welcome to use the field to exercise their dogs providing there are no flying aircraft. If the club is occupied by members flying, or members arrive at the club to fly, then the main field is out of bounds and all dogs must be kept on their leads. It is the responsibility of the dog owner to clear up their dogs mess and take it home to dispose of it.",
+          "We welcome new members after they have met with a member of the club committee, where the clubs aspirations and limitations will be discussed. You will be asked to read, understand and sign an agreement to abide by the club rules and BMFA guidelines.",
+          "Guest Fliers are always welcome to join us, we prefer them to be current BMFA members and ask them to carry their card when on our site. They must be accompanied at all times when in possession of an aircraft by the inviting member, who will have cleared their visit with the Chair, Vice chair, Treasurer or Secretary beforehand. They are limited to a MAXIMUM of two visits per year and are the members sole responsibility."
+        ]
+      },
+      {
+        "title": "Contact Us",
+        "type": "wrappedTextLeft",
+        "id": "contactus",
+        "image": "https://siteimages.gmfc.uk/siteimages/contactus.jpg",
+        "text": [
+          "If you would like to contact us this can be done through our <a href='https://www.facebook.com/groups/327796220935498' target='_blank'>facebook</a> group or via email <a href='mailto:secretary@amarc2002.co.uk'>secretary@amarc2002.co.uk</a><span class='copydata' data-tooltip='Click to copy' data-copy='secretary@amarc2002.co.uk'><i class='fa-regular fa-copy'></i></span> ",
+          "If you are interested in joining, please reach out and we would be happy to arrange a time that is suitable for you to come and meet someone at the field."
+        ],
+        "contactus": "Facebook"
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+@use "../response" as *;
+
+.hero {
+  display: flex !important;
+  align-items: center;
+  color: #fff !important;
+
+  @include respond(phone) {
+    padding-top: 30px;
+    min-height: 40vh;
+    --nav-height: 64px;
+  }
+
+  @include respond(tablet) {
+    padding-top: 50px;
+    min-height: 50vh;
+    --nav-height: 64px;
+  }
+
+  @include respond(pc) {
+    padding-top: 70px;
+    min-height: 60vh;
+    --nav-height: 64px;
+  }
+
+  .container-hero {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1.2;
+      font-weight: 700 !important;
+      color: white;
+      font-size: 2rem;
+      @include respond(tablet) {
+        font-size: 3.5rem;
+      }
+      @include respond(pc) {
+        font-size: 5rem;
+      }
+
+      //text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+      text-shadow:
+        0 0 2px rgba(0, 0, 0, 0.85),
+        // normal shadow
+        0 3px 4px rgba(255, 0, 0, 0.5); // very soft red under-glow
+    }
+  }
+}
+
+.herochange-container {
+  position: absolute;
+  top: var(--nav-height);
+  right: 0;
+
+  .herochange {
+    i {
+      cursor: default;
+      font-size: 0.7em;
+      margin-right: 0.7em;
+      @include respond(pc) {
+        font-size: 1em;
+        margin-right: 1em;
+      }
+      &:hover {
+        cursor: pointer;
+        color: #fff2f2;
+      }
+    }
+  }
+}
+
+.weatherchange-container {
+  display: none;
+  position: absolute;
+  top: var(--nav-height);
+  left: 1em;
+  z-index: 1050; // Ensure it appears above other content
+
+  .weatherchange {
+    i {
+      cursor: default;
+      font-size: 0.7em;
+      margin-right: 0.7em;
+      @include respond(pc) {
+        font-size: 1em;
+        margin-right: 1em;
+      }
+      &:hover {
+        cursor: pointer;
+        color: #fff2f2;
+      }
+    }
+  }
+
+  .weatherchange {
+    i {
+      cursor: default;
+      font-size: 0.7em;
+      margin-right: 0.7em;
+      @include respond(pc) {
+        font-size: 1em;
+        margin-right: 1em;
+      }
+      &:hover {
+        cursor: pointer;
+        color: #fff2f2;
+      }
+    }
+  }
+}
+
+@keyframes highlight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  15% {
+    transform: translateX(-6px) rotate(-1deg);
+  }
+  30% {
+    transform: translateX(6px) rotate(1deg);
+  }
+  45% {
+    transform: translateX(-4px) rotate(-0.6deg);
+  }
+  60% {
+    transform: translateX(4px) rotate(0.6deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-0.3deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.shake {
+  animation: highlight 0.45s ease-in-out;
+  transform-origin: center;
+}
+
+#alerts-container {
+  position: absolute;
+  z-index: 1050; // Ensure it appears above other content
+  top: 2rem;
+  rotate: -15deg;
+  padding: 2em;
+
+  @include respond(pc, tablet) {
+    top: 5rem;
+    width: 20rem;
+    margin-left: 50px;
+    margin-top: 20px;
+
+    padding: 1em;
+  }
+}
+
+.nav-menu-link {
+  a {
+    margin-right: 0;
+    &:has(#navbar-alert.is-hidden) {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+#navbar-alert {
+  display: block;
+
+  color: red;
+  i {
+    margin-left: 0.5em;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.site-alerts {
+  &:hover {
+    cursor: pointer;
+  }
+}

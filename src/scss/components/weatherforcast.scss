@@ -1,0 +1,81 @@
+.weatherViewport {
+  max-width: 99vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  margin-bottom: 2em;
+}
+
+.weather-daylight {
+  background-color: #d8f8e2;
+}
+.weather-night {
+  background-color: #b0b0b0;
+}
+
+.weatherDayDiv {
+  display: flex;
+  width: max-content; /* grows to content (~2000px) */
+  gap: 8px;
+  transition: transform 0.3s ease;
+
+  .weatherHourDiv {
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    //height: 100%;
+
+    &:not(:last-child) {
+      border-right: 1px solid #ccc;
+    }
+    margin-left: 5px;
+    padding-right: 5px;
+
+    .weatherTime {
+      font-size: 1.5em;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgb(68, 16, 190);
+    }
+    .weatherTemp {
+      font-size: 1.2em;
+      width: 100%;
+      text-align: center;
+    }
+    .weatherPrecip {
+      font-size: 0.85em;
+      width: 100%;
+      text-align: center;
+    }
+    .weatherIcon {
+      font-size: 1.5em;
+      width: 100%;
+      text-align: center;
+    }
+    .weatherWind {
+      font-size: 0.75em;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.weather_filter_holder {
+  display: flex;
+  justify-content: center; /* horizontal */
+  .weather_selector {
+    width: 100px;
+  }
+}
+
+.weatherWindDayDiv {
+  width:100%;
+  .windSpeedChartCanvas {
+    width:100%;
+    height:100px;
+    max-height: 250px;
+  }
+}
