@@ -1,0 +1,25 @@
+{
+  "name": "gmfc-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bph838/gmfc-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bph838/gmfc-web/issues"
+  },
+  "homepage": "https://github.com/bph838/gmfc-web#readme",
+  "devDependencies": {
+    "webpack": "^5.105.3",
+    "webpack-cli": "^6.0.1"
+  }
+}
