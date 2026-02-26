@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <title><%= title %></title>
+    <link rel="canonical" href="<%=  pageurl %>" />
+    <meta name="keywords" content="<%=  keywords %>" />
+    <meta name="author" content="<%= site.sitename %>" />
+    <meta name="description" content="<%= description %>" />
+
+    <%= partials.favicon %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <%= partials.google_analytics %>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.gmfc.uk" />
+    <meta property="og:description" content="Gordano Model Flying Club news." />
+    <meta property="og:image" content="<%= image %>" />
+    <meta name="geo.position" content="51.459563;-2.790968" />
+    <script>
+      window.MY_NEWS_ITEM = {
+        title: "<%= title %>",
+        hash: "<%= hash %>",
+      };
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Club",
+        "name": "Gordano Model Flying Club",
+        "image": "https://siteimages.gmfc.uk/siteimages/logo.png",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.459563,
+          "longitude": -2.790968
+        },
+        "url": "https://www.gmfc.uk"
+      }
+    </script>
+  </head>
+  <body>
+    <%= partials.navigation %>
+    <main>
+      <div id="hero"></div>
+      <div id="contentarea"></div>
+    </main>
+    <%= partials.footer %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
