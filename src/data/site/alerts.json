@@ -5,40 +5,35 @@
       "message": "Due to the weather, the maintenance planned for this weekend has been cancelled.",
       "type": "warning",
       "date_from": "2026-02-18 10:00:00",
-      "date_to": "2026-02-21 10:00:00",
-      "hash": "c8d84a27d9e0fac5e1e56a6aa91aa7af"
+      "date_to": "2026-02-21 10:00:00"
     },
     {
       "title": "Test alert process",
       "message": "Bla bla bla testing <strong>alert</strong> system",
       "type": "warning",
       "date_from": "2026-02-01 10:00:00",
-      "date_to": "2026-02-01 12:00:00",
-      "hash": "4275c3cbcec74af2a8d7443c727de11c"
+      "date_to": "2026-02-01 12:00:00"
     },
     {
       "title": "Second alert process",
       "message": "Bla bla bla testing <strong>alert</strong> system bla vla bla ",
       "type": "danger",
       "date_from": "2026-02-01 10:00:00",
-      "date_to": "2026-02-01 12:00:00",
-      "hash": "4d80391e5e3ca485ccb97081f019b3c7"
+      "date_to": "2026-02-01 12:00:00"
     },
     {
       "title": "New website",
       "message": "you can have alerts",
       "type": "primary",
       "date_from": "2026-02-01 10:00:00",
-      "date_to": "2026-02-02 11:00:00",
-      "hash": "fc4332c67043654e085e02a3c42a91f4"
+      "date_to": "2026-02-02 11:00:00"
     },
     {
       "title": "Christmas Countdown",
       "message": "It is <span class='countdown' data-cd-date='2026-12-25T12:00:00' data-cd-type='datetimetoseconds'></span> till christmas!",
       "type": "primary",
       "date_from": "2026-02-01 10:00:00",
-      "date_to": "2026-02-02 18:00:00",
-      "hash": "078efa1fda89bea743e7ee2160292ca1"
+      "date_to": "2026-02-02 18:00:00"
     }
   ]
 }

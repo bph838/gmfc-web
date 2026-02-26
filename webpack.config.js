@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
+const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
+
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -74,6 +76,10 @@ module.exports = (env, argv) => {
       new ProcessWebsitePaths({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/generated/site.json",
+      }),
+      new ProcessAlertsPlugin({
+        sourceFile: "./src/data/site/alerts.json",
+        outputFile: "./src/data/alerts.json",
       }),
       /* new GenerateSiteJsonPlugin({
         sourceFile: "./src/data/site/static.json",
