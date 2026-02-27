@@ -8,7 +8,8 @@ const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
 const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
-const ProcessNewsPlugin2 = require("./webpack/ProcessNewsPlugin2");
+const ProcessNewsSeperatedPlugin = require('./webpack/ProcessNewsSeperatedPlugin');
+
 
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -88,9 +89,10 @@ module.exports = (env, argv) => {
         sourceFile: "./src/data/site/news.json",
         outputFile: "./src/data/generated/news.json",
       }),
-      new ProcessNewsPlugin2({
+      new ProcessNewsSeperatedPlugin({
         sourceFile: "./src/data/generated/news.json",
-        postsFolderName: "./src/data/generated/",
+        outputFile: "./src/data/generated/news-generated.json",
+        postsBaseDir: "./src/data/generated/",
       }),
 
       /* new GenerateSiteJsonPlugin({
