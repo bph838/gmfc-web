@@ -8,8 +8,7 @@ const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
 const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
-const ProcessNewsSeperatedPlugin = require('./webpack/ProcessNewsSeperatedPlugin');
-
+const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
 
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -23,7 +22,7 @@ module.exports = (env, argv) => {
 
   return {
     mode: isProduction ? "production" : "development",
-
+    devtool: "eval-source-map",
     entry: {
       index: "./src/pages/index.js",
       404: "./src/pages/404.js",
@@ -44,8 +43,10 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "dist"),
       publicPath: "/",
       clean: true,
+      devtoolModuleFilenameTemplate: (info) =>
+        path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
     },
-
+    devtool: "source-map",
     devServer: {
       static: "./dist",
       hot: true, // Enables Hot Module Replacement (updates without full refresh)

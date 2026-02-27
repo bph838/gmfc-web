@@ -38,7 +38,7 @@ function renderNews(data) {
     news.forEach((section) => { 
       let showhide = section.showhide ?? true;
       if (showhide)
-        renderSection(sectionsdiv, section, newsItemUrl, "sectionline");
+        renderSection(sectionsdiv, section, newsItemUrl, "sectionline",{},true);
     });
   });
 }
@@ -56,6 +56,7 @@ function renderNews(data) {
   });
 }*/
 
+/*
 function setDiscoverables(data) {
   console.log("setDiscoverables");
   if (data.title) {
@@ -77,6 +78,6 @@ function setDiscoverables(data) {
     });
     setMeta("og:description", description);
   }
-}
+}*/
 
 function renderNewItem(data) {}

@@ -13,5 +13,5 @@
       
     }]
   },
-  "newsUrl": "/data/news.json"
+  "newsUrl": "/data/generated/news.json"
 }

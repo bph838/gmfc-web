@@ -2,14 +2,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "node",
+      "type": "chrome",
       "request": "launch",
-      "name": "Debug Webpack Plugin",
-      "program": "${workspaceFolder}/node_modules/webpack/bin/webpack.js",
-      "args": ["--mode", "development"],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "skipFiles": ["<node_internals>/**"]
+      "name": "Debug GMFC Site",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/src/*",
+        "webpack:///src/*": "${webRoot}/src/*",
+        "webpack:///*": "${webRoot}/*",
+        "webpack://[name]/./src/*": "${webRoot}/src/*"
+      }
     }
   ]
 }

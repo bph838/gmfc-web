@@ -19,6 +19,7 @@ export function renderSection(
   pageurl = "",
   extraclass = "",
   extraData = {},
+  isNews = false,
 ) {
   if (!data) {
     console.error("There is no data to render");
@@ -93,45 +94,48 @@ export function renderSection(
     }
   }
 
-  let renderedDiv = null;
-  switch (data.type) {
-    default:
-      console.error("Unable to render " + data.type);
-      break;
-    case "wrappedTextLeft":
-      renderedDiv = renderWrappedTextLeftSection(contentdiv, data);
-      break;
-    case "noImage":
-      renderedDiv = renderSectionNoImage(contentdiv, data);
-      break;
-    case "carousel":
-      renderCarousel(contentdiv, data);
-      break;
-    case "imageLeft":
-      renderedDiv = renderImageLeft(contentdiv, data);
-      break;
-    case "imageRight":
-      renderedDiv = renderImageRight(contentdiv, data);
-      break;
-    case "imagesLeft":
-      renderedDiv = renderImagesLeft(contentdiv, data);
-      break;
-    case "imagesRight":
-      renderedDiv = renderImagesRight(contentdiv, data);
-      break;
-    case "pano":
-      renderPanoImage(contentdiv, data);
-      break;
-    case "weatherForecast":
-      fetchAndRenderWeatherForecast(contentdiv, data, extraData);
-      break;
+  //check if it a news type render
+  if (data.items) {
+    console.log("Render news typ items");
+    renderSectionItems(contentdiv, data);
+  } else {
+    let renderedDiv = null;
+    switch (data.type) {
+      default:
+        console.error("Unable to render " + data.type);
+        break;
+      case "wrappedTextLeft":
+        renderedDiv = renderWrappedTextLeftSection(contentdiv, data);
+        break;
+      case "noImage":
+        renderedDiv = renderSectionNoImage(contentdiv, data);
+        break;
+      case "carousel":
+        renderCarousel(contentdiv, data);
+        break;
+      case "imageLeft":
+        renderedDiv = renderImageLeft(contentdiv, data);
+        break;
+      case "imageRight":
+        renderedDiv = renderImageRight(contentdiv, data);
+        break;
+      case "imagesLeft":
+        renderedDiv = renderImagesLeft(contentdiv, data);
+        break;
+      case "imagesRight":
+        renderedDiv = renderImagesRight(contentdiv, data);
+        break;
+      case "pano":
+        renderPanoImage(contentdiv, data);
+        break;
+      case "weatherForecast":
+        fetchAndRenderWeatherForecast(contentdiv, data, extraData);
+        break;
+    }
+
+    //If there are any pdf links to render
+    renderPDFLinks(renderedDiv, data);
   }
-
-  //render any list items if they exist
-  renderListItems(renderedDiv, data.listitems);
-
-  //If there are any pdf links to render
-  renderPDFLinks(renderedDiv, data);
 
   return section;
 }
@@ -347,4 +351,53 @@ function renderSectionSticker(parent, sticker) {
   }
   const stickerDiv = createDiv(parent, "sticker");
   createImage(stickerDiv, url);
+}
+
+function renderSectionItems(parent, data) {
+  console.log("YYY");
+  let renderedDiv = null;
+  switch (data.type) {
+    default:
+      console.error("Unable to render " + data.type);
+      break;
+    case "wrappedTextLeft":
+      renderedDiv = renderWrappedTextLeftSectionNews(parent, data);
+      break;
+  }
+  return renderedDiv;
+}
+
+function renderWrappedTextLeftSectionNews(parent, data) {
+  if (!data.image) {
+    console.error("Unable to render renderWrappedTextLeftSectionNews");
+    return;
+  }
+
+  let sticker = data.imagesticker ?? "none";
+
+  const innerdiv = createDiv(parent, "section_inner_wrap_left");
+  createImage(innerdiv, data.image);
+
+  data.items.forEach((item) => {
+    renderSectionItem(innerdiv, item);
+  });
+
+  renderSectionSticker(parent, sticker);
+
+  return innerdiv;
+}
+
+function renderSectionItem(parent, data) {
+  switch (data.itemtype) {
+    default:
+      break;
+    case "text":
+      data.text.forEach((text) => {
+        createParagraph(parent, text);
+      });
+      break;
+    case "list":
+      renderListItems(parent, data.listitems);
+      break;
+  }
 }
