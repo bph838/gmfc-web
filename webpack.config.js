@@ -18,7 +18,7 @@ const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
 const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
 
 const GenerateSitemapPlugin = require("./webpack/GenerateSitemapPlugin");
-
+const ExcelToCsvAndJsonPlugin = require("./webpack/ExcelToCsvAndJsonPlugin.js");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -91,6 +91,14 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
+       //output leaderboard
+      new ExcelToCsvAndJsonPlugin({
+        input: path.resolve(__dirname, "src/data/dynamic/leaderboard.xlsx"),
+        sheetName: "Leaderboard", // Your Excel sheet name
+        csvOutput: "src/data/dynamic/leaderboard.csv", // Where CSV will go
+        jsonOutput: "src/data/leaderboard.json", // Where JSON will go
+        mode:isProduction
+      }),
       new ProcessWebsitePaths({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/generated/site.json",

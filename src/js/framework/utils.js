@@ -5,7 +5,6 @@ export const DURATION_DAY = DURATION_HOUR * 24;
 export const DURATION_WEEK = DURATION_DAY * 7;
 export const DURATION_YEAR = DURATION_WEEK * 52;
 
-
 export function loadScript(url, callback) {
   // Create a new script element
   const script = document.createElement("script");
@@ -180,7 +179,11 @@ export function formatDate(date, longMonth = false) {
   const hour = date.getHours();
   const min = String(date.getMinutes()).padStart(2, "0");
 
-  return `${ordinal(day)} ${month} ${year} ${hour}:${min}`;
+  let result = "";
+  if (hour === 0 && date.getMinutes() === 0)
+    result = `${ordinal(day)} ${month} ${year}`;
+  else result = `${ordinal(day)} ${month} ${year} ${hour}:${min}`;
+  return result;
 }
 
 export function formatLaptime(secs) {
@@ -264,5 +267,3 @@ export function getDayOfYearUTC(input) {
 
   return Math.floor((now - start) / 86400000);
 }
-
-
