@@ -5,6 +5,8 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
 const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
+const ProcessWebsiteNewsPaths = require("./webpack/ProcessWebsiteNewsPaths");
+
 const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
 const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
@@ -87,13 +89,18 @@ module.exports = (env, argv) => {
         outputFile: "./src/data/alerts.json",
       }),
       new ProcessNewsPlugin({
-        sourceFile: "./src/data/site/news.json",
-        outputFile: "./src/data/generated/news.json",
+        sourceFile: "./src/data/site/news-raw.json",
+        outputFile: "./src/data/generated/news-step-1.json",
       }),
       new ProcessNewsSeperatedPlugin({
-        sourceFile: "./src/data/generated/news.json",
-        outputFile: "./src/data/generated/news-generated.json",
+        sourceFile: "./src/data/generated/news-step-1.json",
+        outputFile: "./src/data/generated/news-step-2.json",
         postsBaseDir: "./src/data/generated/",
+      }),
+      new ProcessWebsiteNewsPaths({
+        newsSource: "./src/data/generated/news-step-2.json",
+        siteSource: "./src/data/generated/site.json",
+        outputFile: "./src/data/generated/news-processed.json",
       }),
 
       /* new GenerateSiteJsonPlugin({
@@ -140,7 +147,7 @@ module.exports = (env, argv) => {
       }),
       // 3. Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
-        sourceFile: "./src/data/generated/site.json",
+        sourceFile: "./src/data/generated/sitenews.json",
         partials: partials,
       }),
 

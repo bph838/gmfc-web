@@ -15,10 +15,9 @@ const newsItemUrl = "news";
 
 setupMenuCommands("page-news");
 console.log("Rending news");
-if (window.MY_NEWS_ITEM && window.MY_NEWS_ITEM.hash) {
-  let hash = window.MY_NEWS_ITEM.hash;
-  let jsonUrl = `/data/newsitems/${hash}.json`;
-  //renderNewsItem(jsonUrl);
+if (window.MY_NEWS_ITEM && window.MY_NEWS_ITEM.json) {
+  let jsonUrl = window.MY_NEWS_ITEM.json;
+  renderNewsItem(jsonUrl);
 } else {
   renderNews(data);
 }
@@ -33,17 +32,23 @@ function renderNews(data) {
 
   const newUrl = data.newsUrl;
   console.log(newUrl);
-  fetchJson(newUrl).then((news) => {    
-
-    news.forEach((section) => { 
+  fetchJson(newUrl).then((news) => {
+    news.forEach((section) => {
       let showhide = section.showhide ?? true;
       if (showhide)
-        renderSection(sectionsdiv, section, newsItemUrl, "sectionline",{},true);
+        renderSection(
+          sectionsdiv,
+          section,
+          newsItemUrl,
+          "sectionline",
+          {},
+          true,
+        );
     });
   });
 }
 
-/*function renderNewsItem(jsonUrl) {
+function renderNewsItem(jsonUrl) {
   fetchJson(jsonUrl).then((data) => {
     console.log(`Looking for news ${jsonUrl}`);
     if (!data) {
@@ -54,9 +59,8 @@ function renderNews(data) {
         setDiscoverables(data.content.sections[0]);
     }
   });
-}*/
+}
 
-/*
 function setDiscoverables(data) {
   console.log("setDiscoverables");
   if (data.title) {
@@ -78,6 +82,32 @@ function setDiscoverables(data) {
     });
     setMeta("og:description", description);
   }
-}*/
+}
 
-function renderNewItem(data) {}
+function renderClubNews(data) {
+  console.log(data);
+  if (data.content.hero) renderHero(data.content.hero);
+
+  const contentarea = fetchContextArea(data);
+  if (!contentarea) return;
+  const sectionsdiv = createDiv(contentarea, "sections");
+
+  
+
+  
+  console.log(newUrl);
+  fetchJson(newUrl).then((news) => {
+    news.forEach((section) => {
+      let showhide = section.showhide ?? true;
+      if (showhide)
+        renderSection(
+          sectionsdiv,
+          section,
+          newsItemUrl,
+          "sectionline",
+          {},
+          true,
+        );
+    });
+  });
+}

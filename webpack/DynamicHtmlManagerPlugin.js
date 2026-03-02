@@ -62,6 +62,45 @@ class DynamicHtmlManagerPlugin {
         }).apply(compiler);
       });
 
+      siteData.news.forEach((pageData) => {
+        // Clean @/ shorthand
+        let template = "./src/templates/news.html";
+        template = path.resolve(compiler.context, "", template);
+
+        // Determine output filename
+        // If url is @/, output is index.html. If @/about, output is about/index.html
+        let outputFilename = pageData.page.replace("@/", "");
+        if (outputFilename === "" || outputFilename.endsWith("/")) {
+          outputFilename += "index.html";
+        }
+
+        let pageurl = "https://www.gmfc.uk/" + outputFilename;
+        let keywords = pageData.keywords;
+        let description = pageData.description;
+        let chunks = pageData.chunks;
+
+        // Programmatically add a new HtmlWebpackPlugin to the compiler
+        new HtmlWebpackPlugin({
+          title: pageData.title,
+          template: template,
+          filename: outputFilename,
+          chunks: [chunks],
+          templateParameters: {
+            pageurl: pageurl,
+            partials: this.partials,
+            keywords: keywords,
+            description: description,
+            site: site,
+            image: pageData.image,
+            month: pageData.month,
+            year: pageData.year,
+            hash: pageData.hash,
+            title: pageData.title,
+            urlJson: pageData.urlJson,
+          },
+        }).apply(compiler);
+      });
+
       console.log(
         `[DynamicHtmlManagerPlugin] Generated ${siteData.pages.length} pages.`,
       );

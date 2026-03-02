@@ -48,28 +48,12 @@ class ProcessNewsSeperatedPlugin {
           const filePath = path.join(targetDir, fileName);
 
           const postContent = {
-            content: {
-              hero: {
-                generatehero: true,
-                image: "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-                text: item.title,
-                weatherCoordinates: {
-                  latitude: 51.459563,
-                  longitude: -2.790968,
-                },
-              },
-              sections: item.items || [],
-              meta: {
-                imagesticker: item.imagesticker || null,
-                showhide: item.showhide ?? true,
-                type: item.type || "wrappedTextLeft",
-                image:
-                  item.image ||
-                  "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-                date: item.date,
-                title:item.title,
-              },
-            },
+            title: item.title,
+            date: item.date,
+            type: item.type,
+            showhide: item.showhide ?? true,
+            imagesticker: item.imagesticker || null,
+            items: item.items || [],
           };
 
           const postJson = JSON.stringify(postContent, null, 2);
