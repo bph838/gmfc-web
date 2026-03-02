@@ -33,9 +33,9 @@ class ProcessWebsitePaths {
         const processedPages = data.pages.map((page) => {
           let updatedDate = page.date_modified;
 
-          if (page.datetype === "filemodified" && page.jdb) {
+          if (page.datetype === "filemodified" && page.jdb) { 
             // Resolve the path (handling the @jdbpages shorthand)
-            const jdbRelativePath = page.jdb.replace("@jdbpages/", "jdbpages/");
+            const jdbRelativePath = page.jdb.replace("@jdbpages/", "src/data/pages/");
             const jdbFullPath = path.resolve(srcDir, jdbRelativePath);
 
             if (fs.existsSync(jdbFullPath)) {

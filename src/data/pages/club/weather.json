@@ -22,7 +22,7 @@
       {
         "title": "7 Day Forecast",
         "type": "weatherForecast",
-        "weatherCoordinates": {
+        "weatherCoordinates": { 
           "latitude": 51.459563,
           "longitude": -2.790968 
         }
