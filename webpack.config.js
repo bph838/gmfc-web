@@ -3,7 +3,7 @@ const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const PrerenderSPAPlugin = require("prerender-spa-plugin");
-const GenerateSiteJsonPlugin = require("./webpack/GenerateSiteJsonPlugin");
+
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessWebsiteNewsPaths = require("./webpack/ProcessWebsiteNewsPaths");
 
@@ -104,11 +104,6 @@ module.exports = (env, argv) => {
         outputFile: "./src/data/generated/news-processed.json",
         newsOutput: "./src/data/news.json",
       }),
-
-      /* new GenerateSiteJsonPlugin({
-        sourceFile: "./src/data/site/static.json",
-        outputFile: "./src/data/site/site.json",
-      }),*/
 
       new CopyWebpackPlugin({
         patterns: [
