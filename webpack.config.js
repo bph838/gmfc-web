@@ -12,6 +12,8 @@ const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
 const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
 
+const GenerateSitemapPlugin = require("./webpack/GenerateSitemapPlugin");
+
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -174,7 +176,17 @@ module.exports = (env, argv) => {
         }),
       }),
       */
+
+      //sitmap
+      new GenerateSitemapPlugin({
+        input: "./src/data/generated/news-processed.json",
+        siteUrl: "https://www.gmfc.uk",
+        output: "src/rootdir/sitemap.xml",
+      }),
     ],
+    watchOptions: {
+      ignored: ["**/src/rootdir/sitemap.xml"],
+    },
     optimization: {
       minimize: isProduction,
       minimizer: [
