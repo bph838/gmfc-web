@@ -6,6 +6,7 @@ const PrerenderSPAPlugin = require("prerender-spa-plugin");
 
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessWebsiteNewsPaths = require("./webpack/ProcessWebsiteNewsPaths");
+const JsonToIcsPlugin = require("./webpack/JsonToIcsPlugin");
 
 const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
@@ -18,6 +19,7 @@ const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
+const { SITE_TITLE } = require("./src/js/components/constants.js");
 
 module.exports = (env, argv) => {
   isProduction = argv.mode === "production";
@@ -182,6 +184,13 @@ module.exports = (env, argv) => {
         input: "./src/data/generated/news-processed.json",
         siteUrl: "https://www.gmfc.uk",
         output: "src/rootdir/sitemap.xml",
+      }),
+      //ics file
+      new JsonToIcsPlugin({
+        input: "src/data/calendarevents.json",
+        output: "calendar.ics",
+        prodId: "-//" + SITE_TITLE + "//Club Calendar//EN",
+        nameId: SITE_TITLE,
       }),
     ],
     watchOptions: {
