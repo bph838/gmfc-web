@@ -21,6 +21,7 @@ module.exports = (env, argv) => {
   isProduction = argv.mode === "production";
 
   const partials = loadPartials(isProduction);
+  console.log(`Is Production  ${isProduction}`);
 
   return {
     mode: isProduction ? "production" : "development",
