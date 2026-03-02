@@ -6,6 +6,7 @@ class ProcessWebsiteNewsPaths {
     this.newsSource = options.newsSource || "news-processed.json";
     this.siteSource = options.siteSource || "static.json";
     this.outputFile = options.outputFile || "site.json";
+    this.newsOutput = options.newsOutput || "news.json";
   }
 
   apply(compiler) {
@@ -14,6 +15,7 @@ class ProcessWebsiteNewsPaths {
       const newsPath = path.resolve(srcDir, this.newsSource);
       const sitePath = path.resolve(srcDir, this.siteSource);
       const outputPath = path.resolve(srcDir, this.outputFile);
+      const newsOutput = path.resolve(srcDir, this.newsOutput);
 
       if (!fs.existsSync(newsPath) || !fs.existsSync(sitePath)) {
         console.warn("[ProcessWebsiteNewsPaths] Missing source files.");
@@ -37,9 +39,9 @@ class ProcessWebsiteNewsPaths {
           return {
             title: `${item.title}`,
             // The template used for news posts
-            page: `@/news/${year}/${month}/${sanitizeString(item.title)}.html`,
+            page: `/news/${year}/${month}/${sanitizeString(item.title)}.html`,
             // The public URL matching your folder structure
-            url: `@/news/${year}/${month}/${sanitizeString(item.title)}`,
+            url: `/news/${year}/${month}/${sanitizeString(item.title)}`,
             keywords:
               "Gordano Model Flying Club, News, RC Club updates, " + item.title,
             description: `Latest news from Gordano Model Flying Club: ${item.title}`,
@@ -55,11 +57,29 @@ class ProcessWebsiteNewsPaths {
           };
         });
 
+        const newsDetails = newsData.map((item) => {
+          // Parse date for URL structure
+          const dateObj = new Date(item.date);
+          const year = dateObj.getFullYear();
+          const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+          const urlJson = `\\data/generated/${year}/${month}/${sanitizeString(item.hash)}.json`;
+          return {
+            title: `${item.title}`,
+            url: `\\news/${year}/${month}/${sanitizeString(item.title)}`,
+            date_modified: new Date(item.date).toISOString(),
+            hash: item.hash,
+            urlJson: urlJson,
+          };
+        });
+
         // 2. Add the news array to the site data
         siteData.news = newsPaths;
 
         // 3. Write to site.json
         const outputContent = JSON.stringify(siteData, null, 2);
+
+        // 4. Write to news.json
+        const newsContent = JSON.stringify(newsDetails, null, 2);
 
         if (
           !fs.existsSync(outputPath) ||
@@ -67,7 +87,17 @@ class ProcessWebsiteNewsPaths {
         ) {
           fs.writeFileSync(outputPath, outputContent);
           console.log(
-            `[ProcessWebsiteNewsPaths] Injected ${newsPaths.length} news paths into ${this.outputFile}`,
+            `[ProcessWebsiteNewsPaths] Site details injected ${siteData.length} news paths into ${this.outputFile}`,
+          );
+        }
+
+        if (
+          !fs.existsSync(newsOutput) ||
+          fs.readFileSync(newsOutput, "utf8") !== newsContent
+        ) {
+          fs.writeFileSync(newsOutput, newsContent);
+          console.log(
+            `[ProcessWebsiteNewsPaths] News details injected ${newsPaths.length} news paths into ${this.newsOutput}`,
           );
         }
       } catch (err) {

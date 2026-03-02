@@ -102,7 +102,7 @@ class DynamicHtmlManagerPlugin {
       });
 
       console.log(
-        `[DynamicHtmlManagerPlugin] Generated ${siteData.pages.length} pages.`,
+        `[DynamicHtmlManagerPlugin] Generated ${siteData.pages.length} pages and ${siteData.news.length} news items.`,
       );
     } catch (err) {
       console.error("[DynamicHtmlManagerPlugin] Error:", err);

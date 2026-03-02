@@ -101,6 +101,7 @@ module.exports = (env, argv) => {
         newsSource: "./src/data/generated/news-step-2.json",
         siteSource: "./src/data/generated/site.json",
         outputFile: "./src/data/generated/news-processed.json",
+        newsOutput: "./src/data/news.json",
       }),
 
       /* new GenerateSiteJsonPlugin({
@@ -147,7 +148,7 @@ module.exports = (env, argv) => {
       }),
       // 3. Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
-        sourceFile: "./src/data/generated/sitenews.json",
+        sourceFile: "./src/data/generated/news-processed.json",
         partials: partials,
       }),
 

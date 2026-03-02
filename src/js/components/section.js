@@ -81,7 +81,7 @@ export function renderSection(
 
     console.log("a");
     //a link can be added with a hash as the anchor
-    if (data.hash && pageurl.length > 1) {
+    if (pageurl.length > 1) {
       let month = date.getMonth() + 1;
       let formattedMonth = month.toString().padStart(2, "0");
       const url = `/news/${date.getFullYear()}/${formattedMonth}/${sanitizeString(data.title)}`;

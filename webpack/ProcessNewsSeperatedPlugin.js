@@ -50,6 +50,7 @@ class ProcessNewsSeperatedPlugin {
           const postContent = {
             title: item.title,
             date: item.date,
+            image: item.image || null,
             type: item.type,
             showhide: item.showhide ?? true,
             imagesticker: item.imagesticker || null,
