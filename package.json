@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",    
-    "build": "webpack build --mode=production && node prerender.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildall": "webpack build --mode=production && node prerender.js",
+    "build": "webpack build --mode=production ",
     "start": "webpack serve"
   },
   "repository": {
