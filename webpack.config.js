@@ -33,33 +33,6 @@ module.exports = (env, argv) => {
   const partials = loadPartials(isProduction);
   console.log(`Is Production  ${isProduction}`);
 
-  if (isProduction) {
-    console.log("🚀 PRERENDERER IS STARTING...");
-    /*pluginsOther.push(
-      new PrerendererWebpackPlugin({
-        staticDir: path.join(__dirname, "dist"),
-        routes: ["/club/history.html"], // Remember to keep the .html for your MPA
-
-        renderer: new PuppeteerRenderer({
-          renderAfterDocumentEvent: "render-event",
-          headless: false, // Ensure this is false
-          devtools: true, // Add this to force the window to stay open
-          args: ["--no-sandbox", "--disable-setuid-sandbox"],
-        }),
-
-        // ... rest of your config
-        server: {
-          proxy: {
-            "/": {
-              target: "http://localhost:12345",
-              bypass: (req) => req.url,
-            },
-          },
-        },
-      }),    
-    );  */
-  }
-
   return {
     mode: isProduction ? "production" : "development",
     devtool: "eval-source-map",
@@ -82,7 +55,7 @@ module.exports = (env, argv) => {
       filename: "js/[name].js",
       path: path.resolve(__dirname, "dist"),
       publicPath: "/",
-      //clean: true,
+      clean: true,
       devtoolModuleFilenameTemplate: (info) =>
         path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
     },

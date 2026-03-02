@@ -1,7 +1,7 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
-import { fetchContextArea, createDiv } from "@framework/dom";
+import { fetchContextArea, createDiv, renderFinish } from "@framework/dom";
 import {
   fetchJson,
   setPageTitle,
@@ -30,12 +30,14 @@ function renderNews(data) {
   } else {
     const newUrl = data.newsUrl;
 
-    fetchJson(newUrl).then((news_items) => {
-      news_items.forEach((news_section) => {
-        const newholderdiv = createDiv(sectionsdiv);
-        fetchNews(newholderdiv, news_section);
-      });
-    });
+    fetchJson(newUrl)
+      .then((news_items) => {
+        news_items.forEach((news_section) => {
+          const newholderdiv = createDiv(sectionsdiv);
+          fetchNews(newholderdiv, news_section);
+        });
+      })
+      .then(renderFinish());
   }
 }
 
@@ -65,5 +67,6 @@ function renderSingleNewsItem(parent, urlJson) {
     console.log("Processing news: ");
     console.log(news);
     renderSection(parent, news, "", "sectionline", {}, true);
+    renderFinish();
   });
 }

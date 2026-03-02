@@ -4,16 +4,10 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug Webpack",
-      "runtimeExecutable": "node",
-      "runtimeArgs": [
-        "--inspect-brk",
-        "./node_modules/webpack/bin/webpack.js",
-        "--mode",
-        "development"
-      ],
-      "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"]
+      "name": "Debug Prerender Script",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/prerender.js",
+      "console": "integratedTerminal"
     }
   ]
 }

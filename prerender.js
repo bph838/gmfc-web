@@ -8,6 +8,29 @@ const fs = require("fs");
 
 async function run() {
   const distPath = path.join(__dirname, "dist");
+  const newsOutput = "./src/data/news.json";
+  const newsData = JSON.parse(fs.readFileSync(newsOutput, "utf8"));
+
+  // Change 'render' to 'renderRoutes'
+  const routes = [
+    "/index.html",
+    "/calendar.html",
+    "/aboutus.html",
+    "/gallery.html",
+    "/news.html",
+    "/club/history.html",
+    "/club/rules.html",
+    "/club/merch.html",
+    "/club/leaderboard.html",
+    "/club/weather.html",
+  ];
+
+  newsData.forEach((element) => {
+    if (element.url) {
+      let newsUrl = element.url + ".html";
+      routes.push(newsUrl);
+    }
+  });
 
   const prerenderer = new Prerenderer({
     staticDir: distPath,
@@ -22,19 +45,6 @@ async function run() {
 
   await prerenderer.initialize();
 
-  // Change 'render' to 'renderRoutes'
-  const routes = [
-    "/index.html",
-    "/calendar.html",
-    "/aboutus.html",
-    "/gallery.html",
-    "/club/history.html",
-    "/club/rules.html",
-    "/club/merch.html",
-    "/club/leaderboard.html",
-    "/club/weather.html",
-  ];
-  
   const renderedRoutes = await prerenderer.renderRoutes(routes); // <--- Fix is here
 
   for (const route of renderedRoutes) {
@@ -52,3 +62,4 @@ async function run() {
 }
 
 run().catch(console.error);
+
