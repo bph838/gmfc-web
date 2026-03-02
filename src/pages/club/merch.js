@@ -1,11 +1,12 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection,renderPDFLinks } from "@components/section";
-import { createDiv, fetchContextArea } from "@framework/dom";
+import { createDiv, fetchContextArea,renderFinish } from "@framework/dom";
 import data from "@data/pages/club/merch.json";
 
 setupMenuCommands("page-clubmerch");
 renderMerch(data);
+renderFinish();
 
 function renderMerch(data) {
   console.log(data);

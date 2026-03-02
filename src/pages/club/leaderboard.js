@@ -6,7 +6,7 @@ import {
   fetchContextArea,
   createH2,
   createH3,
-  createSpan,
+  createSpan,renderFinish
 } from "@framework/dom";
 import {
   fetchJson,
@@ -25,6 +25,7 @@ import data from "@data/pages/club/leaderboard.json";
 
 setupMenuCommands("page-leaderboard");
 renderClubLeaderBoard(data);
+renderFinish();
 
 function renderClubLeaderBoard(data) {
   console.log(data);

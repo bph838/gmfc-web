@@ -1,8 +1,8 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
-import { createDiv, fetchContextArea } from "@framework/dom";
-import { initMapFrame,createCopy } from "@framework/utils";
+import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
+import { initMapFrame, createCopy } from "@framework/utils";
 import data from "@data/pages/aboutus.json";
 
 setupMenuCommands("page-aboutus");
@@ -33,6 +33,8 @@ function renderAboutUs(data) {
     initMapFrame(data.content.findus.mapCoordinates);
   }
 
-  //allow copy functionlaity 
+  //allow copy functionlaity
   createCopy(".copydata");
+
+  renderFinish();
 }

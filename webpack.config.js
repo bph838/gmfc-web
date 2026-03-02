@@ -2,7 +2,11 @@ const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const PrerenderSPAPlugin = require("prerender-spa-plugin");
+//const PrerenderSPAPlugin = require("prerender-spa-plugin");
+const PrerendererWebpackPlugin =
+  require("@prerenderer/webpack-plugin").default ||
+  require("@prerenderer/webpack-plugin");
+const PuppeteerRenderer = require("@prerenderer/renderer-puppeteer");
 
 const ProcessWebsitePaths = require("./webpack/ProcessWebsitePaths");
 const ProcessWebsiteNewsPaths = require("./webpack/ProcessWebsiteNewsPaths");
@@ -21,11 +25,40 @@ const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
 const { SITE_TITLE } = require("./src/js/components/constants.js");
 
+const pluginsOther = [];
+
 module.exports = (env, argv) => {
   isProduction = argv.mode === "production";
 
   const partials = loadPartials(isProduction);
   console.log(`Is Production  ${isProduction}`);
+
+  if (isProduction) {
+    console.log("🚀 PRERENDERER IS STARTING...");
+    /*pluginsOther.push(
+      new PrerendererWebpackPlugin({
+        staticDir: path.join(__dirname, "dist"),
+        routes: ["/club/history.html"], // Remember to keep the .html for your MPA
+
+        renderer: new PuppeteerRenderer({
+          renderAfterDocumentEvent: "render-event",
+          headless: false, // Ensure this is false
+          devtools: true, // Add this to force the window to stay open
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        }),
+
+        // ... rest of your config
+        server: {
+          proxy: {
+            "/": {
+              target: "http://localhost:12345",
+              bypass: (req) => req.url,
+            },
+          },
+        },
+      }),    
+    );  */
+  }
 
   return {
     mode: isProduction ? "production" : "development",
@@ -49,7 +82,7 @@ module.exports = (env, argv) => {
       filename: "js/[name].js",
       path: path.resolve(__dirname, "dist"),
       publicPath: "/",
-      clean: true,
+      //clean: true,
       devtoolModuleFilenameTemplate: (info) =>
         path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
     },
@@ -152,33 +185,6 @@ module.exports = (env, argv) => {
         partials: partials,
       }),
 
-      /*
-      new PrerenderSPAPlugin({
-        staticDir: path.join(__dirname, "dist"),
-
-        // URL routes, NOT filenames
-        routes: [
-          "/",
-                "/aboutus",
-          "/gallery",
-          "/calendar",
-          "/news",
-          "/club",
-          "/club/history",
-          "/club/rules",
-          "/club/leaderboard",
-          "/club/weather",
-        ],
-
-        renderer: new PrerenderSPAPlugin.PuppeteerRenderer({
-          headless: false, // true for CI/build
-          renderAfterDocumentEvent: "render-ready",
-          maxConcurrentRoutes: 4, // faster builds
-          timeout: 30000,
-        }),
-      }),
-      */
-
       //sitmap
       new GenerateSitemapPlugin({
         input: "./src/data/generated/news-processed.json",
@@ -192,9 +198,14 @@ module.exports = (env, argv) => {
         prodId: "-//" + SITE_TITLE + "//Club Calendar//EN",
         nameId: SITE_TITLE,
       }),
+      ...pluginsOther,
     ],
     watchOptions: {
       ignored: ["**/src/rootdir/sitemap.xml"],
+    },
+
+    performance: {
+      hints: false,
     },
     optimization: {
       minimize: isProduction,

@@ -1,11 +1,12 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
-import { createDiv, fetchContextArea } from "@framework/dom";
+import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
 import data from "@data/pages/club/rules.json";
 
 setupMenuCommands("page-clubrules");
 renderClubRules(data);
+renderFinish();
 
 function renderClubRules(data) {
   console.log(data);

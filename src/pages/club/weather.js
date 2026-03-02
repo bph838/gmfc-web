@@ -1,13 +1,14 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
-import { createDiv, fetchContextArea,createInput,createLabel } from "@framework/dom";
+import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
 import data from "@data/pages/club/weather.json";
 import daylight from "@data/daylight/daylight.json";
 
 console.log("Club Weather page loaded");
 setupMenuCommands("page-clubweather");
 renderClubWeather(data);
+renderFinish();
 
 function renderClubWeather(data) {
   console.log(data);
@@ -15,8 +16,12 @@ function renderClubWeather(data) {
 
   const contentarea = fetchContextArea(data);
   if (!contentarea) return;
-  
-  const sectionsdiv = createDiv(contentarea, "sections", "sections-clubweather");  
+
+  const sectionsdiv = createDiv(
+    contentarea,
+    "sections",
+    "sections-clubweather",
+  );
 
   if (data.content.sections) {
     data.content.sections.forEach((section) => {
@@ -25,4 +30,3 @@ function renderClubWeather(data) {
     });
   }
 }
-

@@ -11,7 +11,7 @@ import {
 import { fetchJson, loadMergedJson } from "@framework/utils";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import data from "@data/pages/gallery.json";
-import { createLink, createH3 } from "../js/framework/dom";
+import { createLink, createH3,renderFinish } from "../js/framework/dom";
 
 const urls = ["/data/media/gallery_data.json", "/data/media/video_data.json"];
 
@@ -53,6 +53,7 @@ function render(data) {
 
       Loaded_Gallery_Data = items;
       renderGallery(sections, "gallery_all");
+      renderFinish();
     } catch (err) {
       console.error(err);
     }

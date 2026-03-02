@@ -60,7 +60,7 @@ export function createInput(
   if (name) el.name = name;
   if (id) el.id = id;
   if (value) el.value = value;
-  if (checked) {    
+  if (checked) {
     el.checked = checked;
   }
 
@@ -226,4 +226,8 @@ export function injectScript(url) {
 
     document.head.appendChild(script);
   });
+}
+
+export function renderFinish() {
+  document.dispatchEvent(new Event("render-event"));
 }

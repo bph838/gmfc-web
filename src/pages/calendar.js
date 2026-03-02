@@ -6,6 +6,7 @@ import {
   createParagraph,
   fetchContextArea,
   createSpan,
+  renderFinish,
 } from "@framework/dom";
 import { loadScript, createCopy } from "@framework/utils";
 
@@ -18,6 +19,7 @@ loadScript(
     renderCalendar(data);
     createCopy(".copydata");
     if (data.calendarevents) renderExternalCalendar(data.calendarevents);
+    renderFinish();
   },
 );
 
