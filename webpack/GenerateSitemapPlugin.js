@@ -50,7 +50,7 @@ class GenerateSitemapPlugin {
             urls.push(`
   <url>
     <loc>${loc}</loc>
-    ${p.date_modified ? `<lastmod>${p.date_modified}</lastmod>` : ""}
+    ${p.date ? `<lastmod>${p.date}</lastmod>` : ""}
   </url>`);
           }
 
@@ -62,7 +62,7 @@ class GenerateSitemapPlugin {
             urls.push(`
   <url>
     <loc>${loc}</loc>
-    ${p.date_modified ? `<lastmod>${p.date_modified}</lastmod>` : ""}
+    ${p.date ? `<lastmod>${p.date}</lastmod>` : ""}
   </url>`);
           }
 

@@ -24,14 +24,12 @@
       "page": "@/index.html",
       "template": "main.html",
       "chunks": "index",
-      "keywords": [
-        "RC Model Flying"
-      ],
+      "keywords": ["RC Model Flying"],
       "description": "About flying",
       "url": "@/",
       "jdb": "@jdbpages/index.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-23T10:34:49.495Z"
+      "date": "2026-02-23T10:34:49.495Z"
     },
     {
       "title": "Gordano Model Flying Club - Calendar",
@@ -41,7 +39,7 @@
       "url": "@/calendar",
       "jdb": "@jdbpages/calendar.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:15:14.517Z"
+      "date": "2026-02-15T14:15:14.517Z"
     },
     {
       "title": "Gordano Model Flying Club - News",
@@ -51,7 +49,7 @@
       "url": "@/news/",
       "jdb": "@jdbpages/news.json",
       "datetype": "filemodified",
-      "date_modified": "2026-03-02T13:13:08.862Z"
+      "date": "2026-03-02T13:13:08.862Z"
     },
     {
       "title": "Gordano Model Flying Club - Gallery",
@@ -61,7 +59,7 @@
       "url": "@/gallery",
       "jdb": "@jdbpages/gallery.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:15:18.687Z"
+      "date": "2026-02-15T14:15:18.687Z"
     },
     {
       "title": "Gordano Model Flying Club - About Us",
@@ -71,7 +69,7 @@
       "url": "@/aboutus",
       "jdb": "@jdbpages/aboutus.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:14:36.618Z"
+      "date": "2026-02-15T14:14:36.618Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - History",
@@ -81,7 +79,7 @@
       "url": "@/club/history",
       "jdb": "@jdbpages/club/history.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:14:07.739Z"
+      "date": "2026-02-15T14:14:07.739Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Rules",
@@ -91,7 +89,7 @@
       "url": "@/club/rules",
       "jdb": "@jdbpages/club/rules.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:14:58.147Z"
+      "date": "2026-02-15T14:14:58.147Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Merchandise",
@@ -101,7 +99,8 @@
       "url": "@/club/merch",
       "jdb": "@jdbpages/club/merch.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:14:51.315Z"
+
+      "date": "2026-02-15T14:14:51.315Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Member",
@@ -111,7 +110,8 @@
       "url": "@/club/member",
       "jdb": "@jdbpages/club/member.json",
       "datetype": "filemodified",
-      "date_modified": "2026-03-02T14:40:54.564Z"
+
+      "date": "2026-03-02T14:40:54.564Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Leaderboard",
@@ -121,7 +121,8 @@
       "url": "@/club/leaderboard",
       "jdb": "@jdbpages/club/leaderboard.json",
       "datetype": "filemodified",
-      "date_modified": "2026-02-15T14:14:31.494Z"
+
+      "date": "2026-02-15T14:14:31.494Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Weather",
@@ -131,7 +132,8 @@
       "url": "@/club/weather",
       "jdb": "@jdbpages/club/weather.json",
       "datetype": "filemodified",
-      "date_modified": "2026-03-02T14:41:00.571Z"
+
+      "date": "2026-03-02T14:41:00.571Z"
     }
   ]
 }

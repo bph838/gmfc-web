@@ -46,7 +46,7 @@ class ProcessWebsiteNewsPaths {
               "Gordano Model Flying Club, News, RC Club updates, " + item.title,
             description: `Latest news from Gordano Model Flying Club: ${item.title}`,
             chunks: "news",
-            date_modified: new Date(item.date).toISOString(),
+            date: new Date(item.date).toISOString(),
             year: year,
             month: month,
             hash: item.hash,
@@ -66,7 +66,7 @@ class ProcessWebsiteNewsPaths {
           return {
             title: `${item.title}`,
             url: `\\news/${year}/${month}/${sanitizeString(item.title)}`,
-            date_modified: new Date(item.date).toISOString(),
+            date: new Date(item.date).toISOString(),
             hash: item.hash,
             urlJson: urlJson,
           };

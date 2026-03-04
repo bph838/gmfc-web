@@ -31,7 +31,7 @@ class ProcessWebsitePaths {
 
         // 1. Update dates in the data object based on the filesystem
         const processedPages = data.pages.map((page) => {
-          let updatedDate = page.date_modified;
+          let updatedDate = page.date;
 
           if (page.datetype === "filemodified" && page.jdb) {
             // Resolve the path (handling the @jdbpages shorthand)
@@ -45,7 +45,7 @@ class ProcessWebsitePaths {
               const stats = fs.statSync(jdbFullPath);
               const mTime = stats.mtime.toISOString();
 
-              if (page.date_modified !== mTime) {
+              if (page.date !== mTime) {
                 updatedDate = mTime;
                 hasChanged = true;
               }
@@ -68,14 +68,14 @@ class ProcessWebsitePaths {
             description: description,
             chunks: page.chunks,
             template: page.template,
-            date_modified: updatedDate, // Now included as requested
+            date: updatedDate, // Now included as requested
           };
         });
 
         // 3. Update the source static.json if dates changed
         if (hasChanged) {
           data.pages.forEach((p, i) => {
-            p.date_modified = processedPages[i].date_modified;
+            p.date = processedPages[i].date;
           });
           fs.writeFileSync(sourcePath, JSON.stringify(data, null, 2));
         }

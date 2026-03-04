@@ -8,7 +8,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "index",
       "template": "main.html",
-      "date_modified": "2026-02-23T10:34:49.495Z"
+      "date": "2026-02-23T10:34:49.495Z"
     },
     {
       "title": "Gordano Model Flying Club - Calendar",
@@ -18,7 +18,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "calendar",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:15:14.517Z"
+      "date": "2026-02-15T14:15:14.517Z"
     },
     {
       "title": "Gordano Model Flying Club - News",
@@ -28,7 +28,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "news",
       "template": "main.html",
-      "date_modified": "2026-03-02T13:13:08.862Z"
+      "date": "2026-03-02T13:13:08.862Z"
     },
     {
       "title": "Gordano Model Flying Club - Gallery",
@@ -38,7 +38,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "gallery",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:15:18.687Z"
+      "date": "2026-02-15T14:15:18.687Z"
     },
     {
       "title": "Gordano Model Flying Club - About Us",
@@ -48,7 +48,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "aboutus",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:14:36.618Z"
+      "date": "2026-02-15T14:14:36.618Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - History",
@@ -58,7 +58,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubhistory",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:14:07.739Z"
+      "date": "2026-02-15T14:14:07.739Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Rules",
@@ -68,7 +68,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubrules",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:14:58.147Z"
+      "date": "2026-02-15T14:14:58.147Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Merchandise",
@@ -78,7 +78,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubmerch",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:14:51.315Z"
+      "date": "2026-02-15T14:14:51.315Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Member",
@@ -88,7 +88,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubmember",
       "template": "member.html",
-      "date_modified": "2026-03-02T14:40:54.564Z"
+      "date": "2026-03-02T14:40:54.564Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Leaderboard",
@@ -98,7 +98,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubleaderboard",
       "template": "main.html",
-      "date_modified": "2026-02-15T14:14:31.494Z"
+      "date": "2026-02-15T14:14:31.494Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Weather",
@@ -108,7 +108,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubweather",
       "template": "main.html",
-      "date_modified": "2026-03-02T14:41:00.571Z"
+      "date": "2026-03-02T14:41:00.571Z"
     }
   ]
 }
