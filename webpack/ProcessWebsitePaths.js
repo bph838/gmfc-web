@@ -33,9 +33,12 @@ class ProcessWebsitePaths {
         const processedPages = data.pages.map((page) => {
           let updatedDate = page.date_modified;
 
-          if (page.datetype === "filemodified" && page.jdb) { 
+          if (page.datetype === "filemodified" && page.jdb) {
             // Resolve the path (handling the @jdbpages shorthand)
-            const jdbRelativePath = page.jdb.replace("@jdbpages/", "src/data/pages/");
+            const jdbRelativePath = page.jdb.replace(
+              "@jdbpages/",
+              "src/data/pages/",
+            );
             const jdbFullPath = path.resolve(srcDir, jdbRelativePath);
 
             if (fs.existsSync(jdbFullPath)) {
@@ -64,6 +67,7 @@ class ProcessWebsitePaths {
             keywords: keywords,
             description: description,
             chunks: page.chunks,
+            template: page.template,
             date_modified: updatedDate, // Now included as requested
           };
         });
@@ -100,7 +104,4 @@ class ProcessWebsitePaths {
   }
 }
 
-
-
 module.exports = ProcessWebsitePaths;
-  

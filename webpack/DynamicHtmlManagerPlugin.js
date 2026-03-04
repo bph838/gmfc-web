@@ -30,6 +30,8 @@ class DynamicHtmlManagerPlugin {
         //work out template
         if (pageData.template === "main.html")
           template = "./src/templates/main.html";
+        else if (pageData.template === "member.html")
+          template = "./src/templates/iframe_membermojo_holder.html";
 
         template = path.resolve(compiler.context, "", template);
 

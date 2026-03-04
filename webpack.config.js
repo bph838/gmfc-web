@@ -121,7 +121,7 @@ module.exports = (env, argv) => {
         siteSource: "./src/data/generated/site.json",
         outputFile: "./src/data/generated/news-processed.json",
         newsOutput: "./src/data/news.json",
-      }),
+      }), 
 
       new CopyWebpackPlugin({
         patterns: [

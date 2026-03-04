@@ -40,7 +40,7 @@ class ProcessWebsiteNewsPaths {
             title: `${item.title}`,
             // The template used for news posts
             page: `/news/${year}/${month}/${sanitizeString(item.title)}.html`,
-            // The public URL matching your folder structure
+            // The public URL matching your folder structure 
             url: `/news/${year}/${month}/${sanitizeString(item.title)}`,
             keywords:
               "Gordano Model Flying Club, News, RC Club updates, " + item.title,
