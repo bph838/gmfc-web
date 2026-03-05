@@ -99,6 +99,8 @@ class DynamicHtmlManagerPlugin {
             hash: pageData.hash,
             title: pageData.title,
             urlJson: pageData.urlJson,
+            month:0,
+            year:0,
           },
         }).apply(compiler);
       });

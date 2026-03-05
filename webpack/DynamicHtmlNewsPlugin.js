@@ -39,36 +39,73 @@ class DynamicHtmlNewsPlugin {
         if (!byMonth.has(ym)) byMonth.set(ym, []);
         byMonth.get(ym).push(item);
       }
+      let template = "./src/templates/news.html";
+      template = path.resolve(compiler.context, "", template);
 
-      let yearsSize = 0;
       for (const [year, data] of byYear) {
-        yearsSize++;
-        //writeJson(path.join(this.output, year, "news.json"), data);
-        let template = "./src/templates/main.html";
-        template = path.resolve(compiler.context, "", template);
         let outputFilename = `news/${year}/index.html`;
+        //let urlJson = `news/${year}/news.json`;
+        let urlJson = `\\/data/generated/${year}/news.json`;
         let pageurl = "https://www.gmfc.uk/" + outputFilename;
 
         // Programmatically add a new HtmlWebpackPlugin to the compiler
-        let title = `Gordano Model Flying Club - News = ${year}`;
+        let title = `Gordano Model Flying Club - News - ${year}`;
         new HtmlWebpackPlugin({
           title: title,
           template: template,
           filename: outputFilename,
           chunks: ["news"],
-          //inject: "body",
           templateParameters: {
+            title: title,
             pageurl: pageurl,
             partials: this.partials,
-            keywords: "keywords",
-            description: "description",
+            keywords: "",
+            description: "",
             site: site,
+            year: year,
+            image:null,
+            hash:null,
+            urlJson:urlJson,            
+            month:0,
+          },
+        }).apply(compiler);
+      }
+
+      // months
+      for (const [ym, data] of byMonth) {
+        let outputFilename = `news/${ym}/index.html`;
+        //let urlJson = `news/${ym}/news.json`;
+        let urlJson = `\\/data/generated/${ym}/news.json`;
+        let pageurl = "https://www.gmfc.uk/" + outputFilename;
+        let yearmonth = ym.split("/");
+        let year = yearmonth[0];
+        let month = yearmonth[1];
+
+        // Programmatically add a new HtmlWebpackPlugin to the compiler
+        let title = `Gordano Model Flying Club - News - ${year} - ${month}`;
+        new HtmlWebpackPlugin({
+          title: title,
+          template: template,
+          filename: outputFilename,
+          chunks: ["news"],
+          templateParameters: {
+            title: title,
+            pageurl: pageurl,
+            partials: this.partials,
+            keywords: "",
+            description: "",
+            site: site,
+            year: year,
+            month: month,
+            image:null,
+            hash:null,
+            urlJson:urlJson
           },
         }).apply(compiler);
       }
 
       console.log(
-        `[DynamicHtmlNewsPlugin] Generated ${yearsSize} year pages and ${byMonth.size} month items.`,
+        `[DynamicHtmlNewsPlugin] Generated ${byYear.size} year pages and ${byMonth.size} month items.`,
       );
     } catch (err) {
       console.error("[DynamicHtmlNewsPlugin] Error:", err);

@@ -5,6 +5,21 @@ export const DURATION_DAY = DURATION_HOUR * 24;
 export const DURATION_WEEK = DURATION_DAY * 7;
 export const DURATION_YEAR = DURATION_WEEK * 52;
 
+const monthNamesLong = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 export function loadScript(url, callback) {
   // Create a new script element
   const script = document.createElement("script");
@@ -142,21 +157,6 @@ export function formatDate(date, longMonth = false) {
     }
   };
 
-  const monthNamesLong = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
   const monthNamesShort = [
     "Jan",
     "Feb",
@@ -266,4 +266,10 @@ export function getDayOfYearUTC(input) {
   );
 
   return Math.floor((now - start) / 86400000);
+}
+
+export function getLongMonthName(month) {
+  let m = Number(month);
+  if (m > 0 && m < 13) return monthNamesLong[m-1];
+  return "Unknown";
 }
