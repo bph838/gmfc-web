@@ -18,9 +18,12 @@ const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
 const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
 const NewsArchivePlugin = require("./webpack/NewsArchivePlugin");
 
+
 const GenerateSitemapPlugin = require("./webpack/GenerateSitemapPlugin");
 const ExcelToCsvAndJsonPlugin = require("./webpack/ExcelToCsvAndJsonPlugin.js");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
+const DynamicHtmlNewsPlugin = require("./webpack/DynamicHtmlNewsPlugin");
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
@@ -182,6 +185,13 @@ module.exports = (env, argv) => {
         input: "./src/data/news.json",
         output: "./src/data/generated/", // -> dist/news/{year}/{month}/news.json
         writeToDisk: true,
+      }),
+      // Dynamically create all HTML pages based on site.json
+      new DynamicHtmlNewsPlugin({
+        input: "./src/data/news.json",
+        output: "./src/data/generated/",
+        //sourceFile: "./src/data/generated/news-processed.json",
+        partials: partials,
       }),
     ],
     watchOptions: {
