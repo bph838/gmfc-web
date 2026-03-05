@@ -57,7 +57,7 @@ class GenerateSitemapPlugin {
           for (const p of data.news) {
             let loc;
 
-            loc = this.siteUrl + "/" + p.page;
+            loc = this.siteUrl +  p.url;
 
             urls.push(`
   <url>
