@@ -21,9 +21,12 @@ import {
   getLapsByParticipantForCourse,
   getTopParticipantsForCourse,
 } from "@framework/leaderboard";
-import data from "@data/pages/club/leaderboard.json";
 
-setupMenuCommands("page-leaderboard");
+
+import data from "@data/pages/club/leaderboard.json";
+import menu from "@data/generated/menu.json";
+
+setupMenuCommands("page-leaderboard",menu);
 renderClubLeaderBoard(data);
 renderFinish();
 

@@ -18,7 +18,10 @@ const urls = ["/data/media/gallery_data.json", "/data/media/video_data.json"];
 let yearSections = [];
 let Loaded_Gallery_Data = null;
 const externalPath = data.externalPath || "";
-setupMenuCommands("page-gallery");
+import menu from "@data/generated/menu.json";
+
+
+setupMenuCommands("page-gallery",menu);
 render(data);
 
 function render(data) {

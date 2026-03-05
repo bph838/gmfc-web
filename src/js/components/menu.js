@@ -8,9 +8,15 @@
  */
 
 import { initCopyrightYear, initMenuName } from "./initpage";
+import {
+  createUnOrderedList,
+  createListItem,
+  createLink,
+} from "@framework/dom";
+import { getLongMonthName } from "@framework/utils";
 const { SITE_TITLE } = require("@components/constants");
 
-export function setupMenuCommands(activeClass = "page-home") {
+export function setupMenuCommands(activeClass = "page-home", menujson = null) {
   console.info("setupMenuCommands");
   const navbarCollapseEl = document.querySelector(".navbar-collapse");
   if (!navbarCollapseEl) return;
@@ -27,4 +33,31 @@ export function setupMenuCommands(activeClass = "page-home") {
 
   initCopyrightYear();
   initMenuName(SITE_TITLE);
+  initMenu(menujson);
+}
+
+function initMenu(menujson) {
+  if (!menujson) return;
+
+  const el = document.getElementById("nav-news-menu");
+  if (!el) return;
+  el.classList.add("dropdown");
+  const menuEl = createUnOrderedList(el, "dropdown-menu ");
+
+  menujson.forEach((year) => {
+    let yearText = year.year.toString();
+    let yearUrl = `/news/${year.year}/`;
+
+    const liYear = createListItem(menuEl,"nav-item ");
+    const aYear = createLink(liYear, yearUrl, "dropdown-item", yearText,"_self");
+    /*const menuMonthsEl = createUnOrderedList(liYear, "dropdown-menu");
+
+    year.months.forEach((month) => {
+      let monthText = getLongMonthName(month.month);
+      let menuUrl = `/news/${year.year}/${month.month}/`;
+
+      const liMonth = createListItem(menuMonthsEl,"nav-item");
+      const aMonth = createLink(liMonth, yearUrl, "dropdown-item", yearText);
+    });*/
+  });
 }

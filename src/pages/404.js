@@ -4,8 +4,9 @@ import { renderSection } from "@components/section";
 import { createDiv, fetchContextArea } from "@framework/dom";
 
 import data from "@data/pages/404.json";
+import menu from "@data/generated/menu.json";
 
-setupMenuCommands("page-404");
+setupMenuCommands("page-404",menu);
 render404(data);
 
 function render404(data) {

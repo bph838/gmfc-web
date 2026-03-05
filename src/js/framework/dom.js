@@ -188,6 +188,14 @@ export function createOrderedList(parent, className = null) {
   return el;
 }
 
+export function createUnOrderedList(parent, className = null) {
+  let el = document.createElement("ul");
+  if (className) el.className = className;
+
+  parent.appendChild(el);
+  return el;
+}
+
 export function createListItem(parent, className = null, innerHTML = null) {
   let el = document.createElement("li");
   if (className) el.className = className;

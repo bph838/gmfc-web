@@ -11,8 +11,9 @@ import {
 import { loadScript, createCopy } from "@framework/utils";
 
 import data from "@data/pages/calendar.json";
+import menu from "@data/generated/menu.json";
 
-setupMenuCommands("page-calendar");
+setupMenuCommands("page-calendar",menu);
 loadScript(
   "https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js",
   () => {

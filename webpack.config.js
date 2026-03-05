@@ -190,6 +190,7 @@ module.exports = (env, argv) => {
       new DynamicHtmlNewsPlugin({
         input: "./src/data/news.json",
         output: "./src/data/generated/",
+        menujson:"./src/data/generated/menu.json",
         //sourceFile: "./src/data/generated/news-processed.json",
         partials: partials,
       }),

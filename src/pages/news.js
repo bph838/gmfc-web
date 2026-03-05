@@ -16,11 +16,13 @@ import {
   getLongMonthName,
 } from "@framework/utils";
 const { SITE_TITLE, SITE_ADDRESS } = require("@components/constants");
+
 import data from "@data/pages/news.json";
+import menu from "@data/generated/menu.json";
 
 const newsItemUrl = "news";
 
-setupMenuCommands("page-news");
+setupMenuCommands("page-news",menu);
 console.log("Rending news");
 renderNews(data);
 

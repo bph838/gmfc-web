@@ -9,10 +9,12 @@ class DynamicHtmlNewsPlugin {
     this.input = options.input || "site.json";
     this.output = options.output || "";
     this.partials = options.partials;
+    this.outputNewsMenuPath = options.menujson;
   }
 
   apply(compiler) {
     const inputPath = path.resolve(compiler.context, "", this.input);
+    const outputNewsMenuPath = path.resolve(compiler.context, "", this.outputNewsMenuPath);
 
     if (!fs.existsSync(inputPath)) {
       console.warn(
@@ -63,10 +65,10 @@ class DynamicHtmlNewsPlugin {
             description: "",
             site: site,
             year: year,
-            image:null,
-            hash:null,
-            urlJson:urlJson,            
-            month:0,
+            image: null,
+            hash: null,
+            urlJson: urlJson,
+            month: 0,
           },
         }).apply(compiler);
       }
@@ -97,11 +99,37 @@ class DynamicHtmlNewsPlugin {
             site: site,
             year: year,
             month: month,
-            image:null,
-            hash:null,
-            urlJson:urlJson
+            image: null,
+            hash: null,
+            urlJson: urlJson,
           },
         }).apply(compiler);
+      }
+
+      //create json to fill news menus
+      const menus = [];
+
+      for (const [ym, data] of byMonth) {
+        const [year, month] = ym.split("/");
+        const yearNum = parseInt(year);
+        const monthNum = parseInt(month);
+
+        let yearEntry = menus.find((e) => e.year === yearNum);
+
+        if (!yearEntry) {
+          yearEntry = { year: yearNum, months: [] };
+          menus.push(yearEntry);
+        }
+
+        yearEntry.months.push({ month: monthNum });
+      }
+
+      const outputNewsMenuContent = JSON.stringify(menus, null, 2);
+      if (
+        !fs.existsSync(outputNewsMenuPath) ||
+        fs.readFileSync(outputNewsMenuPath, "utf8") !== outputNewsMenuContent
+      ) {
+        fs.writeFileSync(outputNewsMenuPath, outputNewsMenuContent);
       }
 
       console.log(

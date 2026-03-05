@@ -3,9 +3,11 @@ import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
 import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
 import { initMapFrame, createCopy } from "@framework/utils";
-import data from "@data/pages/aboutus.json";
 
-setupMenuCommands("page-aboutus");
+import data from "@data/pages/aboutus.json";
+import menu from "@data/generated/menu.json";
+
+setupMenuCommands("page-aboutus",menu);
 renderAboutUs(data);
 
 function renderAboutUs(data) {

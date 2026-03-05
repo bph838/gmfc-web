@@ -1,2 +1,3 @@
 import { setupMenuCommands } from "@components/menu";
-setupMenuCommands("page-clubmember");
+import menu from "@data/generated/menu.json";
+setupMenuCommands("page-clubmember",menu);

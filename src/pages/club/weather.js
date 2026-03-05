@@ -2,11 +2,13 @@ import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
 import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
+
 import data from "@data/pages/club/weather.json";
 import daylight from "@data/daylight/daylight.json";
+import menu from "@data/generated/menu.json";
 
 console.log("Club Weather page loaded");
-setupMenuCommands("page-clubweather");
+setupMenuCommands("page-clubweather",menu);
 renderClubWeather(data);
 renderFinish();
 
