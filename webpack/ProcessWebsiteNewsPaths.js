@@ -64,7 +64,7 @@ class ProcessWebsiteNewsPaths {
           const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
           const urlJson = `\\data/generated/${year}/${month}/${sanitizeString(item.hash)}.json`;
           return {
-            title: `${item.title}`,
+            //title: `${item.title}`, //not required - just for debugging
             url: `\\news/${year}/${month}/${sanitizeString(item.title)}`,
             date: new Date(item.date).toISOString(),
             hash: item.hash,
