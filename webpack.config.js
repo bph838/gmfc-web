@@ -159,12 +159,11 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: "styles/styles.css", // output CSS file name
       }),
-      // 3. Dynamically create all HTML pages based on site.json
+      // Dynamically create all HTML pages based on site.json
       new DynamicHtmlManagerPlugin({
         sourceFile: "./src/data/generated/news-processed.json",
         partials: partials,
       }),
-
       //sitmap
       new GenerateSitemapPlugin({
         input: "./src/data/generated/news-processed.json",
@@ -178,7 +177,7 @@ module.exports = (env, argv) => {
         prodId: "-//" + SITE_TITLE + "//Club Calendar//EN",
         nameId: SITE_TITLE,
       }),
-
+      //seperate out all the newsa json file to year/month
       new NewsArchivePlugin({
         input: "./src/data/news.json",
         output: "./src/data/generated/", // -> dist/news/{year}/{month}/news.json
