@@ -37,6 +37,8 @@ async function run() {
     renderer: new PuppeteerRenderer({
       renderAfterDocumentEvent: "render-event",
       headless: false,
+      timeout: 120000,
+      maxConcurrentRoutes: 4,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     }),
   });
@@ -62,4 +64,3 @@ async function run() {
 }
 
 run().catch(console.error);
-

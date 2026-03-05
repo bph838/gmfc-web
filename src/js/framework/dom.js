@@ -18,7 +18,18 @@ export function fetchContextArea(data) {
  * @param {*} id
  * @returns
  */
-export function createDiv(parent, className = null, id = null, role = null) {
+export function createDiv(
+  parent,
+  className = null,
+  id = null,
+  role = null,
+  deleteIfThere = false,
+) {
+  if (deleteIfThere && id) {
+    const elFound = document.getElementById(id);
+    if (elFound) elFound.remove();
+  }
+
   let el = document.createElement("div");
   if (className) el.className = className;
   if (id) el.id = id;
@@ -180,17 +191,19 @@ export function createParagraph(parent, innerHTML = null, className = null) {
   return el;
 }
 
-export function createOrderedList(parent, className = null) {
+export function createOrderedList(parent, className = null, id = null) {
   let el = document.createElement("ol");
   if (className) el.className = className;
+  if (id) el.id = id;
 
   parent.appendChild(el);
   return el;
 }
 
-export function createUnOrderedList(parent, className = null) {
+export function createUnOrderedList(parent, className = null, id = null) {
   let el = document.createElement("ul");
   if (className) el.className = className;
+  if (id) el.id = id;
 
   parent.appendChild(el);
   return el;

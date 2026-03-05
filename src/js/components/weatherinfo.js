@@ -1,4 +1,8 @@
-import { getDayOfYearUTC,DURATION_YEAR,DURATION_HOUR } from "@framework/utils";
+import {
+  getDayOfYearUTC,
+  DURATION_YEAR,
+  DURATION_HOUR,
+} from "@framework/utils";
 import { createDiv } from "@framework/dom";
 
 const SHOW_WEATHER_KEY = "showWeather";
@@ -15,6 +19,8 @@ export function renderWeatherInfo(parent, latitude, longitude, daylight) {
     parent,
     "weather-widget",
     "weather-widget",
+    null,
+    true,
   );
 
   const weather_icondiv = createDiv(

@@ -47,15 +47,28 @@ export function renderHero(data) {
   hero.style.backgroundRepeat = "no-repeat";
 
   if (data.text) {
-    const heroTextDiv = createDiv(hero, "container-hero container text-center");
-    createH1(heroTextDiv, data.text);
+    const ch1 = document.getElementById("container-h1");
+    if (!ch1) {
+      const heroTextDiv = createDiv(
+        hero,
+        "container-hero container text-center",
+        "container-h1",
+      );
+      createH1(heroTextDiv, data.text);
+    }
   }
 
   //setup for alerts div
-  createDiv(hero, "alerts-container", "alerts-container");
+  createDiv(hero, "alerts-container", "alerts-container", null, true);
 
   //setup fonts for changing the hero image
-  const herochangediv = createDiv(hero, "herochange-container");
+  const herochangediv = createDiv(
+    hero,
+    "herochange-container",
+    "herochange-container-id",
+    null,
+    true,
+  );
 
   const planespan = createSpan(
     herochangediv,
@@ -104,6 +117,8 @@ export function renderHero(data) {
       hero,
       "weatherchange-container",
       "weatherchange-container",
+      null,
+      true,
     );
     const weatherspan = createSpan(
       watherchangediv,
@@ -120,7 +135,7 @@ export function renderHero(data) {
         hero,
         data.weatherCoordinates.latitude,
         data.weatherCoordinates.longitude,
-        daylight
+        daylight,
       );
     });
 
@@ -131,6 +146,8 @@ export function renderHero(data) {
       data.weatherCoordinates.longitude,
     );*/
   }
+
+  hero.style.display = "block";
 }
 
 function getImageForHero(herotype) {

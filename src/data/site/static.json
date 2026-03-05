@@ -24,7 +24,9 @@
       "page": "@/index.html",
       "template": "main.html",
       "chunks": "index",
-      "keywords": ["RC Model Flying"],
+      "keywords": [
+        "RC Model Flying"
+      ],
       "description": "About flying",
       "url": "@/",
       "jdb": "@jdbpages/index.json",
@@ -99,7 +101,6 @@
       "url": "@/club/merch",
       "jdb": "@jdbpages/club/merch.json",
       "datetype": "filemodified",
-
       "date": "2026-02-15T14:14:51.315Z"
     },
     {
@@ -110,7 +111,6 @@
       "url": "@/club/member",
       "jdb": "@jdbpages/club/member.json",
       "datetype": "filemodified",
-
       "date": "2026-03-02T14:40:54.564Z"
     },
     {
@@ -121,8 +121,7 @@
       "url": "@/club/leaderboard",
       "jdb": "@jdbpages/club/leaderboard.json",
       "datetype": "filemodified",
-
-      "date": "2026-02-15T14:14:31.494Z"
+      "date": "2026-03-05T16:43:34.680Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Weather",
@@ -132,7 +131,6 @@
       "url": "@/club/weather",
       "jdb": "@jdbpages/club/weather.json",
       "datetype": "filemodified",
-
       "date": "2026-03-02T14:41:00.571Z"
     }
   ]

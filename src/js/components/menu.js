@@ -12,11 +12,16 @@ import {
   createUnOrderedList,
   createListItem,
   createLink,
+  emptyDiv,
 } from "@framework/dom";
 import { getLongMonthName } from "@framework/utils";
 const { SITE_TITLE } = require("@components/constants");
 
 export function setupMenuCommands(activeClass = "page-home", menujson = null) {
+  //reset the content areas
+  const elcontentarea = document.getElementById("contentarea");
+  if (elcontentarea) emptyDiv(elcontentarea);
+
   console.info("setupMenuCommands");
   const navbarCollapseEl = document.querySelector(".navbar-collapse");
   if (!navbarCollapseEl) return;
@@ -42,14 +47,28 @@ function initMenu(menujson) {
   const el = document.getElementById("nav-news-menu");
   if (!el) return;
   el.classList.add("dropdown");
-  const menuEl = createUnOrderedList(el, "dropdown-menu ");
+
+  let menuEl = null;
+  const elOl = document.getElementById("nav-news-menu-ol");
+  if (!elOl) {
+    menuEl = createUnOrderedList(el, "dropdown-menu", "nav-news-menu-ol");
+  } else {
+    menuEl = elOl;
+    emptyDiv(menuEl);
+  }
 
   menujson.forEach((year) => {
     let yearText = year.year.toString();
     let yearUrl = `/news/${year.year}/`;
 
-    const liYear = createListItem(menuEl,"nav-item ");
-    const aYear = createLink(liYear, yearUrl, "dropdown-item", yearText,"_self");
+    const liYear = createListItem(menuEl, "nav-item ");
+    const aYear = createLink(
+      liYear,
+      yearUrl,
+      "dropdown-item",
+      yearText,
+      "_self",
+    );
     /*const menuMonthsEl = createUnOrderedList(liYear, "dropdown-menu");
 
     year.months.forEach((month) => {
