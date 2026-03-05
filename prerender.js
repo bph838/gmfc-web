@@ -10,6 +10,8 @@ async function run() {
   const distPath = path.join(__dirname, "dist");
   const newsOutput = "./src/data/news.json";
   const newsData = JSON.parse(fs.readFileSync(newsOutput, "utf8"));
+  const menuOutput = "./src/data/generated/menu.json";
+  const menuData = JSON.parse(fs.readFileSync(menuOutput, "utf8"));
 
   // Change 'render' to 'renderRoutes'
   const routes = [
@@ -30,6 +32,17 @@ async function run() {
       let newsUrl = element.url + ".html";
       routes.push(newsUrl);
     }
+  });
+
+  menuData.forEach((year) => {
+    let newsUrl = `/news/${year.year}/index.html`;
+    routes.push(newsUrl);
+
+    year.months.forEach((month) => {
+      let formattedMonth = month.month.toString().padStart(2, "0");
+      let newsUrl = `/news/${year.year}/${formattedMonth}/index.html`;
+      routes.push(newsUrl);
+    });
   });
 
   const prerenderer = new Prerenderer({
