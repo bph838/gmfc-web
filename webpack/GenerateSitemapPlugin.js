@@ -33,6 +33,8 @@ class GenerateSitemapPlugin {
           }
 
           const urls = [];
+          const byYear = new Map();
+          const byMonth = new Map();
 
           for (const p of data.pages) {
             let loc;
@@ -57,12 +59,50 @@ class GenerateSitemapPlugin {
           for (const p of data.news) {
             let loc;
 
-            loc = this.siteUrl +  p.url;
+            loc = this.siteUrl + p.url;
+
+            const d = new Date(p.date);
+            const year = String(d.getFullYear());
+            const month = String(d.getMonth() + 1).padStart(2, "0");
+
+            if (!byYear.has(year)) byYear.set(year, []);
+            byYear.get(year).push(p);
+
+            const ym = `${year}/${month}`;
+            if (!byMonth.has(ym)) byMonth.set(ym, []);
+            byMonth.get(ym).push(p);
 
             urls.push(`
   <url>
     <loc>${loc}</loc>
     ${p.date ? `<lastmod>${p.date}</lastmod>` : ""}
+  </url>`);
+          }
+
+          //sort the years and months out
+          for (const [year, data] of byYear) {
+            let loc = this.siteUrl + `/news/${year}/`;
+            let date = new Date(year);
+            const iso = date.toISOString();
+
+            urls.push(`
+  <url>
+    <loc>${loc}</loc>
+    ${date ? `<lastmod>${iso}</lastmod>` : ""}
+  </url>`);
+          }
+          for (const [ym, data] of byMonth) {
+            let yearmonth = ym.split("/");
+            let year = yearmonth[0];
+            let month = yearmonth[1];
+            let loc = this.siteUrl + `/news/${ym}/`;
+            let date = new Date(year, month);
+            const iso = date.toISOString();
+
+            urls.push(`
+  <url>
+    <loc>${loc}</loc>
+    ${date ? `<lastmod>${iso}</lastmod>` : ""}
   </url>`);
           }
 
