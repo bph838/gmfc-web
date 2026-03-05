@@ -16,6 +16,7 @@ const ProcessAlertsPlugin = require("./webpack/ProcessAlertsPlugin");
 
 const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
 const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
+const NewsArchivePlugin = require("./webpack/NewsArchivePlugin");
 
 const GenerateSitemapPlugin = require("./webpack/GenerateSitemapPlugin");
 const ExcelToCsvAndJsonPlugin = require("./webpack/ExcelToCsvAndJsonPlugin.js");
@@ -24,8 +25,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
 const { SITE_TITLE } = require("./src/js/components/constants.js");
-
-const pluginsOther = [];
 
 module.exports = (env, argv) => {
   isProduction = argv.mode === "production";
@@ -91,13 +90,13 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
-       //output leaderboard
+      //output leaderboard
       new ExcelToCsvAndJsonPlugin({
         input: path.resolve(__dirname, "src/data/dynamic/leaderboard.xlsx"),
         sheetName: "Leaderboard", // Your Excel sheet name
         csvOutput: "src/data/dynamic/leaderboard.csv", // Where CSV will go
         jsonOutput: "src/data/leaderboard.json", // Where JSON will go
-        mode:isProduction
+        mode: isProduction,
       }),
       new ProcessWebsitePaths({
         sourceFile: "./src/data/site/static.json",
@@ -121,7 +120,7 @@ module.exports = (env, argv) => {
         siteSource: "./src/data/generated/site.json",
         outputFile: "./src/data/generated/news-processed.json",
         newsOutput: "./src/data/news.json",
-      }), 
+      }),
 
       new CopyWebpackPlugin({
         patterns: [
@@ -179,10 +178,20 @@ module.exports = (env, argv) => {
         prodId: "-//" + SITE_TITLE + "//Club Calendar//EN",
         nameId: SITE_TITLE,
       }),
-      ...pluginsOther,
+
+      new NewsArchivePlugin({
+        input: "./src/data/news.json",
+        output: "./src/data/generated/", // -> dist/news/{year}/{month}/news.json
+        writeToDisk: true,
+      }),
     ],
     watchOptions: {
-      ignored: ["**/src/rootdir/sitemap.xml"],
+      ignored: [
+        "**/src/rootdir/sitemap.xml",
+        "**/src/data/generated/",
+        "**/src/data/generated/*",
+        "**/src/data/generated/*.*",
+      ],
     },
 
     performance: {
