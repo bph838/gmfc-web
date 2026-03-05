@@ -45,23 +45,23 @@ function renderNews(data) {
     (window.MY_NEWS_ITEM.year !== "0" || window.MY_NEWS_ITEM.month !== "0")
   ) {
     const newUrl = window.MY_NEWS_ITEM.json;
-    const newholderdiv = createDiv(sectionsdiv);
+    //const newholderdiv = createDiv(sectionsdiv);
     if (window.MY_NEWS_ITEM.year && window.MY_NEWS_ITEM.month !== "0") {
       renderNewsBreadline(
-        newholderdiv,
+        sectionsdiv,
         window.MY_NEWS_ITEM.year,
         window.MY_NEWS_ITEM.month,
         "month",
       );
     } else if (window.MY_NEWS_ITEM.year && window.MY_NEWS_ITEM.month === "0") {
-      renderNewsBreadline(newholderdiv, window.MY_NEWS_ITEM.year, 0, "year");
+      renderNewsBreadline(sectionsdiv, window.MY_NEWS_ITEM.year, 0, "year");
     }
 
     fetchJson(newUrl)
       .then((news_items) => {
         news_items.forEach((news_section) => {
           fetchNews(
-            newholderdiv,
+            sectionsdiv,
             news_section,
             window.MY_NEWS_ITEM.year,
             window.MY_NEWS_ITEM.month,
@@ -71,12 +71,12 @@ function renderNews(data) {
       .then(renderFinish());
   } else {
     const newUrl = data.newsUrl;
-    const newholderdiv = createDiv(sectionsdiv);
-    renderNewsBreadline(newholderdiv, 0, 0, "none");
+    
+    renderNewsBreadline(sectionsdiv, 0, 0, "none");
     fetchJson(newUrl)
       .then((news_items) => {
         news_items.forEach((news_section) => {
-          fetchNews(newholderdiv, news_section);
+          fetchNews(sectionsdiv, news_section);
         });
       })
       .then(renderFinish());
@@ -94,11 +94,12 @@ function fetchNews(parent, news_section, year = null, month = null) {
 
 function renderNewsItem(parent, urlJson, url) {
   console.log("Fetching news item: ");
+  const newholderdiv = createDiv(parent);
   fetchJson(urlJson).then((news) => {
     console.log("Processing news: ");
     console.log(news);
     let showhide = news.showhide ?? true;
-    if (showhide) renderSection(parent, news, url, "sectionline", {}, true);
+    if (showhide) renderSection(newholderdiv, news, url, "sectionline", {}, true);
   });
 }
 
@@ -126,15 +127,15 @@ function renderNewsBreadline(parent, year, monthd, type = "yearmonth") {
   parent.appendChild(elNav);
 
   //http://localhost:8080/news/2026/02/car-park-fence-replacement
-  let homeUrl = "";//http://localhost:8080";
+  let homeUrl = ""; //http://localhost:8080";
   let newsUrl = homeUrl + "/news/";
   let newsYearUrl = newsUrl + `${year}/`;
   let newsYearMonthUrl = newsYearUrl + `${month}/`;
 
   let ol = createOrderedList(elNav, "breadcrumb section");
+  //createListItem(ol, "breadcrumb-item", `<a href="${homeUrl}">Home</a>`);
   switch (type) {
     case "yearmonth":
-      createListItem(ol, "breadcrumb-item", `<a href="${homeUrl}">Home</a>`);
       createListItem(ol, "breadcrumb-item", `<a href="${newsUrl}">News</a>`);
       createListItem(
         ol,
@@ -148,7 +149,6 @@ function renderNewsBreadline(parent, year, monthd, type = "yearmonth") {
       );
       break;
     case "year":
-      createListItem(ol, "breadcrumb-item", `<a href="${homeUrl}">Home</a>`);
       createListItem(ol, "breadcrumb-item", `<a href="${newsUrl}">News</a>`);
       createListItem(
         ol,
@@ -157,7 +157,6 @@ function renderNewsBreadline(parent, year, monthd, type = "yearmonth") {
       );
       break;
     case "month":
-      createListItem(ol, "breadcrumb-item", `<a href="${homeUrl}">Home</a>`);
       createListItem(ol, "breadcrumb-item", `<a href="${newsUrl}">News</a>`);
       createListItem(
         ol,
@@ -170,8 +169,7 @@ function renderNewsBreadline(parent, year, monthd, type = "yearmonth") {
         `<a href="${newsYearMonthUrl}">${getLongMonthName(month)}</a>`,
       );
       break;
-    case "none":
-      createListItem(ol, "breadcrumb-item", `<a href="${homeUrl}">Home</a>`);
+    case "none":      
       createListItem(ol, "breadcrumb-item", `<a href="${newsUrl}">News</a>`);
       break;
   }
