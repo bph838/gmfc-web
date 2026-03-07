@@ -1,0 +1,93 @@
+{
+  "deviceUuid" : "D69C6CA8-616A-4DB9-A9BE-03D65D05B697",
+  "documentType" : "com.gyfx.LapMonitor.raceJsonData",
+  "deviceName" : "iPhone",
+  "races" : [
+    {
+      "duration" : 300,
+      "name" : "",
+      "drivers" : [
+        {
+          "transponderId" : 5,
+          "name" : "louis",
+          "kind" : "driver",
+          "driverUuid" : "0EB70825-8A83-4745-B99D-82B910F63F5B",
+          "laps" : [
+            {
+              "userIndex" : 0,
+              "endTimestamp" : 0,
+              "kind" : "initial",
+              "duration" : 0
+            },
+            {
+              "userIndex" : 1,
+              "kind" : "normal",
+              "duration" : 7583,
+              "endTimestamp" : 7583
+            },
+            {
+              "kind" : "normal",
+              "endTimestamp" : 9524,
+              "userIndex" : 2,
+              "duration" : 1941
+            },
+            {
+              "duration" : 6516,
+              "userIndex" : 3,
+              "kind" : "normal",
+              "endTimestamp" : 16040
+            },
+            {
+              "duration" : 2646,
+              "kind" : "normal",
+              "endTimestamp" : 18686,
+              "userIndex" : 4
+            },
+            {
+              "kind" : "normal",
+              "duration" : 4708,
+              "endTimestamp" : 23394,
+              "userIndex" : 5
+            },
+            {
+              "kind" : "normal",
+              "duration" : 1917,
+              "userIndex" : 6,
+              "endTimestamp" : 25311
+            },
+            {
+              "endTimestamp" : 27294,
+              "duration" : 1983,
+              "userIndex" : 7,
+              "kind" : "normal"
+            }
+          ]
+        },
+        {
+          "kind" : "driver",
+          "laps" : [
+
+          ],
+          "transponderId" : 60,
+          "driverUuid" : "ACE805DE-D8C1-4767-B25D-3D8C48738647",
+          "name" : "toby "
+        },
+        {
+          "kind" : "driver",
+          "name" : "ben",
+          "laps" : [
+
+          ],
+          "transponderId" : 63,
+          "driverUuid" : "A35B7128-EDBD-4F09-861F-3B31EEAACBA8"
+        }
+      ],
+      "extraTime" : 60,
+      "date" : "2026-03-02T13:34:33Z",
+      "uuid" : "129BAAAF-C612-4E5E-A75F-6C498ACD6A34",
+      "kind" : "practice",
+      "minLapTime" : 5
+    }
+  ],
+  "version" : "1.0.0"
+}
