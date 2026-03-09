@@ -6,7 +6,10 @@ let driverLookup = new Map();
 let driverLaps = new Map();
 
 async function loadDrivers() {
-  const driverFile = path.join(__dirname, "src\\lapmonitor\\drivers\\drivers.json");
+  const driverFile = path.join(
+    __dirname,
+    "src\\lapmonitor\\drivers\\drivers.json",
+  );
 
   console.log("Loading drivers:", driverFile);
 
@@ -47,8 +50,11 @@ async function processLapFiles() {
       continue;
     }
 
+    const tooOLdDate = new Date();
+    tooOLdDate.setFullYear(tooOLdDate.getFullYear() - 1);
     for (const race of data.races) {
       const raceStart = new Date(race.date);
+      if (raceStart < tooOLdDate) continue;
 
       for (const driver of race.drivers) {
         const driverName = driverLookup.get(driver.transponderId);
