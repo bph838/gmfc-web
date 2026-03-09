@@ -23,9 +23,17 @@ import {
   getTopParticipantsForCourse,
 } from "@framework/leaderboard";
 
+import {
+  fetchLapData,
+  formatLapTime,
+  processLeaderboard,
+  loadLeaderboard,
+} from "@framework/lapmonitor";
+
 import data from "@data/pages/club/leaderboard.json";
 import menu from "@data/generated/menu.json";
 
+let driversEntries = [];
 setupMenuCommands("page-leaderboard", menu);
 renderClubLeaderBoard(data);
 renderFinish();
@@ -44,20 +52,26 @@ function renderClubLeaderBoard(data) {
       console.log(section);
       renderSection(sectionsdiv, section);
       if (section.leaderboard) {
-        renderLeaderboard(sectionsdiv, section.leaderboard);
+        loadDriverLeaderboard(sectionsdiv, section.leaderboard);
       }
     });
   }
 }
 
-function renderLeaderboard(parent, leaderboard) {
+async function loadDriverLeaderboard(parent, leaderboard) {
   console.log("render leaderboard");
   if (!leaderboard || !leaderboard.url)
     console.log("unable to render leaderboard");
 
-  const url = leaderboard.url;
-  console.log(`Looking for leaderboard data ${url}`);
+  const drivers = await loadLeaderboard(leaderboard.url);
+  console.log(`Looking for leaderboard data ${leaderboard.url}`);
+  driversEntries = processLeaderboard(drivers);
   const lbdiv = createDiv(parent, "section_leaderboard");
+  renderLeaderBoard(lbdiv);
+}
+
+function renderLeaderBoard(parent) {
+  console.log(driversEntries);
 }
 
 /*

@@ -1,13 +1,19 @@
- {
+{
     "version": "0.2.0",
     "configurations": [
       {
-        "type": "node",
+        "type": "chrome",
         "request": "launch",
-        "name": "Debug Prerender Script",
-        "skipFiles": ["<node_internals>/**"],
-        "program": "${workspaceFolder}/lapmonitor.js",
-        "console": "integratedTerminal"
+        "name": "Debug GMFC Site",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true,
+        "sourceMapPathOverrides": {
+          "webpack:///./src/*": "${webRoot}/src/*",
+          "webpack:///src/*": "${webRoot}/src/*",
+          "webpack:///*": "${webRoot}/*",
+          "webpack://[name]/./src/*": "${webRoot}/src/*"
+        }
       }
     ]
   }
