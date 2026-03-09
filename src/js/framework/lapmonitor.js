@@ -1,9 +1,4 @@
-/**
- * leaderboard.js
- * Fetches lap data from a JSON URL and computes driver rankings.
- */
-
-// ─── Data Fetching ────────────────────────────────────────────────────────────
+import { formatDate } from "@framework/utils";
 
 /**
  * Fetches the lap data JSON from a given URL.
@@ -13,7 +8,9 @@
 export async function fetchLapData(url) {
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error(`Failed to fetch lap data: ${response.status} ${response.statusText}`);
+    throw new Error(
+      `Failed to fetch lap data: ${response.status} ${response.statusText}`,
+    );
   }
   return response.json();
 }
@@ -25,13 +22,13 @@ export async function fetchLapData(url) {
  * @param {number} ms - Duration in milliseconds.
  * @returns {string}
  */
-export function formatLapTime(ms) {
-  const minutes = Math.floor(ms / 60000);
-  const seconds = Math.floor((ms % 60000) / 1000);
-  const millis  = ms % 1000;
-  return minutes > 0
-    ? `${minutes}:${String(seconds).padStart(2, "0")}.${String(millis).padStart(3, "0")}`
-    : `${seconds}.${String(millis).padStart(3, "0")}`;
+export function formatLapTime(hundreds) {
+  const seconds = hundreds / 100;
+  return `${String(seconds).padStart(2, "0")}`;
+}
+
+function formatLapDateTime(at) {
+  return formatDate(at);
 }
 
 /**
@@ -41,7 +38,7 @@ export function formatLapTime(ms) {
  *   - name          {string}  Driver name
  *   - transponderId {number}  Hardware transponder ID
  *   - lapCount      {number}  Total laps recorded
- *   - fastestLap    {number}  Fastest lap time in 100s   
+ *   - fastestLap    {number}  Fastest lap time in 100s
  *   - averageLap    {number}  Average lap time in ms
  *   - averageLapFmt {string}  Average lap as a formatted string
  *   - laps          {Array}   Raw lap array [{ d, t }, ...]
@@ -57,9 +54,9 @@ export function processLeaderboard(rawData) {
     const laps = data.laps ?? [];
     const times = laps.map((lap) => lap.d);
 
-    const fastestLap    = times.length ? Math.min(...times) : Infinity;
+    const fastestLap = times.length ? Math.min(...times) : Infinity;
     const fastestLapObj = laps.find((l) => l.d === fastestLap) ?? null;
-    const fastestLapAt  = fastestLapObj?.t ? new Date(fastestLapObj.t) : null;
+    const fastestLapAt = fastestLapObj?.t ? new Date(fastestLapObj.t) : null;
 
     const averageLap = times.length
       ? Math.round(times.reduce((sum, t) => sum + t, 0) / times.length)
@@ -68,12 +65,11 @@ export function processLeaderboard(rawData) {
     return {
       name,
       transponderId: data.transponderId,
-      lapCount:      laps.length,
+      lapCount: laps.length,
       fastestLap,
-      fastestLapFmt: times.length ? formatLapTime(fastestLap) : "—",
-      fastestLapAt,                          // Date object, or null
+      fastestLapAt, // Date object, or null
       fastestLapAtFmt: fastestLapAt
-        ? fastestLapAt.toLocaleString()      // e.g. "28/02/2026, 14:12:55"
+        ? formatLapDateTime(fastestLapAt) // e.g. "28/02/2026, 14:12:55"
         : "—",
       averageLap,
       averageLapFmt: times.length ? formatLapTime(averageLap) : "—",
@@ -101,5 +97,5 @@ export function processLeaderboard(rawData) {
  */
 export async function loadLeaderboard(url) {
   const rawData = await fetchLapData(url);
-  return rawData;//  return processLeaderboard(rawData);
+  return rawData; //  return processLeaderboard(rawData);
 }

@@ -136,7 +136,7 @@
 
 .lb_driverholder {
   width: 100%;
-  max-width: 720px;
+  max-width: 767px;
 }
 
 .lb_drivers {
@@ -188,8 +188,6 @@
     display: flex;
     gap: 28px;
     flex-shrink: 0;
-
-    
   }
 
   .lb_stat_right {
@@ -211,16 +209,27 @@
   }
 
   .lb_stat_time_date {
-    font-size: 10;
+    font-size: 8;
+    @include respond(tablet, pc) {
+      font-size: 10;
+    }
+
     color: #444;
     font-family: monospace;
     margin-top: 3;
   }
 
-  .lb_stat_lap {
+  .lb_stat_laps {
     font-family: "Courier New", monospace;
     font-weight: 700;
     font-size: 20;
-    color: #e0e0e0;
+    color: rgb(224, 224, 224);
+  }
+
+  .lb_stats_lap_count {
+    display: none;
+    @include respond(tablet, pc) {
+      display: block;
+    }
   }
 }
