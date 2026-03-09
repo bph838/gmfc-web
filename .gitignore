@@ -1,5 +1,7 @@
 dist/
 node_modules/
 src/data/generated/*
+utils/gallery/images.json
+utils/gallery/gallery-gmfc/
 
 
