@@ -41,8 +41,7 @@ export function formatLapTime(ms) {
  *   - name          {string}  Driver name
  *   - transponderId {number}  Hardware transponder ID
  *   - lapCount      {number}  Total laps recorded
- *   - fastestLap    {number}  Fastest lap time in ms
- *   - fastestLapFmt {string}  Fastest lap as a formatted string
+ *   - fastestLap    {number}  Fastest lap time in 100s   
  *   - averageLap    {number}  Average lap time in ms
  *   - averageLapFmt {string}  Average lap as a formatted string
  *   - laps          {Array}   Raw lap array [{ d, t }, ...]
@@ -102,5 +101,5 @@ export function processLeaderboard(rawData) {
  */
 export async function loadLeaderboard(url) {
   const rawData = await fetchLapData(url);
-  return processLeaderboard(rawData);
+  return rawData;//  return processLeaderboard(rawData);
 }

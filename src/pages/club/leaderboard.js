@@ -90,35 +90,42 @@ function renderDriver(parent, driver, i) {
   driverHolderDiv.style.border = `1px solid ${driver.rank === 1 ? "rgba(0,245,160,0.25)" : "rgba(255,255,255,0.07)"}`;
   driverHolderDiv.style.animationDelay = `${delay}ms`;
 
+  //Rank
   let rank = createDiv(driverHolderDiv, "lb_driver_rank");
   rank.style.color = rankStyle ? rankStyle.bg : "#555";
   rank.innerHTML = rankStyle ? rankStyle.label : `#${driver.rank}`;
+
+  // Avatar
+  const initials = driver.name.slice(0, 2).toUpperCase();
+  let avatar = createDiv(driverHolderDiv, "lb_driver_avatar");
+  avatar.style.background = rankStyle ? rankStyle.bg : "#2a2a3a";
+  avatar.style.color = rankStyle ? rankStyle.color : "#a0a0c0";
+  avatar.style.boxShadow = rankStyle ? `0 0 12px ${rankStyle.bg}` : "none";
+  avatar.innerHTML = initials;
+
+  //name
+  let driver_name = createDiv(driverHolderDiv, "lb_driver_name");
+  driver_name.innerHTML = driver.name;
+
+  let stats_holder = createDiv(driverHolderDiv, "lb_stats");
+
+  let stat_time_holder = createDiv(stats_holder, "lb_stat_right");
+  let stat_time_title = createDiv(stat_time_holder, "lb_stat_title");
+  stat_time_title.innerHTML = "FASTEST";
+  let stat_time_value = createDiv(stat_time_holder, "lb_stat_time");
+  stat_time_value.style.color = driver.rank === 1 ? "#00f5a0" : "#e0e0e0";
+  stat_time_value.innerHTML = driver.fastestLapFmt;
+  let stat_time_date = createDiv(stat_time_holder, "lb_stat_time_date");
+  stat_time_date.innerHTML = driver.fastestLapAtFmt;
+
+  let stat_laps_holder = createDiv(stats_holder, "lb_stat_right");
+  let stat_laps_title = createDiv(stat_laps_holder, "lb_stat_title");
+  stat_laps_title.innerHTML = "LAPS";
+  let stat_laps_value = createDiv(stat_laps_holder, "lb_stat_laps");
+  stat_laps_value.innerHTML = driver.lapCount;
+
+
 }
-/*
-      <div style={{
-        width: 32, textAlign: "center",
-        fontFamily: "'Courier New', monospace", fontWeight: 900,
-        fontSize: 18, color: rankStyle ? rankStyle.bg : "#555",
-        flexShrink: 0,
-      }}>
-        {rankStyle ? rankStyle.label : `#${driver.rank}`}
-      </div>
-*/
-/*
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: 16,
-    background:
-      driver.rank === 1 ? "rgba(0,245,160,0.06)" : "rgba(255,255,255,0.03)",
-    border: `1px solid ${driver.rank === 1 ? "rgba(0,245,160,0.25)" : "rgba(255,255,255,0.07)"}`,
-    borderRadius: 12,
-    padding: "14px 20px",
-    animation: `slideIn 0.5s ease both`,
-    animationDelay: `${delay}ms`,
-  }}
-></div>;*/
 
 const RANK_STYLES = {
   1: { bg: "#FFD700", color: "#1a1a1a", label: "🥇" },
