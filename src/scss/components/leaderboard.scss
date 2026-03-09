@@ -107,3 +107,58 @@
 .participant_fastesttime {
   margin-left: auto;
 }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.section_leaderboard {
+  min-height: 100vh;
+  background: rgb(13, 13, 20);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  font-family: sans-serif;
+}
+
+.lb_driverholder {
+  width: 100%;
+  max-width: 720px;
+}
+
+.lb_drivers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lb_driver {
+  display: "flex";
+  align-items: center;
+  gap: 16;
+  border-radius: 12px;
+  padding: 14px 20px;
+  animation: slideIn 0.5s ease both;
+
+  .lb_driver_rank {
+    width: 32px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+    font-size: 18;
+    flex-shrink: 0;
+  }
+}

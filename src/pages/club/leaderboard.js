@@ -71,8 +71,60 @@ async function loadDriverLeaderboard(parent, leaderboard) {
 }
 
 function renderLeaderBoard(parent) {
-  console.log(driversEntries);
+  const lbdriverHolder = createDiv(parent, "lb_driverholder");
+  const lbdrivers = createDiv(lbdriverHolder, "lb_drivers");
+  driversEntries.map((driver, i) => {
+    renderDriver(lbdrivers, driver, i);
+  });
 }
+
+function renderDriver(parent, driver, i) {
+  console.log(driver);
+  let position = i + 1;
+  const rankStyle = RANK_STYLES[driver.rank];
+  let delay = i * 80;
+
+  let driverHolderDiv = createDiv(parent, "lb_driver");
+  driverHolderDiv.style.background =
+    driver.rank === 1 ? "rgba(0,245,160,0.06)" : "rgba(255,255,255,0.03)";
+  driverHolderDiv.style.border = `1px solid ${driver.rank === 1 ? "rgba(0,245,160,0.25)" : "rgba(255,255,255,0.07)"}`;
+  driverHolderDiv.style.animationDelay = `${delay}ms`;
+
+  let rank = createDiv(driverHolderDiv, "lb_driver_rank");
+  rank.style.color = rankStyle ? rankStyle.bg : "#555";
+  rank.innerHTML = rankStyle ? rankStyle.label : `#${driver.rank}`;
+}
+/*
+      <div style={{
+        width: 32, textAlign: "center",
+        fontFamily: "'Courier New', monospace", fontWeight: 900,
+        fontSize: 18, color: rankStyle ? rankStyle.bg : "#555",
+        flexShrink: 0,
+      }}>
+        {rankStyle ? rankStyle.label : `#${driver.rank}`}
+      </div>
+*/
+/*
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    gap: 16,
+    background:
+      driver.rank === 1 ? "rgba(0,245,160,0.06)" : "rgba(255,255,255,0.03)",
+    border: `1px solid ${driver.rank === 1 ? "rgba(0,245,160,0.25)" : "rgba(255,255,255,0.07)"}`,
+    borderRadius: 12,
+    padding: "14px 20px",
+    animation: `slideIn 0.5s ease both`,
+    animationDelay: `${delay}ms`,
+  }}
+></div>;*/
+
+const RANK_STYLES = {
+  1: { bg: "#FFD700", color: "#1a1a1a", label: "🥇" },
+  2: { bg: "#C0C0C0", color: "#1a1a1a", label: "🥈" },
+  3: { bg: "#CD7F32", color: "#fff", label: "🥉" },
+};
 
 /*
 
