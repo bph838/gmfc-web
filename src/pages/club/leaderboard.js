@@ -6,7 +6,8 @@ import {
   fetchContextArea,
   createH2,
   createH3,
-  createSpan,renderFinish
+  createSpan,
+  renderFinish,
 } from "@framework/dom";
 import {
   fetchJson,
@@ -22,11 +23,10 @@ import {
   getTopParticipantsForCourse,
 } from "@framework/leaderboard";
 
-
 import data from "@data/pages/club/leaderboard.json";
 import menu from "@data/generated/menu.json";
 
-setupMenuCommands("page-leaderboard",menu);
+setupMenuCommands("page-leaderboard", menu);
 renderClubLeaderBoard(data);
 renderFinish();
 
@@ -49,6 +49,18 @@ function renderClubLeaderBoard(data) {
     });
   }
 }
+
+function renderLeaderboard(parent, leaderboard) {
+  console.log("render leaderboard");
+  if (!leaderboard || !leaderboard.url)
+    console.log("unable to render leaderboard");
+
+  const url = leaderboard.url;
+  console.log(`Looking for leaderboard data ${url}`);
+  const lbdiv = createDiv(parent, "section_leaderboard");
+}
+
+/*
 
 function renderLeaderboard(parent, leaderboard) {
   console.log("render leaderboard");
@@ -205,3 +217,4 @@ function renderLapTimeTableForParticipant(parent, laps) {
 
   table.appendChild(tbody);
 }
+*/
