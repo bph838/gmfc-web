@@ -98,7 +98,7 @@ async function saveResults() {
     console.log(`${driver}: ${data.laps.length} laps`);
   }
 
-  const outFile = path.join(__dirname, "src\\lapmonitor\\driver_laps.json");
+  const outFile = path.join(__dirname, "src\\data\\driver_laps.json");
 
   await fs.writeFile(outFile, JSON.stringify(output, null, 2));
 

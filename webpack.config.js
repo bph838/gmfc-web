@@ -18,7 +18,6 @@ const ProcessNewsPlugin = require("./webpack/ProcessNewsPlugin");
 const ProcessNewsSeperatedPlugin = require("./webpack/ProcessNewsSeperatedPlugin");
 const NewsArchivePlugin = require("./webpack/NewsArchivePlugin");
 
-
 const GenerateSitemapPlugin = require("./webpack/GenerateSitemapPlugin");
 const ExcelToCsvAndJsonPlugin = require("./webpack/ExcelToCsvAndJsonPlugin.js");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
@@ -190,7 +189,7 @@ module.exports = (env, argv) => {
       new DynamicHtmlNewsPlugin({
         input: "./src/data/news.json",
         output: "./src/data/generated/",
-        menujson:"./src/data/generated/menu.json",
+        menujson: "./src/data/generated/menu.json",
         //sourceFile: "./src/data/generated/news-processed.json",
         partials: partials,
       }),
