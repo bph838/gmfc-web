@@ -16,6 +16,19 @@
     "version": "0.2.0",
     "configurations": [
       {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug Prerender Script",
+        "skipFiles": ["<node_internals>/**"],
+        "program": "${workspaceFolder}/lapmonitor.js",
+        "console": "integratedTerminal"
+      }
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "configurations": [
+      {
         "type": "chrome",
         "request": "launch",
         "name": "Debug GMFC Site",
