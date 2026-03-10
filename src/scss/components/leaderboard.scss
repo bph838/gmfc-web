@@ -208,6 +208,15 @@
     font-size: 20;
   }
 
+  .lb_stat_avg_time{
+     font-family: "Courier New", monospace;
+    font-weight: 900;
+    font-size: 20;
+    color: #444;
+  }
+
+
+
   .lb_stat_time_date {
     font-size: 8;
     @include respond(tablet, pc) {
@@ -227,6 +236,13 @@
   }
 
   .lb_stats_lap_count {
+    display: none;
+    @include respond(tablet, pc) {
+      display: block;
+    }
+  }
+
+  .lb_stats_lap_avg {
     display: none;
     @include respond(tablet, pc) {
       display: block;

@@ -93,6 +93,7 @@ function renderDriver(parent, driver, i) {
 
   let stats_holder = createDiv(driverHolderDiv, "lb_stats");
 
+  //fastest time
   let stat_time_holder = createDiv(stats_holder, "lb_stat_right ");
   let stat_time_title = createDiv(stat_time_holder, "lb_stat_title");
   stat_time_title.innerHTML = "FASTEST";
@@ -102,6 +103,15 @@ function renderDriver(parent, driver, i) {
   let stat_time_date = createDiv(stat_time_holder, "lb_stat_time_date");
   stat_time_date.innerHTML = driver.fastestLapAtFmt;
 
+  //average
+  let stat_avg_holder = createDiv(stats_holder, "lb_stat_right lb_stats_lap_avg");
+  let stat_avg_title = createDiv(stat_avg_holder, "lb_stat_title ");
+  stat_avg_title.innerHTML = "AVG";
+   let stat_avg_value = createDiv(stat_avg_holder, "lb_stat_avg_time");
+  stat_avg_value.innerHTML = driver.averageLapFmt;
+
+
+  //Number of laps
   let stat_laps_holder = createDiv(stats_holder, "lb_stat_right lb_stats_lap_count");
   let stat_laps_title = createDiv(stat_laps_holder, "lb_stat_title");
   stat_laps_title.innerHTML = "LAPS";
