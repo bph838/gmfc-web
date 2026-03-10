@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "LapMonitor - Instructions",
+      "text": "Lap timing - Instructions",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -11,7 +11,29 @@
     },
     "sections": [
       {
-        
+        "title": "Transponder",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/racing/transponder.png",
+        "text": [
+          "To record the lap times made on the track we are using the <a href='https://lapmonitor.com/store/en/' target='_LapMonitor'>LapMonitor</a> system. ",
+          "The LapMonitor system consists of a <a href='https://lapmonitor.com/store/en/14-decoder' target='_LapMonitor'>decoder</a> that reads the beam of the <a href='https://lapmonitor.com/store/en/15-transponder' target='_LapMonitor'>transponder</a> that is installed on your car.",
+          "The transponder should be placed so the beam is facing out of the righthand side of the car."
+        ]
+      },
+      {
+        "title": "Track layout",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/racing/track.png",
+        "text": ["The track being used for the club leaderboard is shown here."]
+      },
+      {
+        "title": "LapMonitor Setting",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/racing/exportformat.png",
+        "text": [
+          "The lap times need to be submitted to Ben via WhatsApp.",
+          "Change the <strong>Race export format</strong> to <strong>JSON</strong>, this can be done but going in to the settings. "
+        ]
       }
     ]
   }
