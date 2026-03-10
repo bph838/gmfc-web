@@ -152,6 +152,10 @@
   border-radius: 12px;
   padding: 14px 20px;
   animation: slideIn 0.5s ease both;
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
 
   .lb_driver_rank {
     width: 32px;
@@ -173,6 +177,9 @@
     font-weight: 900;
     font-size: 15;
     flex-shrink: 0;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   .lb_driver_name {
@@ -208,14 +215,12 @@
     font-size: 20;
   }
 
-  .lb_stat_avg_time{
-     font-family: "Courier New", monospace;
+  .lb_stat_avg_time {
+    font-family: "Courier New", monospace;
     font-weight: 900;
     font-size: 20;
     color: #444;
   }
-
-
 
   .lb_stat_time_date {
     font-size: 8;

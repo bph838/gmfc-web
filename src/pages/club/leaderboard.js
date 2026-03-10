@@ -1,14 +1,9 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
+import { createDiv, fetchContextArea, renderFinish,emptyDiv } from "@framework/dom";
+
 import {
-  createDiv,
-  fetchContextArea,
-  renderFinish,
-} from "@framework/dom";
-
-
-import {  
   formatLapTime,
   processLeaderboard,
   loadLeaderboard,
@@ -60,11 +55,14 @@ function renderLeaderBoard(parent) {
   driversEntries.map((driver, i) => {
     renderDriver(lbdrivers, driver, i);
   });
+
+  //create a div for the driver laps to go in
+  createDiv(lbdriverHolder, "lb_driver_laps","lb_driver_laps");
+
 }
 
 function renderDriver(parent, driver, i) {
   console.log(driver);
-  let position = i + 1;
   const rankStyle = RANK_STYLES[driver.rank];
   let delay = i * 80;
 
@@ -104,19 +102,29 @@ function renderDriver(parent, driver, i) {
   stat_time_date.innerHTML = driver.fastestLapAtFmt;
 
   //average
-  let stat_avg_holder = createDiv(stats_holder, "lb_stat_right lb_stats_lap_avg");
+  let stat_avg_holder = createDiv(
+    stats_holder,
+    "lb_stat_right lb_stats_lap_avg",
+  );
   let stat_avg_title = createDiv(stat_avg_holder, "lb_stat_title ");
   stat_avg_title.innerHTML = "AVG";
-   let stat_avg_value = createDiv(stat_avg_holder, "lb_stat_avg_time");
+  let stat_avg_value = createDiv(stat_avg_holder, "lb_stat_avg_time");
   stat_avg_value.innerHTML = driver.averageLapFmt;
 
-
   //Number of laps
-  let stat_laps_holder = createDiv(stats_holder, "lb_stat_right lb_stats_lap_count");
+  let stat_laps_holder = createDiv(
+    stats_holder,
+    "lb_stat_right lb_stats_lap_count",
+  );
   let stat_laps_title = createDiv(stat_laps_holder, "lb_stat_title");
   stat_laps_title.innerHTML = "LAPS";
   let stat_laps_value = createDiv(stat_laps_holder, "lb_stat_laps");
   stat_laps_value.innerHTML = driver.lapCount;
+
+  //enable he user to click on the driver
+  driverHolderDiv.addEventListener("pointerup", () => {
+    showDriverLaps(driver.transponderId);
+  });
 }
 
 const RANK_STYLES = {
@@ -125,3 +133,12 @@ const RANK_STYLES = {
   3: { bg: "#CD7F32", color: "#fff", label: "🥉" },
 };
 
+function showDriverLaps(transponderId){
+  const lb_driver_laps = document.getElementById("lb_driver_laps");
+  if(!lb_driver_laps) return;
+  emptyDiv(lb_driver_laps);
+
+  let driver = driversEntries.find((driver) => driver.transponderId === transponderId) ?? null;
+  if(!driver) return;
+
+}
