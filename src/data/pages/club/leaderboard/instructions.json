@@ -13,7 +13,7 @@
       {
         "title": "Transponder",
         "type": "wrappedTextLeft",
-        "image": "https://siteimages.gmfc.uk/racing/transponder.png",
+        "image": "https://siteimages.gmfc.uk/racing/transponder_pointer.jpg",
         "text": [
           "To record the lap times made on the track we are using the <a href='https://lapmonitor.com/store/en/' target='_LapMonitor'>LapMonitor</a> system. ",
           "The LapMonitor system consists of a <a href='https://lapmonitor.com/store/en/14-decoder' target='_LapMonitor'>decoder</a> that reads the beam of the <a href='https://lapmonitor.com/store/en/15-transponder' target='_LapMonitor'>transponder</a> that is installed on your car.",
@@ -21,19 +21,25 @@
         ]
       },
       {
-        "title": "Track layout",
-        "type": "wrappedTextLeft",
-        "image": "https://siteimages.gmfc.uk/racing/track.png",
-        "text": ["The track being used for the club leaderboard is shown here."]
+        "title": "Track Layout",
+        "type": "singleImage",
+        "image": "https://siteimages.gmfc.uk/comingsoon.jpg",
+        "text": "The track being used for the club leaderboard is shown here."
       },
       {
         "title": "LapMonitor Setting",
         "type": "wrappedTextLeft",
-        "image": "https://siteimages.gmfc.uk/racing/exportformat.png",
+        "image": "https://siteimages.gmfc.uk/racing/lapmonitor.jpg",
         "text": [
           "The lap times need to be submitted to Ben via WhatsApp.",
-          "Change the <strong>Race export format</strong> to <strong>JSON</strong>, this can be done but going in to the settings. "
+          "Change the <strong>Race export format</strong> to <strong>JSON</strong>, this can be done but going in to the settings.",
+          "Once the export format has been changed, just share the session with Ben and the times will be uploaded."
         ]
+      },
+      {
+        "title": "Transponder ID",
+        "type": "html",        
+        "html":  "<table></table>"        
       }
     ]
   }
