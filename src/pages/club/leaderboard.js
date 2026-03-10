@@ -1,7 +1,12 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import { renderSection } from "@components/section";
-import { createDiv, fetchContextArea, renderFinish,emptyDiv } from "@framework/dom";
+import {
+  createDiv,
+  fetchContextArea,
+  renderFinish,
+  emptyDiv,
+} from "@framework/dom";
 
 import {
   formatLapTime,
@@ -11,6 +16,7 @@ import {
 
 import data from "@data/pages/club/leaderboard.json";
 import menu from "@data/generated/menu.json";
+import driver_details from "@lapmonitor/drivers/drivers.json";
 
 let driversEntries = [];
 setupMenuCommands("page-leaderboard", menu);
@@ -57,12 +63,16 @@ function renderLeaderBoard(parent) {
   });
 
   //create a div for the driver laps to go in
-  createDiv(lbdriverHolder, "lb_driver_laps","lb_driver_laps");
-
+  createDiv(lbdriverHolder, "lb_driver_laps", "lb_driver_laps");
 }
 
 function renderDriver(parent, driver, i) {
-  console.log(driver);
+  //console.log(driver);
+  const driverInformation =
+    driver_details.find((d) => d.transponderId === driver.transponderId) ??
+    null;
+  console.log(driverInformation);
+
   const rankStyle = RANK_STYLES[driver.rank];
   let delay = i * 80;
 
@@ -78,12 +88,17 @@ function renderDriver(parent, driver, i) {
   rank.innerHTML = rankStyle ? rankStyle.label : `#${driver.rank}`;
 
   // Avatar
+
   const initials = driver.name.slice(0, 2).toUpperCase();
   let avatar = createDiv(driverHolderDiv, "lb_driver_avatar");
   avatar.style.background = rankStyle ? rankStyle.bg : "#2a2a3a";
   avatar.style.color = rankStyle ? rankStyle.color : "#a0a0c0";
   avatar.style.boxShadow = rankStyle ? `0 0 12px ${rankStyle.bg}` : "none";
-  avatar.innerHTML = initials;
+  if (driverInformation && driverInformation.avatar) {
+    avatar.style.backgroundImage = "url('" + driverInformation.avatar + "')";
+    avatar.style.display = "block";
+    avatar.style.backgroundSize="cover";
+  } else avatar.innerHTML = initials;
 
   //name
   let driver_name = createDiv(driverHolderDiv, "lb_driver_name");
@@ -133,12 +148,13 @@ const RANK_STYLES = {
   3: { bg: "#CD7F32", color: "#fff", label: "🥉" },
 };
 
-function showDriverLaps(transponderId){
+function showDriverLaps(transponderId) {
   const lb_driver_laps = document.getElementById("lb_driver_laps");
-  if(!lb_driver_laps) return;
+  if (!lb_driver_laps) return;
   emptyDiv(lb_driver_laps);
 
-  let driver = driversEntries.find((driver) => driver.transponderId === transponderId) ?? null;
-  if(!driver) return;
-
+  let driver =
+    driversEntries.find((driver) => driver.transponderId === transponderId) ??
+    null;
+  if (!driver) return;
 }
