@@ -3,19 +3,36 @@
     "name": "Toby",
     "transponderId": 60,
     "uuid": "45818157efae9856b4945eddfa772b14",
-    "names":["Toby"]
+    "names": ["Toby"],
+    "build": [
+      "Stock build",
+      "Hobao Hyper TT2.0 Carbon Fibre Front Lower Arm Stiffener",
+      "Hobao Hyper TT2.0 Carbon Fibre Rear Lower Arm Stiffener",
+      "Hobao Hyper TT2.0 CNC Aluminium Front Steering Block Set"
+    ]
   },
   {
     "name": "Ben",
     "transponderId": 63,
     "avatar": "https://siteimages.gmfc.uk/racing/avatars/ben.jpg",
     "uuid": "71cd16ed2bbdf96ad95c1758fe3c04fe",
-    "names":["Ben"]
+    "names": ["Ben"],
+    "build": [
+      "Hobbywing MAX10 G2 80A ESC Combo With 3652SD 4100Kv G3 Motor",
+      "Power HD B5S Brushless HV Servo - 20Kg - 0.055s",
+      "RadioMaster ER3C-i running ELRS"
+    ]
   },
   {
     "name": "Louis",
     "transponderId": 5,
     "uuid": "bc8853c1231c93f72fe5f05773d96265",
-    "names":["Louis","66"]
+    "names": ["Louis", "66"],
+    "build": [
+      "Motor ESC Combination unknown!!!",
+      "Hobao Hyper TT2.0 Carbon Fibre Front Lower Arm Stiffener",
+      "Hobao Hyper TT2.0 Carbon Fibre Rear Lower Arm Stiffener",
+      "Hobao Hyper TT2.0 CNC Aluminium Front Steering Block Set"
+    ]
   }
 ]
