@@ -1,15 +1,18 @@
 [
   {
     "name": "Toby",
-    "transponderId": 60
+    "transponderId": 60,
+    "uuid": "45818157efae9856b4945eddfa772b14"
   },
   {
     "name": "Ben",
     "transponderId": 63,
-    "avatar":"https://siteimages.gmfc.uk/racing/avatars/ben.jpg"
+    "avatar": "https://siteimages.gmfc.uk/racing/avatars/ben.jpg",
+    "uuid": "71cd16ed2bbdf96ad95c1758fe3c04fe"
   },
   {
     "name": "Louis",
-    "transponderId": 5
+    "transponderId": 5,
+    "uuid": "bc8853c1231c93f72fe5f05773d96265"
   }
 ]

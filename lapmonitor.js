@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs").promises;
+const crypto = require("crypto");
 
 let drivers = [];
 let driverLookup = new Map();
@@ -16,16 +17,41 @@ async function loadDrivers() {
   const data = await fs.readFile(driverFile, "utf8");
   drivers = JSON.parse(data);
 
-  for (const d of drivers) {
-    driverLookup.set(d.transponderId, d.name);
+  let dirty = false;
 
-    driverLaps.set(d.name, {
+  for (const d of drivers) {
+    if (!d.uuid) {
+      d.uuid = crypto
+        .createHash("md5")
+        .update(`${d.name}:${d.transponderId}`)
+        .digest("hex");
+      dirty = true;
+      console.log(
+        `Generated uuid for: ${d.name} (${d.transponderId}) [${d.uuid}]`,
+      );
+    }
+
+    driverLookup.set(d.uuid, d);
+
+    driverLaps.set(d.uuid, {
       transponderId: d.transponderId,
+      uuid: d.uuid,
       laps: [],
     });
 
-    console.log(`Driver loaded: ${d.name} (${d.transponderId})`);
+    console.log(`Driver loaded: ${d.name} (${d.transponderId}) [${d.uuid}]`);
   }
+
+  if (dirty) {
+    await fs.writeFile(driverFile, JSON.stringify(drivers, null, 2), "utf8");
+    console.log("Drivers file updated with new uuids");
+  }
+}
+
+function getDriversByTransponderId(transponderId) {
+  return [...driverLookup.values()].filter(
+    (d) => d.transponderId === transponderId,
+  );
 }
 
 async function processLapFiles() {
@@ -57,14 +83,16 @@ async function processLapFiles() {
       if (raceStart < tooOLdDate) continue;
 
       for (const driver of race.drivers) {
-        const driverName = driverLookup.get(driver.transponderId);
-
-        if (!driverName) {
+        const driverDetails = fetchDriver(driver); //driverLookup.get(driver.transponderId);
+        if (!driverDetails) {
           console.log(`Unknown transponder ${driver.transponderId} - skipping`);
           continue;
         }
+        console.log(`Processing lap for driver ${driver.name}`);
 
-        console.log(`Processing laps for ${driverName}`);
+        console.log(
+          `Processing laps for ${driverDetails.name} transponderId: ${driverDetails.transponderId} uuid:${driverDetails.uuid}`,
+        );
 
         for (const lap of driver.laps) {
           if (lap.kind === "initial") {
@@ -78,11 +106,45 @@ async function processLapFiles() {
             t: lapTime.toISOString(),
           };
 
-          driverLaps.get(driverName).laps.push(record);
+          driverLaps.get(driverDetails.uuid).laps.push(record);
         }
       }
     }
   }
+}
+
+function fetchDriver(d) {
+  const drivers = getDriversByTransponderId(d.transponderId);
+  if (drivers.length === 0) {
+    console.log("No drivers found");
+    return null;
+  }
+
+  if(drivers.length===1)
+    return drivers[0];
+
+  let recordDriverName = d.name;
+  recordDriverName = recordDriverName.trimStart();
+  recordDriverName = recordDriverName.trimEnd();
+
+  for (const driver of drivers) {
+    let driverName = driver.name;
+    driverName = driverName.trimStart();
+    driverName = driverName.trimEnd();
+    let transponderIdString = driver.transponderId.toString();
+
+    /*
+    if (driverName.toLowerCase() === recordDriverName.toLowerCase()) {
+      console.log(`Found base driver ${driver.name}`);
+      return driver;
+    }
+
+    if (driverName.toLowerCase() === transponderIdString.toLowerCase()) {
+      console.log(`Found base driver ${driver.name}`);
+      return driver;
+    }*/
+  }
+  return null;
 }
 
 async function saveResults() {
@@ -107,13 +169,13 @@ async function saveResults() {
 
 async function renameLapMonitorFiles(directoryPath) {
   const files = await fs.readdir(directoryPath);
-  const jsonFiles = files.filter(f => f.toLowerCase().endsWith('.json'));
+  const jsonFiles = files.filter((f) => f.toLowerCase().endsWith(".json"));
 
   for (const file of jsonFiles) {
     const filePath = path.join(directoryPath, file);
 
     try {
-      const content = await fs.readFile(filePath, 'utf8');
+      const content = await fs.readFile(filePath, "utf8");
       const data = JSON.parse(content);
 
       const firstRace = data?.races?.[0];
@@ -124,11 +186,11 @@ async function renameLapMonitorFiles(directoryPath) {
 
       const date = new Date(firstRace.date);
       const yyyy = date.getUTCFullYear();
-      const mm = String(date.getUTCMonth() + 1).padStart(2, '0');
-      const dd = String(date.getUTCDate()).padStart(2, '0');
-      const hh = String(date.getUTCHours()).padStart(2, '0');
-      const min = String(date.getUTCMinutes()).padStart(2, '0');
-      const ss = String(date.getUTCSeconds()).padStart(2, '0');
+      const mm = String(date.getUTCMonth() + 1).padStart(2, "0");
+      const dd = String(date.getUTCDate()).padStart(2, "0");
+      const hh = String(date.getUTCHours()).padStart(2, "0");
+      const min = String(date.getUTCMinutes()).padStart(2, "0");
+      const ss = String(date.getUTCSeconds()).padStart(2, "0");
 
       const newName = `Lapmonitor ${yyyy}-${mm}-${dd} ${hh}-${min}-${ss}.json`;
       const newPath = path.join(directoryPath, newName);
@@ -141,14 +203,13 @@ async function renameLapMonitorFiles(directoryPath) {
   }
 }
 
-
 async function run() {
   console.log("LapMonitor starting...");
 
-  //await renameLapMonitorFiles("D:\\Gordano Model Flying Club\\gmfc-web\\src\\lapmonitor\\rawfiles");
+  await renameLapMonitorFiles("D:\\Gordano Model Flying Club\\gmfc-web\\src\\lapmonitor\\rawfiles");
   await loadDrivers();
-  //await processLapFiles();
-  //await saveResults();
+  await processLapFiles();
+  await saveResults();
 
   console.log("Processing complete");
 }
