@@ -34,9 +34,9 @@ async function loadDrivers() {
     driverLookup.set(d.uuid, d);
 
     driverLaps.set(d.uuid, {
-      uuid:d.uuid,
-      name:d.name,
-      transponderId:d.transponderId,
+      uuid: d.uuid,
+      name: d.name,
+      transponderId: d.transponderId,
       laps: [],
     });
 
@@ -121,8 +121,7 @@ function fetchDriver(d) {
     return null;
   }
 
-  if(drivers.length===1)
-    return drivers[0];
+  if (drivers.length === 1) return drivers[0];
 
   let recordDriverName = d.name;
   recordDriverName = recordDriverName.trimStart();
@@ -204,6 +203,49 @@ async function renameLapMonitorFiles(directoryPath) {
   }
 }
 
+async function saveSummary() {
+  console.log("Saving Summary");
+
+  let driverData = [];
+  let driverSummary = {};
+  const inFile = path.join(__dirname, "src\\data\\driver_laps.json");
+
+  const data = await fs.readFile(inFile, "utf8");
+  driverData = JSON.parse(data);
+
+  Object.values(driverData).forEach((driver) => {
+    console.log(driver);
+
+    let fastestLap = Infinity;
+    let fastestTime = null;
+    let total = 0;
+
+    driver.laps.forEach((lap) => {
+      total += lap.d;
+
+      if (lap.d < fastestLap) {
+        fastestLap = lap.d;
+        fastestTime = lap.t;
+      }
+    });
+
+    const averageLap = total / driver.laps.length;
+    const results = {};
+    results[driver.uuid] = {
+      name: driver.name,
+      transponderId: driver.transponderId,
+      fastestLap: fastestLap,
+      fastestLapTime: fastestTime,
+      averageLap: averageLap,
+      lapCount: driver.laps.length,
+    };
+    
+    driverSummary = { ...driverSummary, ...results };
+  });
+  const outFile = path.join(__dirname, "src\\data\\driver_summary.json");
+  await fs.writeFile(outFile, JSON.stringify(driverSummary, null, 2));
+}
+
 async function run() {
   console.log("LapMonitor starting...");
 
@@ -211,6 +253,7 @@ async function run() {
   await loadDrivers();
   await processLapFiles();
   await saveResults();
+  await saveSummary();
 
   console.log("Processing complete");
 }
