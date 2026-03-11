@@ -37,10 +37,11 @@
         ]
       },
       {
-        "title": "Transponder ID",
+        "title": "Transponder Id",
         "type": "drivers",
         "text": [
-          "Each driver has a Transponder ID, this unique number identifies your vehicle."
+          "Each driver has a Transponder Id, this unique number identifies your vehicle.",
+          "Let Ben know your Transponder Id via WhatsApp if you want to take part in the leaderboard challenge."
         ]
       }
     ]
