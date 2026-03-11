@@ -105,12 +105,50 @@ async function saveResults() {
   console.log("Results written to", outFile);
 }
 
+async function renameLapMonitorFiles(directoryPath) {
+  const files = await fs.readdir(directoryPath);
+  const jsonFiles = files.filter(f => f.toLowerCase().endsWith('.json'));
+
+  for (const file of jsonFiles) {
+    const filePath = path.join(directoryPath, file);
+
+    try {
+      const content = await fs.readFile(filePath, 'utf8');
+      const data = JSON.parse(content);
+
+      const firstRace = data?.races?.[0];
+      if (!firstRace?.date) {
+        console.warn(`Skipping ${file}: no race date found`);
+        continue;
+      }
+
+      const date = new Date(firstRace.date);
+      const yyyy = date.getUTCFullYear();
+      const mm = String(date.getUTCMonth() + 1).padStart(2, '0');
+      const dd = String(date.getUTCDate()).padStart(2, '0');
+      const hh = String(date.getUTCHours()).padStart(2, '0');
+      const min = String(date.getUTCMinutes()).padStart(2, '0');
+      const ss = String(date.getUTCSeconds()).padStart(2, '0');
+
+      const newName = `Lapmonitor ${yyyy}-${mm}-${dd} ${hh}-${min}-${ss}.json`;
+      const newPath = path.join(directoryPath, newName);
+
+      await fs.rename(filePath, newPath);
+      console.log(`Renamed: ${file} → ${newName}`);
+    } catch (err) {
+      console.error(`Error processing ${file}:`, err.message);
+    }
+  }
+}
+
+
 async function run() {
   console.log("LapMonitor starting...");
 
+  //await renameLapMonitorFiles("D:\\Gordano Model Flying Club\\gmfc-web\\src\\lapmonitor\\rawfiles");
   await loadDrivers();
-  await processLapFiles();
-  await saveResults();
+  //await processLapFiles();
+  //await saveResults();
 
   console.log("Processing complete");
 }
