@@ -426,16 +426,17 @@ function renderDrivers(parent, data, extraData) {
   const tableHead = createTableHead(table);
   const tR = createTableRow(tableHead);
 
+  createHeadItem(tR, "ID#");
   createHeadItem(tR, "Name");
-  createHeadItem(tR, "Transponder ID");
   createHeadItem(tR, "Avatar");
 
   const tableBody = createTableBody(table);
 
   for (const driverInformation of extraData) {
     const tableRow = createTableRow(tableBody, "driver_table");
-    createTableItem(tableRow, driverInformation.name);
     createTableItem(tableRow, driverInformation.transponderId);
+    createTableItem(tableRow, driverInformation.name);
+
     const avatar_holder = createTableItem(tableRow);
     const initials = driverInformation.name.slice(0, 2).toUpperCase();
 

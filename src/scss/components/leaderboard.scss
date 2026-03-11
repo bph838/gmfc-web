@@ -181,7 +181,7 @@
     justify-content: center;
     font-family: "Courier New", Courier, monospace;
     font-weight: 900;
-    font-size: 15;
+    font-size: 15px;
     flex-shrink: 0;
     &:hover {
       transform: scale(1.1);
@@ -191,9 +191,9 @@
   .lb_driver_name {
     font-family: "Courier New", monospace;
     font-weight: 700;
-    font-size: 17;
+    font-size: 17px;
     color: #f0f0f0;
-    letter-spacing: 1;
+    letter-spacing: 1px;
     flex: 1 1 0%;
   }
 
@@ -208,41 +208,41 @@
   }
 
   .lb_stat_title {
-    font-size: 11;
+    font-size: 18px;
     color: #555;
     font-family: monospace;
-    margin-bottom: 2;
+    margin-bottom: 2px;
     //     text-transform: uppercase;
   }
 
   .lb_stat_time {
     font-family: "Courier New", monospace;
     font-weight: 900;
-    font-size: 20;
+    font-size: 20px;
   }
 
   .lb_stat_avg_time {
     font-family: "Courier New", monospace;
     font-weight: 900;
-    font-size: 20;
+    font-size: 20px;
     color: #444;
   }
 
   .lb_stat_time_date {
-    font-size: 8;
+    font-size: 14px;
     @include respond(tablet, pc) {
-      font-size: 10;
+      font-size: 18px;
     }
 
     color: #444;
     font-family: monospace;
-    margin-top: 3;
+    margin-top: 3px;
   }
 
   .lb_stat_laps {
     font-family: "Courier New", monospace;
     font-weight: 700;
-    font-size: 20;
+    font-size: 20px;
     color: rgb(224, 224, 224);
   }
 
@@ -262,8 +262,6 @@
 }
 
 .drivers {
-  
-
   .lb_driver_avatar {
     width: 44px;
     height: 44px;
@@ -274,7 +272,7 @@
     justify-content: center;
     font-family: "Courier New", Courier, monospace;
     font-weight: 900;
-    font-size: 15;
+    font-size: 15px;
     flex-shrink: 0;
     &:hover {
       transform: scale(1.1);
@@ -308,7 +306,10 @@ $font-mono: "JetBrains Mono", "IBM Plex Mono", "Courier New", monospace;
 
 $transition: all 0.12s ease;
 .drivers {
-  width: 500px;
+  width: 360px;
+  @include respond(tablet, pc) {
+    width: 500px;
+  }
   border-collapse: collapse;
   font-family: $font-mono;
   font-size: 0.8rem;
