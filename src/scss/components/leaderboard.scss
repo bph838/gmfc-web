@@ -260,3 +260,179 @@
     }
   }
 }
+
+.drivers {
+  
+
+  .lb_driver_avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 900;
+    font-size: 15;
+    flex-shrink: 0;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// --- Table ---
+$black: #0a0a0a;
+$grey-900: #111111;
+$grey-800: #1a1a1a;
+$grey-700: #242424;
+$grey-600: #2e2e2e;
+$grey-400: #555555;
+$grey-300: #777777;
+$grey-100: #cccccc;
+$white: #e8e8e8;
+
+$acid: #c8ff00; // acid green accent
+$acid-dim: rgba(200, 255, 0, 0.08);
+$acid-line: rgba(200, 255, 0, 0.4);
+
+$red-alert: #ff3c3c;
+$amber: #ffaa00;
+
+$border-grid: 1px solid $grey-600;
+$border-heavy: 2px solid $grey-100;
+$border-acid: 2px solid $acid;
+
+$font-mono: "JetBrains Mono", "IBM Plex Mono", "Courier New", monospace;
+
+$transition: all 0.12s ease;
+.drivers {
+  width: 500px;
+  border-collapse: collapse;
+  font-family: $font-mono;
+  font-size: 0.8rem;
+
+  // --- THead ---
+  thead tr {
+    background: $grey-800;
+    border-bottom: $border-acid;
+  }
+
+  thead th {
+    padding: 0.75rem 1.2rem;
+    text-align: left;
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $acid;
+    border-right: $border-grid;
+    white-space: nowrap;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.num {
+      text-align: right;
+    }
+
+    // Column index prefix
+    &::before {
+      content: attr(data-col) " ";
+      color: $grey-400;
+      font-weight: 400;
+    }
+  }
+
+  // --- TBody ---
+  tbody tr {
+    border-bottom: $border-grid;
+    transition: $transition;
+    position: relative;
+
+    &:nth-child(even) {
+      background: $grey-800;
+    }
+    &:nth-child(odd) {
+      background: $grey-900;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    /*
+    &:hover {
+      background: $acid-dim;
+      outline: 1px solid $acid-line;
+      outline-offset: -1px;
+
+      td {
+        color: $white;
+      }
+      td.num {
+        color: $acid;
+      }
+    }*/
+  }
+
+  tbody td {
+    padding: 0.75rem 1.2rem;
+    color: $grey-100;
+    border-right: $border-grid;
+    vertical-align: middle;
+    line-height: 1.4;
+    transition: $transition;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.num {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      color: $grey-300;
+    }
+
+    &.id {
+      color: $grey-400;
+      font-size: 0.72rem;
+    }
+
+    &.status {
+      text-align: center;
+    }
+  }
+
+  // --- TFoot ---
+  tfoot tr {
+    background: $grey-800;
+    border-top: $border-heavy;
+  }
+
+  tfoot td {
+    padding: 0.75rem 1.2rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $grey-300;
+    border-right: $border-grid;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &.num {
+      text-align: right;
+      color: $white;
+      font-size: 0.85rem;
+    }
+
+    &.label {
+      color: $acid;
+    }
+  }
+}

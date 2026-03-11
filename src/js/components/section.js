@@ -8,6 +8,12 @@ import {
   createParagraph,
   createOrderedList,
   createListItem,
+  createTable,
+  createTableHead,
+  createTableRow,
+  createHeadItem,
+  createTableBody,
+  createTableItem,
 } from "@framework/dom";
 import { initaliseCarousel, onRotate } from "@framework/carousel3d";
 import { sanitizeString } from "@framework/utils";
@@ -132,6 +138,9 @@ export function renderSection(
         break;
       case "weatherForecast":
         fetchAndRenderWeatherForecast(contentdiv, data, extraData);
+        break;
+      case "drivers":
+        renderDrivers(contentdiv, data, extraData);
         break;
     }
 
@@ -401,5 +410,44 @@ function renderSectionItem(parent, data) {
     case "list":
       renderListItems(parent, data.listitems);
       break;
+  }
+}
+
+function renderDrivers(parent, data, extraData) {
+  const section_drivers = createDiv(parent, "section_drivers");
+
+  if (data.text) {
+    data.text.forEach((text) => {
+      createParagraph(section_drivers, text);
+    });
+  }
+
+  const table = createTable(section_drivers, "drivers");
+  const tableHead = createTableHead(table);
+  const tR = createTableRow(tableHead);
+
+  createHeadItem(tR, "Name");
+  createHeadItem(tR, "Transponder ID");
+  createHeadItem(tR, "Avatar");
+
+  const tableBody = createTableBody(table);
+
+  for (const driverInformation of extraData) {
+    const tableRow = createTableRow(tableBody, "driver_table");
+    createTableItem(tableRow, driverInformation.name);
+    createTableItem(tableRow, driverInformation.transponderId);
+    const avatar_holder = createTableItem(tableRow);
+    const initials = driverInformation.name.slice(0, 2).toUpperCase();
+
+    let avatar = createDiv(avatar_holder, "lb_driver_avatar");
+    avatar.style.background = "#2a2a3a";
+    avatar.style.color = "#a0a0c0";
+    avatar.style.boxShadow = "none";
+    if (driverInformation.avatar) {
+      avatar.style.backgroundImage = "url('" + driverInformation.avatar + "')";
+      avatar.style.display = "block";
+      avatar.style.backgroundSize = "cover";
+      avatar.innerHTML = "&nbsp;";
+    } else avatar.innerHTML = initials;
   }
 }

@@ -252,3 +252,56 @@ export function injectScript(url) {
 export function renderFinish() {
   document.dispatchEvent(new Event("render-event"));
 }
+
+export function createTable(parent, className = null) {
+  let el = document.createElement("table");
+  if (className) el.className = className;
+
+  parent.appendChild(el);
+  return el;
+}
+
+export function createTableHead(parent, className = null) {
+  let el = document.createElement("thead");
+  if (className) el.className = className;
+
+  parent.appendChild(el);
+  return el;
+}
+
+export function createTableRow(parent, className = null) {
+  let el = document.createElement("tr");
+  if (className) el.className = className;
+
+  parent.appendChild(el);
+  return el;
+}
+
+export function createHeadItem(parent, innerHTML = "") {
+  let el = document.createElement("th");
+  // if (className) el.className = className;
+  el.innerHTML = innerHTML;
+
+  parent.appendChild(el);
+  return el;
+}
+
+export function createTableBody(parent, className = null) {
+  let el = document.createElement("tbody");
+  if (className) el.className = className;
+
+  parent.appendChild(el);
+  return el;
+}
+
+export function createTableItem(parent, innerHTML = "") {
+  let el = document.createElement("td");
+  // if (className) el.className = className;
+  el.innerHTML = innerHTML;
+
+  parent.appendChild(el);
+  return el;
+}
+
+
+

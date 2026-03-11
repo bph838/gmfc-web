@@ -38,8 +38,10 @@
       },
       {
         "title": "Transponder ID",
-        "type": "html",        
-        "html":  "<table></table>"        
+        "type": "drivers",
+        "text": [
+          "Each driver has a Transponder ID, this unique number identifies your vehicle."
+        ]
       }
     ]
   }

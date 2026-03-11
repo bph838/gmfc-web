@@ -5,6 +5,7 @@ import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
 
 import data from "@data/pages/club/leaderboard/instructions.json";
 import menu from "@data/generated/menu.json";
+import drivers from "@lapmonitor/drivers/drivers.json";
 
 setupMenuCommands("page-clubleaderboard-instructions",menu);
 renderLeaderboardInstuctions(data);
@@ -21,7 +22,7 @@ function renderLeaderboardInstuctions(data) {
   if (data.content.sections) {
     data.content.sections.forEach((section) => {
       console.log(section);
-      renderSection(sectionsdiv, section);
+      renderSection(sectionsdiv, section,"","",drivers);
     });
   }
 }
