@@ -50,7 +50,8 @@ function formatLapDateTime(at) {
  * @returns {Array<Object>} Sorted leaderboard entries.
  */
 export function processLeaderboard(rawData) {
-  const entries = Object.entries(rawData).map(([name, data]) => {
+  
+  const entries = Object.entries(rawData).map(([uuid, data]) => {
     const laps = data.laps ?? [];
     const times = laps.map((lap) => lap.d);
 
@@ -63,7 +64,8 @@ export function processLeaderboard(rawData) {
       : 0;
 
     return {
-      name,
+      uuid,
+      name:data.name,
       transponderId: data.transponderId,
       lapCount: laps.length,
       fastestLap,

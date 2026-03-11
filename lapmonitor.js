@@ -34,8 +34,7 @@ async function loadDrivers() {
     driverLookup.set(d.uuid, d);
 
     driverLaps.set(d.uuid, {
-      transponderId: d.transponderId,
-      uuid: d.uuid,
+      ...d,
       laps: [],
     });
 
