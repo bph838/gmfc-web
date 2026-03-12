@@ -12,7 +12,8 @@ import {
   createTableRow,
   createHeadItem,
   createTableBody,
-  createTableItem,
+  createTableItem,createCanvas,
+  injectScript,
 } from "@framework/dom";
 import { fetchJson, formatDate } from "@framework/utils";
 import { formatLapTime } from "@framework/lapmonitor";
@@ -94,7 +95,13 @@ function renderDriverLaps(driverInformation) {
   const divHolder = createDiv(driver_laps, "driver_laps_holder");
 
   const divDLapTimes = createDiv(divHolder, "driver_laps_times");
-  const divDLapGraph = createDiv(divHolder, "driver_laps_graph");
+  const divDLapGraph = createDiv(
+    divHolder,
+    "driver_laps_graph",
+    "driver_laps_graph",
+  );
+  const ctx = createCanvas(divDLapGraph, "driverlapgraph");
+  
 
   let url = `/data/drivers/${driverInformation.uuid}.json`;
   fetchJson(url).then((data) => {
@@ -109,7 +116,6 @@ function renderDriverLaps(driverInformation) {
     createHeadItem(tR, "Lap Time");
 
     const tableBody = createTableBody(table);
-    //let driver_lap_data = data.laps;
     data.laps.sort((a, b) => a.d - b.d);
 
     data.laps.forEach((lap) => {
@@ -119,14 +125,51 @@ function renderDriverLaps(driverInformation) {
       createTableItem(tableRow, formatLapTime(lap.d));
     });
 
-    renderLapGraph(divDLapGraph, data);
+    renderLapGraph(ctx, data);
   });
 }
 
-function renderLapGraph(parent, data) {
-  /*if (laps.length <= 0) return;
+async function renderLapGraph(parent, data) {
+  if (data.laps.length <= 0) return;
+
+  
+
+  await injectScript("https://cdn.jsdelivr.net/npm/chart.js");
+
   //change to time order
-  laps.sort((a, b) => a.t - b.t);
+  data.laps.sort((a, b) => a.t - b.t);
   let now = new Date().getTime();
-  let oldest = laps[0];*/
+  let oldest = data.laps[0];
+
+  const DATA_COUNT = 7;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+
+  const dataTest = {
+    labels: "",
+    datasets: [
+      {
+        label: "Dataset 1",
+        data: [
+          { x: "Sales", y: 20 },
+          { x: "Revenue", y: 10 },
+        ],
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: {
+      datasets: [
+        {
+          data: [
+            { x: "Sales", y: 20 },
+            { x: "Revenue", y: 10 },
+          ],
+        },
+      ],
+    },
+  };
+
+  new Chart(parent, config);
 }

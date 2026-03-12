@@ -472,8 +472,16 @@ $transition: all 0.12s ease;
   flex-direction: row;
   .driver_laps_times {
     margin-right: 20px;
+    
   }
 
   .driver_laps_graph {
+    width: 100%;
+    height: 300px;
+
+    canvas{
+      width: 100%;
+      height:100%;
+    }
   }
 }
