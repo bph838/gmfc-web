@@ -12,7 +12,8 @@ import {
   createTableRow,
   createHeadItem,
   createTableBody,
-  createTableItem,createCanvas,
+  createTableItem,
+  createCanvas,
   injectScript,
 } from "@framework/dom";
 import { fetchJson, formatDate } from "@framework/utils";
@@ -101,7 +102,6 @@ function renderDriverLaps(driverInformation) {
     "driver_laps_graph",
   );
   const ctx = createCanvas(divDLapGraph, "driverlapgraph");
-  
 
   let url = `/data/drivers/${driverInformation.uuid}.json`;
   fetchJson(url).then((data) => {
@@ -125,14 +125,12 @@ function renderDriverLaps(driverInformation) {
       createTableItem(tableRow, formatLapTime(lap.d));
     });
 
-    renderLapGraph(ctx, data);
+    //renderLapGraph(ctx, data);
   });
 }
 
 async function renderLapGraph(parent, data) {
   if (data.laps.length <= 0) return;
-
-  
 
   await injectScript("https://cdn.jsdelivr.net/npm/chart.js");
 
@@ -141,35 +139,50 @@ async function renderLapGraph(parent, data) {
   let now = new Date().getTime();
   let oldest = data.laps[0];
 
-  const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+  const chartData = getWeeklyAverageDataset(data);
 
-  const dataTest = {
-    labels: "",
+  new Chart(parent, {
+    type: "bar",
+    data: chartData,
+  });
+}
+
+function getWeeklyAverageDataset(driver) {
+  const weeks = {};
+
+  driver.laps.forEach((lap) => {
+    const date = new Date(lap.t);
+
+    // get ISO week key (year-week)
+    const firstJan = new Date(date.getFullYear(), 0, 1);
+    const days = Math.floor((date - firstJan) / 86400000);
+    const week = Math.ceil((days + firstJan.getDay() + 1) / 7);
+
+    const key = `${date.getFullYear()}-W${week}`;
+
+    if (!weeks[key]) {
+      weeks[key] = { total: 0, count: 0 };
+    }
+
+    weeks[key].total += lap.d / 100;
+    weeks[key].count++;
+  });
+
+  const labels = [];
+  const data = [];
+
+  Object.entries(weeks).forEach(([week, v]) => {
+    labels.push(week);
+    data.push(v.total / v.count);
+  });
+
+  return {
+    labels,
     datasets: [
       {
-        label: "Dataset 1",
-        data: [
-          { x: "Sales", y: 20 },
-          { x: "Revenue", y: 10 },
-        ],
+        label: "Average Lap Time",
+        data,
       },
     ],
   };
-
-  const config = {
-    type: "bar",
-    data: {
-      datasets: [
-        {
-          data: [
-            { x: "Sales", y: 20 },
-            { x: "Revenue", y: 10 },
-          ],
-        },
-      ],
-    },
-  };
-
-  new Chart(parent, config);
 }
