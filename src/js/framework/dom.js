@@ -294,14 +294,11 @@ export function createTableBody(parent, className = null) {
   return el;
 }
 
-export function createTableItem(parent, innerHTML = "") {
+export function createTableItem(parent, innerHTML = "", className = null) {
   let el = document.createElement("td");
-  // if (className) el.className = className;
+  if (className) el.className = className;
   el.innerHTML = innerHTML;
 
   parent.appendChild(el);
   return el;
 }
-
-
-

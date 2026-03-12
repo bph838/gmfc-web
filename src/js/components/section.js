@@ -429,6 +429,7 @@ function renderDrivers(parent, data, extraData) {
   createHeadItem(tR, "ID#");
   createHeadItem(tR, "Name");
   createHeadItem(tR, "Avatar");
+  createHeadItem(tR, "Build");
 
   const tableBody = createTableBody(table);
 
@@ -450,5 +451,12 @@ function renderDrivers(parent, data, extraData) {
       avatar.style.backgroundSize = "cover";
       avatar.innerHTML = "&nbsp;";
     } else avatar.innerHTML = initials;
+
+    const buildTd = createTableItem(tableRow, null, "driver_build");
+    if (driverInformation.build) {
+      driverInformation.build.forEach((text) => {
+        createParagraph(buildTd, text);
+      });
+    }
   }
 }
