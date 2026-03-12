@@ -137,7 +137,7 @@ export function initMapFrame(data) {
   </iframe>`;
 }
 
-export function formatDate(date, longMonth = false) {
+export function formatDate(date, longMonth = false,incSeconds=false) {
   if (!(date instanceof Date)) return "";
 
   const day = date.getDate();
@@ -178,11 +178,17 @@ export function formatDate(date, longMonth = false) {
   const year = date.getFullYear();
   const hour = date.getHours();
   const min = String(date.getMinutes()).padStart(2, "0");
+  const sec = String(date.getSeconds()).padStart(2, "0");
 
   let result = "";
   if (hour === 0 && date.getMinutes() === 0)
     result = `${ordinal(day)} ${month} ${year}`;
-  else result = `${ordinal(day)} ${month} ${year} ${hour}:${min}`;
+  else {
+    result = `${ordinal(day)} ${month} ${year} ${hour}:${min}`;
+    if(incSeconds)
+      result+=`:${sec}`;
+  }
+
   return result;
 }
 

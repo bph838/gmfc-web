@@ -258,8 +258,20 @@
     color: #444;
   }
 
-  .lb_stat_time_date,
-  .lb_stat_build {
+  .lb_stat_time_date
+ {
+    font-size: 14px;
+    @include respond(tablet, pc) {
+      font-size: 18px;
+    }
+
+    color: #444;
+    font-family: monospace;
+    margin-top: 3px;
+  }
+
+  .lb_stat_build{
+
     font-size: 14px;
     @include respond(tablet, pc) {
       font-size: 18px;

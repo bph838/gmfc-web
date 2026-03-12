@@ -100,11 +100,16 @@ async function processLapFiles() {
             continue;
           }
 
-          const lapTime = new Date(raceStart.getTime() + lap.endTimestamp);
+          let endTS = lap.endTimestamp / 100;
+          endTS *= 1000;
+
+          const lapTime = new Date(raceStart.getTime() + endTS);
+
+          console.log(lapTime);
 
           const record = {
             d: lap.duration,
-            t: lapTime.getTime(),//lapTime.toISOString(),
+            t: lapTime.getTime(), //lapTime.toISOString(),
           };
 
           driverLaps.get(driverDetails.uuid).laps.push(record);
@@ -159,10 +164,11 @@ async function saveResults() {
 
     console.log(`${driver}: ${data.laps.length} laps`);
 
-     const outDriverFile = path.join(__dirname, `src\\data\\drivers\\${driver}.json`);
-     await fs.writeFile(outDriverFile, JSON.stringify(data, null, 2));
-
-
+    const outDriverFile = path.join(
+      __dirname,
+      `src\\data\\drivers\\${driver}.json`,
+    );
+    await fs.writeFile(outDriverFile, JSON.stringify(data, null, 2));
   }
 
   const outFile = path.join(__dirname, "src\\data\\driver_laps.json");
@@ -244,7 +250,7 @@ async function saveSummary() {
       averageLap: averageLap,
       lapCount: driver.laps.length,
     };
-    
+
     driverSummary = { ...driverSummary, ...results };
   });
   const outFile = path.join(__dirname, "src\\data\\driver_summary.json");
@@ -254,7 +260,9 @@ async function saveSummary() {
 async function run() {
   console.log("LapMonitor starting...");
 
-  await renameLapMonitorFiles("D:\\Gordano Model Flying Club\\gmfc-web\\src\\lapmonitor\\rawfiles");
+  await renameLapMonitorFiles(
+    "D:\\Gordano Model Flying Club\\gmfc-web\\src\\lapmonitor\\rawfiles",
+  );
   await loadDrivers();
   await processLapFiles();
   await saveResults();
