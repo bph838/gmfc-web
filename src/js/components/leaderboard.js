@@ -3,6 +3,7 @@ import {
   fetchContextArea,
   renderFinish,
   emptyDiv,
+  createParagraph,
 } from "@framework/dom";
 import { formatLapTime } from "@framework/lapmonitor";
 import { formatDate } from "@framework/utils";
@@ -13,13 +14,20 @@ const RANK_STYLES = {
   3: { bg: "#CD7F32", color: "#fff", label: "🥉" },
 };
 
-export function renderDriver(parent, driver, position, driverInformation) {
+export function renderDriver(
+  parent,
+  driver,
+  position,
+  driverInformation = null,
+) {
   //console.log(driver);
 
   const rankStyle = RANK_STYLES[position];
   let delay = position * 80;
 
-  let driverHolderDiv = createDiv(parent, "lb_driver");
+  let driverHolderMain = createDiv(parent, "lb_driver");
+
+  let driverHolderDiv = createDiv(driverHolderMain, "lb_driver_compact");
   driverHolderDiv.style.background =
     position === 1 ? "rgba(0,245,160,0.06)" : "rgba(255,255,255,0.03)";
   driverHolderDiv.style.border = `1px solid ${position === 1 ? "rgba(0,245,160,0.25)" : "rgba(255,255,255,0.07)"}`;
@@ -68,7 +76,7 @@ export function renderDriver(parent, driver, position, driverInformation) {
   let stat_avg_title = createDiv(stat_avg_holder, "lb_stat_title ");
   stat_avg_title.innerHTML = "AVG";
   let stat_avg_value = createDiv(stat_avg_holder, "lb_stat_avg_time");
-  stat_avg_value.innerHTML = (driver.averageLap/100).toFixed(2);
+  stat_avg_value.innerHTML = (driver.averageLap / 100).toFixed(2);
 
   //Number of laps
   let stat_laps_holder = createDiv(
@@ -80,5 +88,31 @@ export function renderDriver(parent, driver, position, driverInformation) {
   let stat_laps_value = createDiv(stat_laps_holder, "lb_stat_laps");
   stat_laps_value.innerHTML = driver.lapCount;
 
-  return driverHolderDiv;
+  if (driverInformation) {
+    let driverHolderInfoDiv = createDiv(
+      driverHolderMain,
+      "lb_driver_information",
+    );
+    let driverMainInfo = createDiv(
+      driverHolderInfoDiv,
+      "lb_driver_main_information",
+    );
+
+    driverInformation.build.forEach((text) => {
+      createParagraph(driverMainInfo, text);
+    });
+  }
+
+  return driverHolderMain;
+}
+
+
+export function toggleDriverInfo(driverElement) {
+  const info = driverElement.querySelector(".lb_driver_information");
+
+  if (info.style.maxHeight) {
+    info.style.maxHeight = null;
+  } else {
+    info.style.maxHeight = info.scrollHeight + "px";
+  }
 }

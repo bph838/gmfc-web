@@ -8,7 +8,7 @@ import {
   emptyDiv,
 } from "@framework/dom";
 
-import { renderDriver } from "@components/leaderboard";
+import { renderDriver, toggleDriverInfo } from "@components/leaderboard";
 
 import data from "@data/pages/club/leaderboard.json";
 import menu from "@data/generated/menu.json";
@@ -54,7 +54,16 @@ function renderDriverLeaderBoard(parent) {
       driver_details.find((d) => d.transponderId === driver.transponderId) ??
       null;
     if (driverInformation) {
-      renderDriver(lbdriverHolder, driver, i + 1, driverInformation);
+      const driverEl = renderDriver(
+        lbdriverHolder,
+        driver,
+        i + 1,
+        driverInformation,
+      );
+
+      driverEl.addEventListener("pointerup", (event) => {
+        toggleDriverInfo(driverEl);
+      });
     }
   });
 }
