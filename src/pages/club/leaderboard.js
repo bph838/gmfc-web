@@ -6,8 +6,16 @@ import {
   fetchContextArea,
   renderFinish,
   emptyDiv,
+  createH2,
+  createTable,
+  createTableHead,
+  createTableRow,
+  createHeadItem,
+  createTableBody,
+  createTableItem,
 } from "@framework/dom";
-
+import { fetchJson, formatDate } from "@framework/utils";
+import { formatLapTime } from "@framework/lapmonitor";
 import { renderDriver, toggleDriverInfo } from "@components/leaderboard";
 
 import data from "@data/pages/club/leaderboard.json";
@@ -39,6 +47,7 @@ function renderClubLeaderBoard(data) {
       renderSection(sectionsdiv, section);
       if (section.leaderboard) {
         renderDriverLeaderBoard(sectionsdiv);
+        createDiv(sectionsdiv, "section sectionbreak hidden", "driver_laps");
       }
     });
   }
@@ -61,8 +70,8 @@ function renderDriverLeaderBoard(parent) {
         driverInformation,
       );
       driverEl.addEventListener("pointerup", (event) => {
-          renderDriverLaps(driverInformation.uuid);
-        });
+        renderDriverLaps(driverInformation);
+      });
 
       const el = driverEl.querySelector(".lb_stat_build");
       if (el) {
@@ -74,6 +83,50 @@ function renderDriverLeaderBoard(parent) {
   });
 }
 
-function renderDriverLaps(driverUuid){
+function renderDriverLaps(driverInformation) {
+  const driver_laps = document.getElementById("driver_laps");
+  if (!driver_laps) return;
+  emptyDiv(driver_laps);
+  driver_laps.classList.remove("hidden");
+  const titlediv = createDiv(driver_laps, "section_title");
+  createH2(titlediv, driverInformation.name);
 
+  const divHolder = createDiv(driver_laps, "driver_laps_holder");
+
+  const divDLapTimes = createDiv(divHolder, "driver_laps_times");
+  const divDLapGraph = createDiv(divHolder, "driver_laps_graph");
+
+  let url = `/data/drivers/${driverInformation.uuid}.json`;
+  fetchJson(url).then((data) => {
+    console.log("Processing laps: ");
+    console.log(data);
+
+    const table = createTable(divDLapTimes, "drivers");
+    const tableHead = createTableHead(table);
+    const tR = createTableRow(tableHead);
+
+    createHeadItem(tR, "Date");
+    createHeadItem(tR, "Lap Time");
+
+    const tableBody = createTableBody(table);
+    //let driver_lap_data = data.laps;
+    data.laps.sort((a, b) => a.d - b.d);
+
+    data.laps.forEach((lap) => {
+      const tableRow = createTableRow(tableBody, "driver_lap");
+      const LapDate = new Date(lap.t);
+      createTableItem(tableRow, formatDate(LapDate));
+      createTableItem(tableRow, formatLapTime(lap.d));
+    });
+
+    renderLapGraph(divDLapGraph, data);
+  });
+}
+
+function renderLapGraph(parent, data) {
+  /*if (laps.length <= 0) return;
+  //change to time order
+  laps.sort((a, b) => a.t - b.t);
+  let now = new Date().getTime();
+  let oldest = laps[0];*/
 }

@@ -252,7 +252,8 @@
     color: #444;
   }
 
-  .lb_stat_time_date,.lb_stat_build {
+  .lb_stat_time_date,
+  .lb_stat_build {
     font-size: 14px;
     @include respond(tablet, pc) {
       font-size: 18px;
@@ -262,7 +263,6 @@
     font-family: monospace;
     margin-top: 3px;
   }
-
 
   .lb_stat_laps {
     font-family: "Courier New", monospace;
@@ -460,5 +460,20 @@ $transition: all 0.12s ease;
     &.label {
       color: $acid;
     }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.driver_laps_holder {
+  display: flex;
+  flex-direction: row;
+  .driver_laps_times {
+    margin-right: 20px;
+  }
+
+  .driver_laps_graph {
   }
 }
