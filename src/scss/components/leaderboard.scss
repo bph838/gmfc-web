@@ -252,7 +252,7 @@
     color: #444;
   }
 
-  .lb_stat_time_date {
+  .lb_stat_time_date,.lb_stat_build {
     font-size: 14px;
     @include respond(tablet, pc) {
       font-size: 18px;
@@ -262,6 +262,7 @@
     font-family: monospace;
     margin-top: 3px;
   }
+
 
   .lb_stat_laps {
     font-family: "Courier New", monospace;

@@ -87,8 +87,11 @@ export function renderDriver(
   stat_laps_title.innerHTML = "LAPS";
   let stat_laps_value = createDiv(stat_laps_holder, "lb_stat_laps");
   stat_laps_value.innerHTML = driver.lapCount;
-
   if (driverInformation) {
+    let stat_time_build = createDiv(stat_laps_holder, "lb_stat_build");
+    stat_time_build.setAttribute("data-closed", "true");
+    stat_time_build.innerHTML = `<i class="fa fa-arrow-down"></i>`;
+
     let driverHolderInfoDiv = createDiv(
       driverHolderMain,
       "lb_driver_information",
@@ -106,9 +109,20 @@ export function renderDriver(
   return driverHolderMain;
 }
 
-
 export function toggleDriverInfo(driverElement) {
   const info = driverElement.querySelector(".lb_driver_information");
+
+  const statBuild = driverElement.querySelector(".lb_stat_build");
+  if (statBuild) {
+    let elVar = statBuild.getAttribute("data-closed");
+    if (elVar === "true") {
+      statBuild.setAttribute("data-closed", "false");
+      statBuild.innerHTML = `<i class="fa fa-arrow-up"></i>`;
+    } else if (elVar === "false") {
+      statBuild.setAttribute("data-closed", "true");
+      statBuild.innerHTML = `<i class="fa fa-arrow-down"></i>`;
+    }
+  }
 
   if (info.style.maxHeight) {
     info.style.maxHeight = null;

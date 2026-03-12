@@ -60,10 +60,20 @@ function renderDriverLeaderBoard(parent) {
         i + 1,
         driverInformation,
       );
-
       driverEl.addEventListener("pointerup", (event) => {
-        toggleDriverInfo(driverEl);
-      });
+          renderDriverLaps(driverInformation.uuid);
+        });
+
+      const el = driverEl.querySelector(".lb_stat_build");
+      if (el) {
+        el.addEventListener("pointerup", (event) => {
+          toggleDriverInfo(driverEl);
+        });
+      }
     }
   });
+}
+
+function renderDriverLaps(driverUuid){
+
 }
