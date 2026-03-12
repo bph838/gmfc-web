@@ -34,9 +34,15 @@ export function renderDriver(
   driverHolderDiv.style.animationDelay = `${delay}ms`;
 
   //Rank
-  let rank = createDiv(driverHolderDiv, "lb_driver_rank");
+  let rank_holder = createDiv(driverHolderDiv, "lb_rank_holder");
+  let rank = createDiv(rank_holder, "lb_driver_rank");
   rank.style.color = rankStyle ? rankStyle.bg : "#555";
   rank.innerHTML = rankStyle ? rankStyle.label : `#${position}`;
+  if (driverInformation) {
+    let stat_time_build = createDiv(rank_holder, "lb_stat_build");
+    stat_time_build.setAttribute("data-closed", "true");
+    stat_time_build.innerHTML = `<i class="fa-solid fa-gears"></i>`;//`<i class="fa fa-arrow-down"></i>`;
+  }
 
   // Avatar
 
@@ -87,10 +93,7 @@ export function renderDriver(
   stat_laps_title.innerHTML = "LAPS";
   let stat_laps_value = createDiv(stat_laps_holder, "lb_stat_laps");
   stat_laps_value.innerHTML = driver.lapCount;
-  if (driverInformation) {
-    let stat_time_build = createDiv(stat_laps_holder, "lb_stat_build");
-    stat_time_build.setAttribute("data-closed", "true");
-    stat_time_build.innerHTML = `<i class="fa fa-arrow-down"></i>`;
+  if (driverInformation) {   
 
     let driverHolderInfoDiv = createDiv(
       driverHolderMain,
@@ -120,7 +123,7 @@ export function toggleDriverInfo(driverElement) {
       statBuild.innerHTML = `<i class="fa fa-arrow-up"></i>`;
     } else if (elVar === "false") {
       statBuild.setAttribute("data-closed", "true");
-      statBuild.innerHTML = `<i class="fa fa-arrow-down"></i>`;
+      statBuild.innerHTML = `<i class="fa-solid fa-gears"></i>`;
     }
   }
 
