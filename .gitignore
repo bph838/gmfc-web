@@ -3,5 +3,10 @@ node_modules/
 src/data/generated/*
 utils/gallery/images.json
 utils/gallery/gallery-gmfc/
+src/data/drivers/*
+
+src/data/driver_laps.json
+src/data/driver_summary.json
+
 
 

@@ -3,7 +3,7 @@
     "name": "Toby",
     "transponderId": 60,
     "fastestLap": 1791,
-    "fastestLapTime": "2026-02-28T14:12:55.791Z",
+    "fastestLapTime": 1772287975791,
     "averageLap": 2091.3571428571427,
     "lapCount": 14
   },
@@ -11,7 +11,7 @@
     "name": "Ben",
     "transponderId": 63,
     "fastestLap": 2115,
-    "fastestLapTime": "2026-02-28T14:12:56.115Z",
+    "fastestLapTime": 1772287976115,
     "averageLap": 3320.5555555555557,
     "lapCount": 9
   },
@@ -19,7 +19,7 @@
     "name": "Louis",
     "transponderId": 5,
     "fastestLap": 1917,
-    "fastestLapTime": "2026-03-02T13:34:58.311Z",
+    "fastestLapTime": 1772458498311,
     "averageLap": 4085.0333333333333,
     "lapCount": 30
   }

@@ -104,7 +104,7 @@ async function processLapFiles() {
 
           const record = {
             d: lap.duration,
-            t: lapTime.toISOString(),
+            t: lapTime.getTime(),//lapTime.toISOString(),
           };
 
           driverLaps.get(driverDetails.uuid).laps.push(record);
@@ -158,6 +158,11 @@ async function saveResults() {
     output[driver] = data;
 
     console.log(`${driver}: ${data.laps.length} laps`);
+
+     const outDriverFile = path.join(__dirname, `src\\data\\drivers\\${driver}.json`);
+     await fs.writeFile(outDriverFile, JSON.stringify(data, null, 2));
+
+
   }
 
   const outFile = path.join(__dirname, "src\\data\\driver_laps.json");
