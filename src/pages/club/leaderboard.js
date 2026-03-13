@@ -78,6 +78,7 @@ function renderDriverLeaderBoard(parent) {
       const el = driverEl.querySelector(".lb_stat_build");
       if (el) {
         el.addEventListener("pointerup", (event) => {
+          event.stopPropagation();
           toggleDriverInfo(driverEl);
         });
       }
