@@ -6,6 +6,9 @@ let drivers = [];
 let driverLookup = new Map();
 let driverLaps = new Map();
 
+const LAP_HUNDREDS = 100;
+const MAX_LAP = 100 * LAP_HUNDREDS;
+
 async function loadDrivers() {
   const driverFile = path.join(
     __dirname,
@@ -99,9 +102,11 @@ async function processLapFiles() {
           if (lap.kind === "initial") {
             continue;
           }
+          if (lap.duration > MAX_LAP) {
+            continue;
+          }
 
-          let endTS = lap.endTimestamp / 100;
-          endTS *= 1000;
+          let endTS = (lap.endTimestamp / 100) * 1000;
 
           const lapTime = new Date(raceStart.getTime() + endTS);
 
@@ -109,7 +114,7 @@ async function processLapFiles() {
 
           const record = {
             d: lap.duration,
-            t: lapTime.getTime(), //lapTime.toISOString(),
+            t: lapTime.getTime(),
           };
 
           driverLaps.get(driverDetails.uuid).laps.push(record);
