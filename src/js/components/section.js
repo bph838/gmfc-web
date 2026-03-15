@@ -142,6 +142,9 @@ export function renderSection(
       case "drivers":
         renderDrivers(contentdiv, data, extraData);
         break;
+      case "imageWide":
+        renderImageWide(contentdiv, data);
+        break;
     }
 
     //If there are any pdf links to render
@@ -459,4 +462,14 @@ function renderDrivers(parent, data, extraData) {
       });
     }
   }
+}
+
+function renderImageWide(parent, data) {
+  if (!data.image) {
+    console.error("Unable to render renderImageWide");
+    return;
+  }
+
+  const innerdiv = createDiv(parent, "section_wideimage");
+  createImage(innerdiv, data.image);
 }

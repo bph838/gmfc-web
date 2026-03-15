@@ -22,8 +22,8 @@
       },
       {
         "title": "Track Layout",
-        "type": "singleImage",
-        "image": "https://siteimages.gmfc.uk/comingsoon.jpg",
+        "type": "imageWide",
+        "image": "https://siteimages.gmfc.uk/racing/trackmap_map.jpg",
         "text": "The track being used for the club leaderboard is shown here."
       },
       {

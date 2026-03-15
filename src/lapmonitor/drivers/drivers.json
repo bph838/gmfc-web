@@ -2,6 +2,7 @@
   {
     "name": "Toby",
     "transponderId": 60,
+    "avatar": "https://siteimages.gmfc.uk/racing/avatars/toby.jpg",
     "uuid": "45818157efae9856b4945eddfa772b14",
     "names": ["Toby"],
     "build": [
