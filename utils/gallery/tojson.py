@@ -8,7 +8,7 @@ from PIL.ExifTags import TAGS
 
 # make sure you add the end /
 # run> python tojson.py ./gallery-gmfc/<DIRNAME>/
-# e.g. python tojson.py ./gallery-gmfc/140226/
+# e.g. py tojson.py ./gallery-gmfc/140326/
 
 parser = argparse.ArgumentParser(description="Tojson")
 parser.add_argument("image_dir", help="The image directory to parse")
@@ -41,7 +41,7 @@ output_file = "images.json"
 image_extensions = (".jpg", ".jpeg", ".png", ".gif", ".webp")
 
 # Max sizes
-MAX_IMAGE_SIZE = 2048
+MAX_IMAGE_SIZE = 3048
 MAX_THUMB_WIDTH = 360
 
 
