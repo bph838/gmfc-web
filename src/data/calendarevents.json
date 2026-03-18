@@ -14,7 +14,9 @@
   ,{ "title": "Club weekend", "start": "2026-12-19", "end": "2026-12-21",	"url": "/news/2025/01/monthly-club-days" }
 
   ,{ "title": "Weston Park Air Show", "start": "2026-06-19", "end": "2026-06-22", "url": "https://www.airshowinternational.co.uk/" }
-  ,{ "title": "BMFA Western Area Train and Test", "start": "2026-03-28", "end": "2026-03-28", "url": "https://western.bmfa.uk/train-and-test-day-march-2026" }
+  ,{ "title": "BMFA Western Area Train and Test", "start": "2026-03-28", "end": "2026-03-28", "url": "https://western.bmfa.uk/train-and-test-day-march-2026" },
+
+  { "title": "Club AGM", "start": "2026-04-12 14:00:00", "end": "2026-04-12 16:00:00",	"url": "/news/2026/03/gmfc-agm-announcement" }
 
  
   

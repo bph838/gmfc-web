@@ -29,9 +29,11 @@
     "name": "Louis",
     "transponderId": 5,
     "uuid": "bc8853c1231c93f72fe5f05773d96265",
+    "avatar": "https://siteimages.gmfc.uk/racing/avatars/louis.jpg",
     "names": ["Louis", "66"],
     "build": [
-      "Motor ESC Combination unknown!!!",
+      "Hobbywing MAX10 G2 80A ESC Combo With 3652SD 4100Kv G3 Motor",
+      "Savox Servo",
       "Hobao Hyper TT2.0 Carbon Fibre Front Lower Arm Stiffener",
       "Hobao Hyper TT2.0 Carbon Fibre Rear Lower Arm Stiffener",
       "Hobao Hyper TT2.0 CNC Aluminium Front Steering Block Set"
