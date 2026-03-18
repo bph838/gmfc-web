@@ -119,6 +119,16 @@
       "chunks": "clubweather",
       "template": "main.html",
       "date": "2026-03-02T14:41:00.571Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Club - Wildlife",
+      "page": "@/club/wildlife/index.html",
+      "url": "@/club/wildlife",
+      "keywords": "Gordano Model Flying Club, GMFC, RC helicopters, RC Planes, Remote Controlled, Gordano Model Flying Club website, RC Crawler, RC Crawler Course, RC Race track, Bristol RC Club, North Somerset RC Club, Gordano RC Club, Model helicopter, Model RC Club, Bristol Model RC Club, Somerset Model RC Club",
+      "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
+      "chunks": "clubwildlife",
+      "template": "main.html",
+      "date": "2026-03-18T19:01:34.716Z"
     }
   ]
 }

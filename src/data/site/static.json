@@ -142,6 +142,16 @@
       "jdb": "@jdbpages/club/weather.json",
       "datetype": "filemodified",
       "date": "2026-03-02T14:41:00.571Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Club - Wildlife",
+      "page": "@/club/wildlife/index.html",
+      "template": "main.html",
+      "chunks": "clubwildlife",
+      "url": "@/club/wildlife",
+      "jdb": "@jdbpages/club/wildlife/wildlife.json",
+      "datetype": "filemodified",
+      "date": "2026-03-18T19:01:34.716Z"
     }
   ]
 }

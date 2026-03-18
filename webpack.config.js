@@ -51,6 +51,7 @@ module.exports = (env, argv) => {
       clubmember: "./src/pages/club/member.js",
       clubhistory: "./src/pages/club/history.js",
       clubweather: "./src/pages/club/weather.js",
+      clubwildlife: "./src/pages/club/wildlife/wildlife.js",
       styles: "./src/scss/styles.scss",
     },
     output: {
