@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Club Wildlife",
+      "text": "Wildlife",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -11,10 +11,13 @@
     },
     "sections": [
       {
-        "title": "natre",
+        "title": "Wildlife",
         "type": "wrappedTextLeft",
-        "image": "https://siteimages.gmfc.uk/nature/frontcover.jpg",
-        "text": [""]
+        "image": "\/images/wildlife/overview.png",
+        "text": [
+          "The Gordano Model Flying Club is located on 12 acers of reclaimed land that was left for nature to take over.",
+          "The flying field takes up approximately 2/3 of the available land, there is still a lot of land for a thriving wildlife environment."
+        ]
       }
     ]
   }
