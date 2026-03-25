@@ -16,8 +16,10 @@ import {
   createTableItem,
 } from "@framework/dom";
 import { initaliseCarousel, onRotate } from "@framework/carousel3d";
-import { sanitizeString } from "@framework/utils";
+import { sanitizeString, fetchJson } from "@framework/utils";
 import { fetchAndRenderWeatherForecast } from "@components/weatherforcast";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
+import { renderGallery, setGalleryData } from "@components/gallery";
 
 export function renderSection(
   parent,
@@ -144,6 +146,9 @@ export function renderSection(
         break;
       case "imageWide":
         renderImageWide(contentdiv, data);
+        break;
+      case "gallery":
+        renderSectionGallery(contentdiv, data);
         break;
     }
 
@@ -472,4 +477,32 @@ function renderImageWide(parent, data) {
 
   const innerdiv = createDiv(parent, "section_wideimage");
   createImage(innerdiv, data.image);
+}
+
+function renderSectionGallery(parent, data) {
+  if (!data.gallery) {
+    console.error("Unable to render renderGallery");
+    return;
+  }
+
+  const url = data.gallery.url;
+  const externalPath = data.gallery.externalPath;
+
+  const sections = createDiv(parent, "sections", "gallery_section_holder");
+
+  fetchJson(url).then((gdata) => {
+    if (!gdata) {
+      console.log("No alerts to render");
+      return;
+    }
+
+    //order gallery
+    gdata.sort((a, b) => {
+      return new Date(b.date) - new Date(a.date);
+    });
+
+    console.log(gdata);
+    setGalleryData(gdata, externalPath);
+    renderGallery(sections, "gallery_all");
+  });
 }

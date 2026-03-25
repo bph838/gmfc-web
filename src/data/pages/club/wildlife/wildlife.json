@@ -22,16 +22,20 @@
       {
         "title": "Gallery",
         "type": "gallery",
-        "url": "/data/media/wildlife_gallery_data.json"
+        "gallery": {
+          "url": "/data/media/wildlife_gallery_data.json",
+          "externalPath": "https://gallery.gmfc.uk"
+        }
       },
       {
         "title": "Bees",
         "type": "wraptextleftclicksize",
         "image_tn": "https://siteimages.gmfc.uk/wildlife/bees/hive-tn.jpg",
         "image": "https://siteimages.gmfc.uk/wildlife/bees/hive.jpg",
-        "text": ["Making good use of wildlife, there is a active hive of Bees on the site."]
+        "text": [
+          "Making good use of wildlife, there is a active hive of Bees on the site."
+        ]
       }
     ]
-  },
-  "externalPath": "https://gallery.gmfc.uk"
+  }
 }
