@@ -13,7 +13,7 @@
       {
         "title": "Wildlife",
         "type": "wrappedTextLeft",
-        "image": "\/images/wildlife/overview.png",
+        "image": "https://siteimages.gmfc.uk/wildlife/overview.png",
         "text": [
           "The Gordano Model Flying Club is located on 12 acers of reclaimed land that was left for nature to take over.",
           "The flying field takes up approximately 2/3 of the available land, there is still a lot of land for a thriving wildlife environment."
@@ -22,13 +22,13 @@
       {
         "title": "Gallery",
         "type": "gallery",
-        "url": ""
+        "url": "/data/media/wildlife_gallery_data.json"
       },
       {
         "title": "Bees",
         "type": "wraptextleftclicksize",
-        "image_tn": "\/images/wildlife/bees/hive-tn.jpg",
-        "image": "\/images/wildlife/bees/hive.jpg",
+        "image_tn": "https://siteimages.gmfc.uk/wildlife/bees/hive-tn.jpg",
+        "image": "https://siteimages.gmfc.uk/wildlife/bees/hive.jpg",
         "text": ["Making good use of wildlife, there is a active hive of Bees on the site."]
       }
     ]
