@@ -30,8 +30,12 @@
       {
         "title": "Bees",
         "type": "wraptextleftclicksize",
-        "image_tn": "https://siteimages.gmfc.uk/wildlife/bees/hive-tn.jpg",
-        "image": "https://siteimages.gmfc.uk/wildlife/bees/hive.jpg",
+        "click_image": {
+          "thumbnail": "https://siteimages.gmfc.uk/wildlife/bees/hive-tn.jpg",
+          "image": "https://siteimages.gmfc.uk/wildlife/bees/hive.jpg",
+          "width": 4000,
+          "height": 2250
+        },
         "text": [
           "Making good use of wildlife, there is a active hive of Bees on the site."
         ]

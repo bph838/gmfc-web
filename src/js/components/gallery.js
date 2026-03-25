@@ -19,6 +19,28 @@ export function setGalleryData(data, externalPath) {
   external_Path = externalPath;
 }
 
+export function createClickImage(parent, data, tag = "tag") {
+  if (!data.thumbnail || !data.image || !data.width || !data.height) {
+    console.error("Unable to render createClickImage");
+    return;
+  }
+
+  let id = `single_click_${tag}`;
+
+  const holder = createDiv(parent, id, id);
+  const alink = createLink(holder, data.image);
+  alink.setAttribute("data-pswp-width", data.width);
+  alink.setAttribute("data-pswp-height", data.height);
+  createImage(alink, data.thumbnail, null, data.image, true);
+
+  let lightbox = new PhotoSwipeLightbox({
+    gallery: `#${id}`,
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+  lightbox.init();
+}
+
 export function renderGallery(sections, type) {
   console.log(type);
   //clear the element out

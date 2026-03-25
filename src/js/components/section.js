@@ -15,11 +15,14 @@ import {
   createTableBody,
   createTableItem,
 } from "@framework/dom";
-import { initaliseCarousel, onRotate } from "@framework/carousel3d";
+import { initaliseCarousel } from "@framework/carousel3d";
 import { sanitizeString, fetchJson } from "@framework/utils";
 import { fetchAndRenderWeatherForecast } from "@components/weatherforcast";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
-import { renderGallery, setGalleryData } from "@components/gallery";
+import {
+  renderGallery,
+  createClickImage,
+  setGalleryData,
+} from "@components/gallery";
 
 export function renderSection(
   parent,
@@ -150,6 +153,9 @@ export function renderSection(
       case "gallery":
         renderSectionGallery(contentdiv, data);
         break;
+      case "wraptextleftclicksize":
+        renderWrapTextLeftClickSize(contentdiv, data);
+        break;
     }
 
     //If there are any pdf links to render
@@ -175,6 +181,22 @@ function renderWrappedTextLeftSection(parent, data) {
   });
 
   renderSectionSticker(parent, sticker);
+
+  return innerdiv;
+}
+
+function renderWrapTextLeftClickSize(parent, data) {
+  if (!data.text || !data.click_image) {
+    console.error("Unable to render renderWrapTextLeftClickSize");
+    return;
+  }
+
+  const innerdiv = createDiv(parent, "section_inner_wrap_left");
+  createClickImage(innerdiv, data.click_image);
+
+  data.text.forEach((text) => {
+    createParagraph(innerdiv, text);
+  });
 
   return innerdiv;
 }

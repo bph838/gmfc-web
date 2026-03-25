@@ -180,6 +180,8 @@ export function createImage(
   return el;
 }
 
+
+
 export function createParagraph(parent, innerHTML = null, className = null) {
   if (typeof innerHTML !== "string") return;
 

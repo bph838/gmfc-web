@@ -2,16 +2,13 @@ import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
 import {
   createDiv,
-  createImage,
   fetchContextArea,
   createInput,
   createLabel,
-  emptyDiv,
+  renderFinish,
 } from "@framework/dom";
-import { fetchJson, loadMergedJson } from "@framework/utils";
-import PhotoSwipeLightbox from "photoswipe/lightbox";
+import { loadMergedJson } from "@framework/utils";
 import data from "@data/pages/gallery.json";
-import { createLink, createH3, renderFinish } from "../js/framework/dom";
 import { renderGallery, setGalleryData } from "@components/gallery";
 
 const urls = ["/data/media/gallery_data.json", "/data/media/video_data.json"];
