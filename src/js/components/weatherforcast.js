@@ -1,4 +1,8 @@
-import { DURATION_HOUR, getDayOfYearUTC } from "@framework/utils";
+import {
+  DURATION_HOUR,
+  getDayOfYearUTC,
+  isBritishSummerTime,
+} from "@framework/utils";
 import {
   createDiv,
   createH3,
@@ -206,6 +210,7 @@ function createWeatherFilter(parent) {
 
 function renderWeatherForecast_Overview(parent) {
   console.log("Rendering overview weather forcast with data:", forcast_data);
+  let isBST = isBritishSummerTime();
   let today = new Date();
   today.setHours(0, 0, 0, 0);
   let calculatedToday = getDayOfYearUTC(today);
@@ -216,7 +221,7 @@ function renderWeatherForecast_Overview(parent) {
   console.log(`Tomorrow's day of year: ${calculatedTomorrow}`);
 
   let wind_widget_size = 60;
-  let currentDay = -1; 
+  let currentDay = -1;
   forcast_data.forEach((data, index) => {
     let thisDay = new Date(data.time);
     thisDay.setHours(0, 0, 0, 0);
@@ -231,7 +236,8 @@ function renderWeatherForecast_Overview(parent) {
         dayName = "Tomorrow";
       }
       let dayOfYear = day;
-      let daylightInfo = daylight_data[dayOfYear];
+      let daylightInfo = daylight_data[dayOfYear]<< 1;
+      if (isBST) daylightInfo = daylightInfo << 1;
       console.log(`Daylight info for day ${dayOfYear}:`, daylightInfo);
 
       const h2 = createH3(parent, `${dayName}`);
@@ -270,13 +276,15 @@ function renderWeatherForecast_Overview(parent) {
       currentDay = day;
     }
   });
-  
 
   forcast_data.forEach((data, index) => {
     console.log(`Processing weather data for time ${data.time} (${index})`);
     let thisDayDay = new Date(data.time);
     thisDayDay.setHours(0, 0, 0, 0);
     let thisDay = new Date(data.time);
+    if (isBST) {
+      thisDay.setHours(thisDay.getHours() + 1);
+    }
     let day = getDayOfYearUTC(thisDayDay);
     let hour = thisDay.getHours(); //getUTCHours();
     let weatherDayId = `weatherDay-${day}`;

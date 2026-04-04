@@ -279,3 +279,20 @@ export function getLongMonthName(month) {
   if (m > 0 && m < 13) return monthNamesLong[m-1];
   return "Unknown";
 }
+
+export function isBritishSummerTime(date = new Date()) {
+  const year = date.getUTCFullYear();
+
+  // Helper to get last Sunday of a month (0 = Jan, 2 = March, 9 = October)
+  function getLastSunday(month) {
+    const lastDay = new Date(Date.UTC(year, month + 1, 0)); // last day of month
+    const dayOfWeek = lastDay.getUTCDay(); // 0 = Sunday
+    const lastSunday = lastDay.getUTCDate() - dayOfWeek;
+    return new Date(Date.UTC(year, month, lastSunday, 1, 0, 0)); // 1:00 UTC switch time
+  }
+
+  const bstStart = getLastSunday(2);  // March
+  const bstEnd = getLastSunday(9);    // October
+
+  return date >= bstStart && date < bstEnd;
+}
