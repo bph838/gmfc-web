@@ -236,7 +236,7 @@ function renderWeatherForecast_Overview(parent) {
         dayName = "Tomorrow";
       }
       let dayOfYear = day;
-      let daylightInfo = daylight_data[dayOfYear]<< 1;
+      let daylightInfo = daylight_data[dayOfYear] << 1;
       if (isBST) daylightInfo = daylightInfo << 1;
       console.log(`Daylight info for day ${dayOfYear}:`, daylightInfo);
 
@@ -332,8 +332,21 @@ function renderWeatherForecast_Overview(parent) {
 function renderWeatherForecast_Wind(parent) {
   console.log("Rendering wind weather forcast with data:", forcast_data);
   let max_wind_speed = 0;
-  let currentDay = getDayOfYearUTC(forcast_data[0].time);
+  let currentDay = -1;
+  let isBST = isBritishSummerTime();
+  let today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let calculatedToday = getDayOfYearUTC(today);
+  let tomorrow = new Date();
+  tomorrow.setHours(0, 0, 0, 0);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  let calculatedTomorrow = getDayOfYearUTC(tomorrow);
+  console.log(`Tomorrow's day of year: ${calculatedTomorrow}`);
+
   forcast_data.forEach((data, index) => {
+    let thisDay = new Date(data.time);
+    thisDay.setHours(0, 0, 0, 0);
+
     if (data.wind_speed_10m > max_wind_speed)
       max_wind_speed = data.wind_speed_10m;
     if (data.wind_speed_80m > max_wind_speed)
@@ -341,20 +354,17 @@ function renderWeatherForecast_Wind(parent) {
     //if (data.wind_speed_120m > max_wind_speed)
     //  max_wind_speed = data.wind_speed_120m;
 
-    let day = getDayOfYearUTC(data.time);
+    let day = getDayOfYearUTC(thisDay);
     if (day !== currentDay || index === 0) {
       let dayName = data.time.toLocaleDateString("en-GB", { weekday: "long" });
 
-      if (getDayOfYearUTC(data.time) === getDayOfYearUTC(new Date())) {
+      if (day === calculatedToday) {
         dayName = "Today";
-      }
-      if (
-        getDayOfYearUTC(data.time) ===
-        getDayOfYearUTC(new Date().setDate(new Date().getDate() + 1))
-      ) {
+      } else if (day === calculatedTomorrow) {
         dayName = "Tomorrow";
       }
-      let dayOfYear = getDayOfYearUTC(data.time);
+
+      let dayOfYear = day;
       let daylightInfo = daylight_data[dayOfYear];
       console.log(`Daylight info for day ${dayOfYear}:`, daylightInfo);
 
@@ -381,9 +391,11 @@ async function renderWindCharts(max_wind_speed) {
 
   await injectScript("https://cdn.jsdelivr.net/npm/chart.js");
 
-  let currentDay = getDayOfYearUTC(forcast_data[0].time);
+  let currentDay = -1;
   forcast_data.forEach((data, index) => {
-    let day = getDayOfYearUTC(data.time);
+    let dayday = new Date(data.time);
+    dayday.setHours(0, 0, 0, 0);
+    let day = getDayOfYearUTC(dayday);
     if (day !== currentDay || index === 0) {
       let weatherWindDayId = `weatherWindDay-${day}`;
       const ctx = document.getElementById(weatherWindDayId);
