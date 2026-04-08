@@ -34,7 +34,7 @@ export function renderAlerts() {
         alertDiv.className = `alert alert-${alert.type} show site-alerts`;
         alertDiv.setAttribute("role", "alert");
         alertDiv.innerHTML = `
-          <h4><strong>${alert.title}</strong></h4> ${alert.message}`;
+          <h4>${alert.title}</h4> ${alert.message}`;
         if (!showalert) alertDiv.style.display = "none";
         alertsContainer.appendChild(alertDiv);
         //need to add click handler for alert

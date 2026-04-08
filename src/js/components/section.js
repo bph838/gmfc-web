@@ -405,6 +405,10 @@ function renderSectionItems(parent, data) {
       renderedDiv = renderWrappedTextLeftSectionNews(parent, data);
       break;
   }
+  //If there are any pdf links to render
+  if (data.items[0].pdfs) {
+    renderPDFLinks(renderedDiv, data.items[0]);
+  }
   return renderedDiv;
 }
 
