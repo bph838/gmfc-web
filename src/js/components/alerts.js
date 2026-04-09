@@ -77,6 +77,12 @@ function shouldAlertBeShown(hash) {
 
 function addClickHandler(el, hash) {
   el.addEventListener("pointerup", (e) => {
+    // If the click was on a link (or inside one), do nothing
+    const link = e.target.closest("a");
+    if (link) {
+      return; // let the link work normally
+    }
+
     console.log(`activated alert click ${hash}`);
     const strNow = new Date().toISOString();
     localStorage.setItem(hash, strNow);
@@ -89,8 +95,10 @@ function renderAnyCountdowns(alertsContainer) {
   const elCd = alertsContainer.querySelectorAll(".countdown");
   setInterval(() => {
     const now = new Date();
-    elCd.forEach((el) => {      
-      const countdownType = el.dataset.cdType ? el.dataset.cdType.toLowerCase() : undefined;
+    elCd.forEach((el) => {
+      const countdownType = el.dataset.cdType
+        ? el.dataset.cdType.toLowerCase()
+        : undefined;
       const dateStr = el.dataset.cdDate;
       if (!dateStr || !countdownType) return;
 
