@@ -37,7 +37,7 @@
     },
      {
       "title": "2026 AGM",
-      "message": "<p>It is <span class='countdown' data-cd-date='2026-04-12T14:00:00' data-cd-type='days'></span> till this year's <a href='https://www.gmfc.uk/news/2026/03/gmfc-agm-announcement' target='_self'>AGM</a></p>",
+      "message": "<p>It is <span class='countdown' data-cd-date='2026-04-12T14:00:00' data-cd-type='daystohourstomins'></span> till this year's <a href='https://www.gmfc.uk/news/2026/03/gmfc-agm-announcement' target='_self'>AGM</a></p>",
       "type": "primary",
       "date_from": "2026-02-01 10:00:00",
       "date_to": "2026-04-12 14:00:00"
