@@ -1,4 +1,9 @@
-import { fetchJson, shakeContainer, getTimeParts,isBritishSummerTime } from "@framework/utils";
+import {
+  fetchJson,
+  shakeContainer,
+  getTimeParts,
+  isBritishSummerTime,
+} from "@framework/utils";
 
 export function renderAlerts() {
   console.log("Rendering alerts");
@@ -107,7 +112,6 @@ function renderAnyCountdowns(alertsContainer) {
 
       const date = new Date(dateStr.replace(" ", "T"));
       if (isNaN(date)) return;
-      
 
       const diff = date - now;
       const t = getTimeParts(diff);
@@ -122,14 +126,17 @@ function renderAnyCountdowns(alertsContainer) {
             el.textContent = `${t.hours} hours ${t.minutes} mins ${t.seconds} secs`;
           break;
         case "daystohourstomins":
-          if (t.days >= 1) {
+          if (t.days > 1) {
             el.textContent = `${t.days} days`;
+          } else if ((t.days === 1)) {
+            el.textContent = `${t.days} day`;
           } else {
             if (t.hours > 6) el.textContent = `${t.hours} hours`;
-            else if(t.hours >= 1)
+            else if (t.hours > 1)
+              el.textContent = `${t.hours} hours ${t.minutes} mins`;
+            else if ((t.hours === 1))
               el.textContent = `${t.hours} hour ${t.minutes} mins`;
-            else
-              el.textContent = `${t.minutes} mins`;
+            else el.textContent = `${t.minutes} mins`;
           }
           break;
       }
