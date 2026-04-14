@@ -18,10 +18,8 @@ function renderClubHistory(data) {
   if (!contentarea) return;
   const sectionsdiv = createDiv(contentarea, "sections");
 
-  if (data.content.sections) {
-    data.content.sections.forEach((section) => {
-      console.log(section);
-      renderSection(sectionsdiv, section);
-    });
-  }
+  data.content.sections?.forEach((section) => {
+    console.log(section);
+    renderSection(sectionsdiv, section);
+  });
 }
