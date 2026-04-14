@@ -154,9 +154,11 @@ export function renderSection(
         renderSectionGallery(contentdiv, data);
         break;
       case "wraptextleftclicksize":
-        renderWrapTextLeftClickSize(contentdiv, data);
+        renderedDiv = renderWrapTextLeftClickSize(contentdiv, data);
         break;
     }
+
+    renderImageGallery(renderedDiv, data);
 
     //If there are any pdf links to render
     renderPDFLinks(renderedDiv, data);
@@ -229,6 +231,23 @@ export function renderPDFLinks(pageSection, data) {
       pdfLink.appendChild(spanPDF);
     });
   }
+}
+
+export function renderImageGallery(parent, data) {
+  console.log("Checking for images to render");
+  if (
+    !data?.gallery?.images ||
+    !data?.gallery?.name ||
+    data?.gallery?.images.length === 0
+  )
+    return;
+
+  const imgsDiv = createDiv(parent, "images_below_text");
+  const galleryTag = data.gallery.name ?? "Gallery";
+
+  data.gallery.images.forEach((image) => {
+    createClickImage(imgsDiv, image, galleryTag);
+  });
 }
 
 function renderSectionNoImage(pageSection, data) {

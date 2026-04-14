@@ -38,7 +38,18 @@
         },
         "text": [
           "Making good use of wildlife, there is a active hive of Bees on the site."
-        ]
+        ],
+        "gallery": {
+          "name": "Honey",
+          "images": [
+            {
+              "thumbnail": "https://siteimages.gmfc.uk/wildlife/bees/honey-tn.jpg",
+              "image": "https://siteimages.gmfc.uk/wildlife/bees/honey.jpg",
+              "width": 4032,
+              "height": 3024
+            }
+          ]
+        }
       }
     ]
   }
