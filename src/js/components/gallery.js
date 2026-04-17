@@ -41,7 +41,7 @@ export function createClickImage(parent, data, tag = "tag") {
   lightbox.init();
 }
 
-export function renderGallery(sections, type) {
+export function renderGallery(sections, type, displayDates = true) {
   console.log(type);
   //clear the element out
   emptyDiv(sections);
@@ -56,27 +56,41 @@ export function renderGallery(sections, type) {
       switch (type) {
         default:
         case "gallery_all":
-          if (isImage) renderGalleryImage(galleryItem, gallerydiv);
-          if (isVideo) renderGalleryVideo(galleryItem, gallerydiv);
+          if (isImage)
+            renderGalleryImage(galleryItem, gallerydiv, displayDates);
+          if (isVideo)
+            renderGalleryVideo(galleryItem, gallerydiv, displayDates);
           break;
         case "gallery_images":
-          if (isImage) renderGalleryImage(galleryItem, gallerydiv);
+          if (isImage)
+            renderGalleryImage(galleryItem, gallerydiv, displayDates);
           break;
         case "gallery_videos":
-          if (isVideo) renderGalleryVideo(galleryItem, gallerydiv);
+          if (isVideo)
+            renderGalleryVideo(galleryItem, gallerydiv, displayDates);
           break;
       }
     });
   }
-  yearSections.forEach((yearDivId) => {
-    //Initialize PhotoSwipe Lightbox
+  if (displayDates) {
+    yearSections.forEach((yearDivId) => {
+      //Initialize PhotoSwipe Lightbox
+      let lightbox = new PhotoSwipeLightbox({
+        gallery: `#${yearDivId}`,
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+      });
+      lightbox.init();
+    });
+  }else{
+    //need to find all the images in the .gallery div and add them to a lightbox
     let lightbox = new PhotoSwipeLightbox({
-      gallery: `#${yearDivId}`,
+      gallery: `.gallery`,
       children: "a",
       pswpModule: () => import("photoswipe"),
     });
     lightbox.init();
-  });
+  }
 }
 
 function checkGalleryYearDiv(parent, date) {
@@ -97,7 +111,7 @@ function checkGalleryYearDiv(parent, date) {
   return yearDiv;
 }
 
-function renderGalleryImage(image, galleryDiv) {
+function renderGalleryImage(image, galleryDiv, displayDates = true) {
   // Normalise slashes just in case (\ vs /)
   const normalised = image.name.replace(/\\/g, "/");
 
@@ -120,7 +134,8 @@ function renderGalleryImage(image, galleryDiv) {
     imgThumbNamePath = `${external_Path}/thumbnails/${filename}`;
   }
 
-  let yearDiv = checkGalleryYearDiv(galleryDiv, image.date);
+  let yearDiv = galleryDiv;
+  if (displayDates) yearDiv = checkGalleryYearDiv(galleryDiv, image.date);
 
   const alink = createLink(yearDiv, imgPath);
   alink.setAttribute("data-pswp-width", image.width);
@@ -128,9 +143,12 @@ function renderGalleryImage(image, galleryDiv) {
   createImage(alink, imgThumbNamePath, null, image.name, true);
 }
 
-function renderGalleryVideo(video, galleryDiv) {
+function renderGalleryVideo(video, galleryDiv, displayDates = true) {
   console.log("Rendering video: " + video);
-  let yearDiv = checkGalleryYearDiv(galleryDiv, video.date);
+
+  let yearDiv = galleryDiv;
+  if (displayDates) yearDiv = checkGalleryYearDiv(galleryDiv, video.date);
+
   let title = "";
   if (video.title) title = video.title;
   //let youTubeEmbed = `<iframe width='1335' height='751' src='https://www.youtube.com/embed/SAgHBWnJ4VA' title='Flyover Gordano Model Flying Club' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>`;

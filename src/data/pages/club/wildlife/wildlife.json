@@ -47,7 +47,8 @@
         "type": "gallery",
         "gallery": {
           "url": "/data/media/wildlife_gallery_data_new.json",
-          "externalPath": "https://gallery.gmfc.uk"
+          "externalPath": "https://gallery.gmfc.uk",
+          "displayDates": false
         }
       },
       {

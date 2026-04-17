@@ -530,8 +530,9 @@ function renderSectionGallery(parent, data) {
     return;
   }
 
-  const url = data.gallery.url;
+  const url = data.gallery.url; 
   const externalPath = data.gallery.externalPath;
+  const displayDates = data.gallery.displayDates ?? true;
 
   const sections = createDiv(parent, "sections", "gallery_section_holder");
 
@@ -548,6 +549,6 @@ function renderSectionGallery(parent, data) {
 
     console.log(gdata);
     setGalleryData(gdata, externalPath);
-    renderGallery(sections, "gallery_all");
+    renderGallery(sections, "gallery_all",displayDates);
   });
 }
