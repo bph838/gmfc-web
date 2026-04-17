@@ -118,6 +118,9 @@ $video-scale-pc: 55;
 }
 
 .images_below_text {
+  display: contents;
+
+  width: 100%;
   img {
     margin-top: 5px;
     @include respond(tablet) {
@@ -131,11 +134,9 @@ $video-scale-pc: 55;
     height: auto;
     @include respond(tablet) {
       max-width: ($image-max-width * $image-scale-tablet) * 1px;
-      height: auto;
     }
     @include respond(pc) {
       max-width: ($image-max-width * $image-scale-pc) * 1px;
-      height: auto;
     }
 
     border: 2px solid #ccc;

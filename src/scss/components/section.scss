@@ -104,6 +104,7 @@ $header-scale-pc: 3;
   }
 }
 
+
 .section_inner_wrap_left {
   align-items: flex-start;
 
@@ -408,15 +409,15 @@ $header-scale-pc: 3;
   top: 20;
   left: 50;
   z-index: 10;
-  
+
   @include respond(pc, tablet) {
     margin-left: 25%;
   }
 
-  img{
-    width:300px;
+  img {
+    width: 300px;
     @include respond(pc, tablet) {
-      width:100%;
+      width: 100%;
     }
   }
 }
