@@ -96,13 +96,14 @@ module.exports = (env, argv) => {
 
     plugins: [
       //output leaderboard
+      /*
       new ExcelToCsvAndJsonPlugin({
         input: path.resolve(__dirname, "src/data/dynamic/leaderboard.xlsx"),
         sheetName: "Leaderboard", // Your Excel sheet name
         csvOutput: "src/data/dynamic/leaderboard.csv", // Where CSV will go
         jsonOutput: "src/data/leaderboard.json", // Where JSON will go
         mode: isProduction,
-      }),
+      }),*/
       new ProcessWebsitePaths({
         sourceFile: "./src/data/site/static.json",
         outputFile: "./src/data/generated/site.json",
