@@ -38,7 +38,7 @@
               "image": "https://gallery.gmfc.uk/wildlife250326/IMAG0081.jpeg",
               "width": 2944,
               "height": 1656
-            }            
+            }
           ]
         }
       },
@@ -72,17 +72,23 @@
               "width": 4032,
               "height": 3024
             },
-             {
+            {
               "thumbnail": "https://siteimages.gmfc.uk/wildlife/bees/DJI_0074-tn.JPG",
               "image": "https://siteimages.gmfc.uk/wildlife/bees/DJI_0074.JPG",
               "width": 4000,
               "height": 2250
             },
-             {
+            {
               "thumbnail": "https://siteimages.gmfc.uk/wildlife/bees/DJI_0077-tn.JPG",
               "image": "https://siteimages.gmfc.uk/wildlife/bees/DJI_0077.JPG",
               "width": 4000,
               "height": 2250
+            },
+            {
+              "thumbnail": "https://siteimages.gmfc.uk/wildlife/bees/P1053062-tn.JPG",
+              "image": "https://siteimages.gmfc.uk/wildlife/bees/P1053062.JPG",
+              "width": 3700,
+              "height": 2775
             }
           ]
         }
