@@ -51,6 +51,7 @@ class ProcessNewsSeperatedPlugin {
             title: item.title,
             date: item.date,
             image: item.image || null,
+            click_image: item.click_image || null,
             type: item.type,
             showhide: item.showhide ?? true,
             imagesticker: item.imagesticker || null,
@@ -71,6 +72,7 @@ class ProcessNewsSeperatedPlugin {
             date: item.date,
             hash: item.hash,
             image: item.image,
+            click_image: item.click_image,
             link: `/${year}/${month}/${fileName}`,
           };
         });

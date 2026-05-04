@@ -423,6 +423,9 @@ function renderSectionItems(parent, data) {
     case "wrappedTextLeft":
       renderedDiv = renderWrappedTextLeftSectionNews(parent, data);
       break;
+    case "wraptextleftclicksize":
+      renderedDiv = renderWrapTextLeftClickSizeNews(parent, data);
+      break;
   }
   //If there are any pdf links to render
   if (data.items[0].pdfs) {
@@ -447,6 +450,22 @@ function renderWrappedTextLeftSectionNews(parent, data) {
   });
 
   renderSectionSticker(parent, sticker);
+
+  return innerdiv;
+}
+
+function renderWrapTextLeftClickSizeNews(parent, data) {
+  if (!data.click_image) {
+    console.error("Unable to render renderWrapTextLeftClickSize");
+    return;
+  }
+
+  const innerdiv = createDiv(parent, "section_inner_wrap_left");
+  createClickImage(innerdiv, data.click_image);
+
+  data.items.forEach((item) => {
+    renderSectionItem(innerdiv, item);
+  });
 
   return innerdiv;
 }
@@ -530,7 +549,7 @@ function renderSectionGallery(parent, data) {
     return;
   }
 
-  const url = data.gallery.url; 
+  const url = data.gallery.url;
   const externalPath = data.gallery.externalPath;
   const displayDates = data.gallery.displayDates ?? true;
 
@@ -549,6 +568,6 @@ function renderSectionGallery(parent, data) {
 
     console.log(gdata);
     setGalleryData(gdata, externalPath);
-    renderGallery(sections, "gallery_all",displayDates);
+    renderGallery(sections, "gallery_all", displayDates);
   });
 }
