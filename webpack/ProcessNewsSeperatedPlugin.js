@@ -14,7 +14,7 @@ class ProcessNewsSeperatedPlugin {
       const sourcePath = path.resolve(srcDir, this.sourceFile);
       const outputPath = path.resolve(srcDir, this.outputFile);
 
-      if (!fs.existsSync(sourcePath)) return;
+      if (!fs.existsSync(sourcePath)) return ;
 
       try {
         const rawData = fs.readFileSync(sourcePath, "utf8");
@@ -34,6 +34,9 @@ class ProcessNewsSeperatedPlugin {
           const year = dateObj.getFullYear().toString();
           const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
 
+          const showhide = item.showhide ?? true
+          if(!showhide) return null;
+          
           const targetDir = path.resolve(
             srcDir,
             this.postsBaseDir,
@@ -75,7 +78,7 @@ class ProcessNewsSeperatedPlugin {
             click_image: item.click_image,
             link: `/${year}/${month}/${fileName}`,
           };
-        });
+        }).filter(Boolean);
 
         const summaryJson = JSON.stringify(processedSummary, null, 2);
         if (

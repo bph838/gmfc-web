@@ -143,22 +143,22 @@
     "title": "Friends & Family Day – Saturday 18th July",
     "date": "2026-05-02",
     "type": "wraptextleftclicksize",    
+    "showhide":false,
     "click_image": {
-          "thumbnail": "https://siteimages.gmfc.uk/news/friendsandfamily-2026-tn.png",
-          "image": "https://siteimages.gmfc.uk/news/friendsandfamily-2026.png",
-          "width": 1024,
-          "height": 1536
-        },
+      "thumbnail": "https://siteimages.gmfc.uk/news/friendsandfamily-2026-tn.png",
+      "image": "https://siteimages.gmfc.uk/news/friendsandfamily-2026.png",
+      "width": 1024,
+      "height": 1536
+    },
     "items": [
       {
         "itemtype": "text",
-        "text": [          
+        "text": [
           "Pack up the picnic blanket and bring the whole family — our annual Friends & Family Day is back on <strong>Saturday 18th July</strong>, and we'd love to see you there!",
           "It's the one day of the year where we throw open the gates and invite the people who matter most to come and see what we actually get up to. Whether you've been curious about what your partner disappears off to on a Sunday morning, or the kids have been asking why there's always a half-built aircraft on the kitchen table — this is your chance to find out.",
           "Come along, spread out a picnic, and enjoy a relaxed day watching the flying. There'll be plenty going on in the air to keep everyone entertained, and plenty of friendly faces happy to chat and answer questions. Bring something good to eat, find a spot in the sunshine, and enjoy the show.",
           "We hope to see you — and your family — there!"
         ]
-        
       }
     ]
   }
