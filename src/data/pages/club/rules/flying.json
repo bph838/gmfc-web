@@ -8,14 +8,260 @@
         "latitude": 51.459563,
         "longitude": -2.790968
       }
-    },    
+    },
     "sections": [
       {
-        "title": "GMFC Rules & Procedures",
-        "type": "wrappedTextLeft",
-        "image": "https://siteimages.gmfc.uk/siteimages/clubhistory.jpg",
+        "title": "Membership",
+        "type": "rawhtml",
+        "html": [
+          "<p>Anyone can apply to join and use the Club facilities subject to all the following conditions being acceptable:</p>",
+          "<ol>",
+          "<li>An introductory interview has been successfully completed.</li>",
+          "<li>The club rules and BMFA guidelines have been read & fully understood and the club</li> ",
+          "<li>Prospectus has been signed agreeing to abide by them at all times.</li>",
+          "<li>The applicant accepts a probationary me.</li>",
+          "</ol>"
+        ]
+      },
+      {
+        "title": "Training",
+        "type": "noImage",
         "text": [
-          "Please note that some content of the following documents refers to the old club name of AMARC – all rules and procedures still apply now that the club has been renamed as Gordano Model Flying Club or GMFC for short."
+          "The Club does not provide a formal training programme. It does, however, have a number of members who are willing to mentor new members and support their progress. These sessions are to be arranged in advance directly with one of the volunteers.",
+          "The club has a limited number of models that may be used to help in the initial stages of being introduced to the hobby. New members are encouraged to obtain their own model and equipment as this is an essential element of becoming a competent model pilot.  The club has an BMFA examiner who will also assist you. Members will be happy to assist in recommending suitable models and equipment.",
+          "It is a requirement for new members to have achieved their BMFA A certificate before flying unsupervised."
+        ]
+      },
+      {
+        "title": "Safety",
+        "type": "titletext",
+        "titletext": [
+          {
+            "text": "The list of current Safety Officers will be available on the website. In the absence of a Safety Officer any committee member at the field will assume the duties of the Safety Officer."
+          },
+          {
+            "text": "The Club’s Guidelines and Rules, are to be understood and followed. Every member has a responsibility to the Club and their fellow members to  safeguard the use of our Club flying site. A great deal of effort and diplomacy over the years has resulted in a good relationship with the local residents and neighbours."
+          },
+          {
+            "text": "Members ignoring or breaking the Club rules, and showing a lack of respect or consideration for public safety, the safety of other Club members, or jeopardising the use of Club site will be referred to the Committee and the disciplinary process."
+          },
+          {
+            "text": "Any Committee member, may after discussion with you, may stop your flying should you appear in breach of a club rule or the BMFA guidelines. As a BMFA member you agreed to observe the BMFA and CAA rules. It is your personal responsibility to fly safely at all times."
+          },
+          {
+            "text": "All accidents causing any injury or damage whatsoever must be reported in writing (using an Incident Form available in the clubhouse or online) to the Club Secretary within seven days, giving full details of the accident and the names of all witnesses."
+          },
+          {
+            "title": "Junior Members",
+            "text": "No junior member under the age of 14 years shall fly a model aircraft unless supervised by a responsible adult or the junior member holds the minimum of a BMFA Achievement Scheme “A” certificate and has been authorised to do so by the Club Committee."
+          },
+          {
+            "text": "Junior members under the age of 14 years shall not start an engine or carry a model with the engine running unless they are supervised by a responsible adult. "
+          }
+        ]
+      },
+      {
+        "title": "Site information",
+        "type": "titletext",
+        "titletext": [
+          {
+            "text": "Normal activities of the site include radio controlled model aircraft and model cars. Use of the site for other activities either during or after normal hours must be agreed with a committee member and recorded with a note on the Official WhatsApp group."
+          },
+          {
+            "text": "Flying times begin at 10 am and continue until 45 minutes before sunset for IC and sunset for electric. For your own safety, it is strongly recommended that you do not fly when no one else is present."
+          },
+          {
+            "text": "Our site allows access to walkers at any time. Although there are warning signs along the club access roads you must vigilant when taking off and landing."
+          },
+          {
+            "text": "Members are issued with a membership card on joining and are required to display this whilst onsite. This helps us ensure that we able to ensure that only members are flying at the site. You are required to wear your Membership Card/Name Badge whilst at the field.",
+            "title": "Membership Cards"
+          },
+          {
+            "title": "Children and dogs",
+            "text": "We have always promoted AMARC as a family club and encouraged families to spend as much time at the field. We want it to be a place for all ages to enjoy.Please play your part in keeping you children and dogs safe. You are their guardians and have responsibility at all time for their supervision. The Club does not assume that role!"
+          },
+          {
+            "text": "Dogs are always welcome but need to be on a lead whilst pilots are busy on the benches or flying. Off lead only when flying completed or a clear pause agreed with pilots. It goes without saying that you need to tidy up any ‘accidents’ around our grounds and take bags back with you. We know that your dogs are mindful of your pride and joy models. But marking you fellow flyer models is not helpful! So, if models are on the grass, dogs should be on the lead."
+          },
+          {
+            "title": "Work in the lane/drove",
+            "text": "We only can do maintenance, whether on potholes, branches etc., when we have notified the owners. This includes trees as they are not our property and cannot be worked on without permission."
+          },
+          {
+            "text": "We do not own any part of the lane or Drove. We need to be good neighbours at all times. The committee or maintenance team organisers will ensure this contact is undertaken for any arranged maintenance."
+          },
+          {
+            "text": "No unauthorised clearing, felling or topping of trees or shrubs is to be undertaken whatsoever prior consent from the Secretary or Chairman. Do not use any club owned maintenance equipment until properly trained. "
+          },
+          {
+            "title": "Refuse",
+            "text": "There is no refuse collection at our sites, please do not leave litter of any kind. All model debris, food wrappers, and drink containers etc. must be removed by their owner when they go home. "
+          },
+          {
+            "title": "Fires",
+            "text": "The lighting of fires and interfering with the fauna and flora is strictly forbidden."
+          },
+          {
+            "text": "The use of disposable BBQs are discouraged due to their fire risk. There is metal BBQ in the covered area at the Clubhouse where they must be safely placed and used."
+          },
+          {
+            "title": "WildlIfe",
+            "text": "Please respect the wildlife and our local environment as they add considerably to the pleasure of our sport. It is a criminal offence to disturb any of the Bat, Owl or nesting boxes on our site."
+          },
+          {
+            "title": "Storage",
+            "text": "The Club does not provide model storage facilities."
+          }
+        ]
+      },
+      {
+        "title": "Vehicular Access to the field",
+        "type": "rawhtml",
+        "html": [
+          "<p>There is a <strong>10 mph speed limit</strong> in Cadbury Lane, Weston Drove and on the Flying site.<p>",
+          "<p><strong>There are no exceptions to this rule; we enjoy an “Easement of vehicular access” from the owner of Cadbury lane that can be suspended should our use be considered unreasonable.</strong></p>",
+          "<p>Disciplinary action may be taken against any offender that jeopardises the future access rights of AMARC to our site.</p>",
+          "<p>Stop and give way to all pedestrians in the lane and drove. Children and dogs may be present in the lane, drove or car parking area. Every care must be exercised on entering or leaving the site Please park considerately within the designated Car Parking areas.</p>",
+          "<p>No vehicles are permitted to use the access way to the spectator area, pits or the Flying area without the express permission of a member of the Committee.</p>",
+          "<p>Vehicles may only use the area to dispose of green waste on the left of he runway, for bonafide maintenance work or in an emergency situation.</p>"
+        ]
+      },
+      {
+        "title": "AMARC flying Zones",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/flyingarea.jpg",
+        "titletext": [
+          {
+            "text": "All flying to be should be within the boundary of the field except on landing."
+          },
+          {
+            "text": "If any of the fields surrounding our site are being worked on, or there pedestrians in the drove, please remember that you are not permitted to fly within 30m of them. When this is unavoidable because of wind direction, you must cease flying until they finish work"
+          },
+          {
+            "title": "Flying approach from the West",
+            "text": "(The area to the right when standing on Pilot line)"
+          },
+          {
+            "text": "We need to remind members that the Drove adjacent to the ditch and field is a public right of way and often has walkers passing. They are not easily visible from the field."
+          },
+          {
+            "text": "As a BMFA member you agreed to observe the BMFA and CAA rules regarding the 30m separation above people. It is your personal responsibility to fly safely at all times.  "
+          },
+          {
+            "text": "You should note that the tree on either side go the gap are about 9m above the Drove. So flying through the gap does not provide adequate separation."
+          },
+          {
+            "title": "Model retrieval",
+            "text": "Mr Fowler owns the fields on our West and East boundaries. If you ‘land’ your  model in either field the following process is mandatory:"
+          },
+          {
+            "text": "We must get approval from Mr Fowler before entering his fields. You (or your instructor) need to contact either the Secretary, Chairman or Colin Denton (in that order) to request Mr Fowler’s permission."
+          },
+          {
+            "text": "Do not go to Mr Fowler ’s home until this is agreed. Or access either of his fields. Without his permission you are trespassing on his property and likely to jeopardise the entire club’s future arrangements with him."
+          },
+          {
+            "text": "There is no exception to this process regardless of model value. It needs to remain in the field until we have permission to collect. "
+          }
+        ]
+      },
+      {
+        "title": "Flying Rules",
+        "type": "titletext",
+        "titletext": [
+          {
+            "text": "The Club requires all members to join the “Society of Model Aeronautical Engineers” (BMFA). You are to abide by the recommendations contained in their annual handbook especially regarding your legal obligations when flying model aircraft. AMARC recognises the BMFA “A” Certificate as the minimum level of proficiency for “Safe Solo”"
+          },
+          {
+            "text": "Flying times begin at 10 am and continue until 45 minutes before sunset for IC and sunset for electric. For your own safety, it is strongly recommended that you do not fly when no one else is present."
+          },
+          {
+            "text": "Our site allows access to walkers at any time. Although there are warning signs along the club access roads you must vigilant when taking off and landing."
+          },
+          {
+            "text": "All flying should take place with pilots standing in the designated pilot box area."
+          },
+          {
+            "text": "As a condition of our planning permission there is a maximum of four models in the air at any time."
+          },
+          {
+            "text": "Jet Turbine powered models are NOT cleared for general flying."
+          },
+          { "text": "Do not taxi in or out of the pit area." },
+          {
+            "text": "No low aerobatics between the pilots box and take off area, pits, or members of the public. All prop hanging to be done at least halfway across the runway strip away from the pilot’s box."
+          },
+          { "text": "Unattended running of engines is not allowed." },
+          {
+            "text": "All I.C. powered fixed wing models in the pits must be tethered."
+          },
+          {
+            "text": "All Models without exception, where fitted with a throttle failsafe device must have it set to Throttle off for electric and minimum RPM for IC."
+          },
+          {
+            "text": "All models using the Club sites must meet the BMFA requirements regarding noise, weight and safety. A maximum noise level of 82 Decibels on all models is mandatory at our site and is a condition of our Planning agreement."
+          },
+          {
+            "text": "“A” or “B” certified Helicopter Pilots wishing to use the site for flying or hovering may use the special area on the far side of the strip. Non-certified Helicopter pilots should only use the area specially provided for their training and be supervised by an approved instructor."
+          },
+          {
+            "text": "All junior members (under 18 years of age) must be accompanied at all times by their parent or guardian. Exception to this is only by arrangement with the Committee and is normally subject to experience and age."
+          },
+          {
+            "text": "Novice flyers may only start their engines or fly under the supervision member who flies the same discipline and Transmitter mode unless using a “Buddy Lead”. They must not fly alone; this applies to both fixed wing and Helicopter trainees. If there is no suitable 'A' tested pilot present, you must refrain from flying."
+          },
+          {
+            "title": "Guest Flyers",
+            "text": "Members wishing to invite guests to fly at our field must have permission, prior to bringing them on site, from a committee member and recorded with a note on the Official WhatsApp group. Guest fliers must be accompanied at all times by the inviting member and are the sole responsibility of the inviting member. The guest should be encouraged to join the Club if practical."
+          }
+        ]
+      },
+      {
+        "title": "Data Protection",
+        "type": "rawhtml",
+        "html": [
+          "<p>AMARC 2002 Ltd is the data controller for the purposes of the Data Protection Act 2018 and other regulations including the UK General Data Protection Regulation (UK GDPR), which means it determines what your personal data is used for and why it is collected.</p>",
+          "<p>The Club Privacy Notice may be found on the Club Website.</p>",
+          "<p>The purpose of this privacy notice is to tell you about how we collect and use personal data in connection with our club. We may update this privacy notice from time to time. When we do this, we will communicate any changes to you and publish the revised privacy notice on our website.</p>",
+          "<p>AMARC (2002)Limited reserves the right to vary the terms of this Privacy Policy from the to time. All of the variation will automatically become effective on posting the Privacy Policy on the Club website.</p>",
+          "<p>Our main address is AMARC (2002) Limited, 61 Bridge Street, Kington, HR5 3DJ.</p>",
+          "<p>Our contact details can be found on the AMARC 2002 Ltd Website.</p>",
+          "<p>By email: secretary@amarc2002.co.uk</p>",
+          "<p>By post: AMARC (2002) Limited, 61 Bridge Street, Kington, HR5 3DJ</p>",
+          "<p>Please contact us if you:</p>",
+          "<ol>",
+          "<li>Have any questions or feedback about this Privacy Policy</li>",
+          "<li>Would like us to stop using your information</li>",
+          "<li>Want to exercise any of your rights as set out above, or have a complaint</li>",
+          "<li>Have any other queries relating to this Privacy Policy</li>",
+          "</ol>",
+          "<p>By email: secretary@amarc2002.co.uk</p>",
+          "<p>By post: AMARC (2002) Limited, 61 Bridge Street, Kington, HR5 3DJ</p>"
+        ]
+      },
+      {
+        "title": "AMARC Whatsapp Groups Code of Conduct",
+        "type": "noImage",
+        "text": [
+          "The aim of the group shall be to communicate news and notices to all members. ",
+          "All members shall be required to adhere to these principles in order to maintain suitable content in the best interest of the club.",
+          "All personal conversations shall be kept outside the AMARC group.",
+          "Ridiculing other members, rude jokes, religious comments, hate speech, racism, politics, and vulgar language will not be allowed, or carefully adjusted text to infer swear words. Be respectful and polite, don’t shame or bully other group members, if they have a different point of view or if there is a problem take it off line, no megaphone diplomacy. Be mindful of your posts, there are users of all ages and sexes within the group (especially children).",
+          "Administrators reserve the right to remove members from the group, without notice, up to a period of 6 months, for members who don’t adhere to these rules.",
+          "By participating in the AMARC 2002 WhatsApp groups, members accept the terms and conditions above."
+        ]
+      },
+      {
+        "title": "Safeguarding Junior Members and Children",
+        "type": "noImage",
+        "text": [
+          "AMARC has a statutory duty to promote the welfare and care of young children and vulnerable adults when they use our flying sites.",
+          "A Junior Member is defined as being under 18 years of age.",
+          "The Club does not undertake to supervise junior members other than for the actual act of model aircraft flying and associated pre-flight and post-flight procedures, unless specifically arranged. Our activities at the flying site do not finish at a regular time and it is therefore your responsibility to ensure the well-being of your child.",
+          "Children must be supervised at all times by a responsible adult. The level of supervision is to be commensurate with the junior member’s age, maturity, capabilities and levels of experience.",
+          "No member is to be expected to assume responsibility for a child. If asked to do so, he/she is to assume complete and total responsibility for the junior member whilst he/she is in their charge. Whilst supervising children, members should be aware of the requirements of The Children Act (1989) and avoid placing themselves in a position that could be open to misinterpretation or question. A leaflet giving advice is available from the BMFA’s Leicester Office or from the Club Secretary.",
+          "Should a member discover a child is unsupervised he/she should assume temporarily responsibility for the child’s safety in the first instance. The situation should then be rectified as soon as possible by seeking out the child’s parent/guardian/nominated adult. Any instance of such an occurrence is to be reported to the Committee as soon as possible. "
         ]
       }
     ]

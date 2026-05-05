@@ -120,6 +120,12 @@ export function renderSection(
       case "wrappedTextLeft":
         renderedDiv = renderWrappedTextLeftSection(contentdiv, data);
         break;
+      case "rawhtml":
+        renderedDiv = renderRawHtmlSection(contentdiv, data);
+        break;
+      case "titletext":
+        renderedDiv = renderTitleTextSection(contentdiv, data);
+        break;
       case "noImage":
         renderedDiv = renderSectionNoImage(contentdiv, data);
         break;
@@ -171,7 +177,7 @@ export function renderSection(
 }
 
 function renderWrappedTextLeftSection(parent, data) {
-  if (!data.text || !data.image) {
+  if (!data.image) {
     console.error("Unable to render renderSectionWrappedTextLeft");
     return;
   }
@@ -181,11 +187,60 @@ function renderWrappedTextLeftSection(parent, data) {
   const innerdiv = createDiv(parent, "section_inner_wrap_left");
   createImage(innerdiv, data.image);
 
-  data.text.forEach((text) => {
-    createParagraph(innerdiv, text);
-  });
+  //
+  if (data.text) {
+    data.text.forEach((text) => {
+      createParagraph(innerdiv, text);
+    });
+  }
+
+  if (data.titletext) {
+    data.titletext.forEach((element) => {
+      if (element.title) {
+        createH2(innerdiv, element.title);
+      }
+      if (element.text) {
+        createParagraph(innerdiv, element.text);
+      }
+    });
+  }
 
   renderSectionSticker(parent, sticker);
+
+  return innerdiv;
+}
+
+function renderRawHtmlSection(parent, data) {
+  if (!data.html) {
+    console.error("Unable to render renderRawHtmlSection");
+    return;
+  }
+
+  const innerdiv = createDiv(parent, "section_inner_raw_html");
+  let raw = "";
+  data.html.forEach((element) => {
+    raw += element;
+  });
+  innerdiv.innerHTML = raw;
+
+  return innerdiv;
+}
+
+function renderTitleTextSection(parent, data) {
+  if (!data.titletext) {
+    console.error("Unable to render renderRawHtmlSection");
+    return;
+  }
+
+  const innerdiv = createDiv(parent, "section_inner_titletext");
+  data.titletext.forEach((element) => {
+    if (element.title) {
+      createH2(innerdiv, element.title);
+    }
+    if (element.text) {
+      createParagraph(innerdiv, element.text);
+    }
+  });
 
   return innerdiv;
 }
