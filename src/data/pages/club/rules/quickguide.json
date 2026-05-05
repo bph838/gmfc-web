@@ -1,0 +1,105 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Quick Rules Guide",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "Flying Zones",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/flyingarea.jpg",
+        "titletext": [
+          {
+            "text": "All flying to be should be within the boundary of the field except on landing."
+          },
+          {
+            "text": "If any of the fields surrounding our site are being worked on, or there pedestrians in the drove, please remember that you are not permitted to fly within 30m of them. When this is unavoidable because of wind direction, you must cease flying until they finish work"
+          },
+          {
+            "title": "Flying approach from the West",
+            "text": "(The area to the right when standing on Pilot line)"
+          },
+          {
+            "text": "We need to remind members that the Drove adjacent to the ditch and field is a public right of way and often has walkers passing. They are not easily visible from the field."
+          },
+          {
+            "text": "As a BMFA member you agreed to observe the BMFA and CAA rules regarding the 30m separation above people. It is your personal responsibility to fly safely at all times.  "
+          },
+          {
+            "text": "You should note that the tree on either side go the gap are about 9m above the Drove. So flying through the gap does not provide adequate separation."
+          },
+          {
+            "title": "Model retrieval",
+            "text": "Mr Fowler owns the fields on our West and East boundaries. If you ‘land’ your  model in either field the following process is mandatory:"
+          },
+          {
+            "text": "We must get approval from Mr Fowler before entering his fields. You (or your instructor) need to contact either the Secretary, Chairman or Colin Denton (in that order) to request Mr Fowler’s permission."
+          },
+          {
+            "text": "Do not go to Mr Fowler ’s home until this is agreed. Or access either of his fields. Without his permission you are trespassing on his property and likely to jeopardise the entire club’s future arrangements with him."
+          },
+          {
+            "text": "There is no exception to this process regardless of model value. It needs to remain in the field until we have permission to collect. "
+          }
+        ]
+      },
+      {
+        "title": "Flying Rules",
+        "type": "titletext",
+        "titletext": [
+          {
+            "text": "The Club requires all members to join the “Society of Model Aeronautical Engineers” (BMFA). You are to abide by the recommendations contained in their annual handbook especially regarding your legal obligations when flying model aircraft. AMARC recognises the BMFA “A” Certificate as the minimum level of proficiency for “Safe Solo”"
+          },
+          {
+            "text": "Flying times begin at 10 am and continue until 45 minutes before sunset for IC and sunset for electric. For your own safety, it is strongly recommended that you do not fly when no one else is present."
+          },
+          {
+            "text": "Our site allows access to walkers at any time. Although there are warning signs along the club access roads you must vigilant when taking off and landing."
+          },
+          {
+            "text": "All flying should take place with pilots standing in the designated pilot box area."
+          },
+          {
+            "text": "As a condition of our planning permission there is a maximum of four models in the air at any time."
+          },
+          {
+            "text": "Jet Turbine powered models are NOT cleared for general flying."
+          },
+          { "text": "Do not taxi in or out of the pit area." },
+          {
+            "text": "No low aerobatics between the pilots box and take off area, pits, or members of the public. All prop hanging to be done at least halfway across the runway strip away from the pilot’s box."
+          },
+          { "text": "Unattended running of engines is not allowed." },
+          {
+            "text": "All I.C. powered fixed wing models in the pits must be tethered."
+          },
+          {
+            "text": "All Models without exception, where fitted with a throttle failsafe device must have it set to Throttle off for electric and minimum RPM for IC."
+          },
+          {
+            "text": "All models using the Club sites must meet the BMFA requirements regarding noise, weight and safety. A maximum noise level of 82 Decibels on all models is mandatory at our site and is a condition of our Planning agreement."
+          },
+          {
+            "text": "“A” or “B” certified Helicopter Pilots wishing to use the site for flying or hovering may use the special area on the far side of the strip. Non-certified Helicopter pilots should only use the area specially provided for their training and be supervised by an approved instructor."
+          },
+          {
+            "text": "All junior members (under 18 years of age) must be accompanied at all times by their parent or guardian. Exception to this is only by arrangement with the Committee and is normally subject to experience and age."
+          },
+          {
+            "text": "Novice flyers may only start their engines or fly under the supervision member who flies the same discipline and Transmitter mode unless using a “Buddy Lead”. They must not fly alone; this applies to both fixed wing and Helicopter trainees. If there is no suitable 'A' tested pilot present, you must refrain from flying."
+          },
+          {
+            "title": "Guest Flyers",
+            "text": "Members wishing to invite guests to fly at our field must have permission, prior to bringing them on site, from a committee member and recorded with a note on the Official WhatsApp group. Guest fliers must be accompanied at all times by the inviting member and are the sole responsibility of the inviting member. The guest should be encouraged to join the Club if practical."
+          }
+        ]
+      }
+    ]
+  }
+}

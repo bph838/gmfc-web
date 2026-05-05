@@ -81,14 +81,14 @@
       "date": "2026-05-05T13:08:02.106Z"
     },
     {
-      "title": "Gordano Model Flying Club - Club - Rules - General Rules",
-      "page": "@/club/rules/general.html",
-      "url": "@/club/rules/general",
+      "title": "Gordano Model Flying Club - Club - Rules - Quick Guide",
+      "page": "@/club/rules/quickguide.html",
+      "url": "@/club/rules/quickguide",
       "keywords": "Gordano Model Flying Club, GMFC, RC helicopters, RC Planes, Remote Controlled, Gordano Model Flying Club website, RC Crawler, RC Crawler Course, RC Race track, Bristol RC Club, North Somerset RC Club, Gordano RC Club, Model helicopter, Model RC Club, Bristol Model RC Club, Somerset Model RC Club",
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
-      "chunks": "clubrulesgeneral",
+      "chunks": "clubrulesquickguide",
       "template": "main.html",
-      "date": "2026-05-05T11:16:42.861Z"
+      "date": "2026-05-05T14:37:20.793Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Rules - Flying Rules",
@@ -98,7 +98,7 @@
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubrulesflying",
       "template": "main.html",
-      "date": "2026-05-05T13:37:03.874Z"
+      "date": "2026-05-05T14:34:42.779Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Rules - Disciplinary Procedure",

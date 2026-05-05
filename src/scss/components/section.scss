@@ -104,7 +104,10 @@ $header-scale-pc: 3;
   }
 }
 
-.section_inner_wrap_left {
+.section_inner_wrap_left,
+.section_inner_titletext,
+.sectionTextDiv,
+.section_inner_raw_html {
   align-items: flex-start;
 
   img {
@@ -127,7 +130,12 @@ $header-scale-pc: 3;
   }
 
   p {
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
+    font-size: 0.95em;
+  }
+
+  h2 {
+    font-size: 1.1em;
   }
 
   &::after {

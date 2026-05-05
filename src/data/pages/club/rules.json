@@ -19,14 +19,14 @@
         ],
         "sectionmenu": [
           {
-            "title": "GMFC Flying Rules",
+            "title": "Club Flying Rules",
             "icon":"fa-plane",
             "url": "/club/rules/flying"
           },
           {
-            "title": "GMFC General Rules",
+            "title": "Quick Rules Guide",
             "icon":"fa-book-open",
-            "url": "/club/rules/general"
+            "url": "/club/rules/quickguide"
           },
           {
             "title": "Disciplinary Procedure",

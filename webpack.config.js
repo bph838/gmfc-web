@@ -48,7 +48,7 @@ module.exports = (env, argv) => {
       clubleaderboardinstructions:"./src/pages/club/leaderboard/instructions.js",
       clubrules: "./src/pages/club/rules.js",      
       clubrulesflying: "./src/pages/club/rules/flying.js",      
-      clubrulesgeneral: "./src/pages/club/rules/general.js",     
+      clubrulesquickguide: "./src/pages/club/rules/quickguide.js",     
       clubrulesdisciplinaryprocedure: "./src/pages/club/rules/disciplinaryprocedure.js",  
       clubmerch: "./src/pages/club/merch.js",
       clubmember: "./src/pages/club/member.js",
