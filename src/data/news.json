@@ -1,38 +1,51 @@
 [
   {
+    "url": "\\news/2026/05/friends-family-day-saturday-18th-july",
+    "date": "2026-05-02T00:00:00.000Z",
+    "hash": "752afd98c7d634d1362efe8b1ba25ae7",
+    "urlJson": "\\data/generated/2026/05/752afd98c7d634d1362efe8b1ba25ae7.json",
+    "showhide": false
+  },
+  {
     "url": "\\news/2026/03/gmfc-agm-announcement",
     "date": "2026-03-16T00:00:00.000Z",
     "hash": "2587771d675010c09a848b878500c4f9",
-    "urlJson": "\\data/generated/2026/03/2587771d675010c09a848b878500c4f9.json"
+    "urlJson": "\\data/generated/2026/03/2587771d675010c09a848b878500c4f9.json",
+    "showhide": true
   },
   {
     "url": "\\news/2026/02/car-park-fence-replacement",
     "date": "2026-02-25T00:00:00.000Z",
     "hash": "21a7b2902c80fa46eda5dc48160d95b9",
-    "urlJson": "\\data/generated/2026/02/21a7b2902c80fa46eda5dc48160d95b9.json"
+    "urlJson": "\\data/generated/2026/02/21a7b2902c80fa46eda5dc48160d95b9.json",
+    "showhide": true
   },
   {
     "url": "\\news/2026/02/february-maintenance-help-needed",
     "date": "2026-02-21T00:00:00.000Z",
     "hash": "7a28c2147afccda8f993496a102f2938",
-    "urlJson": "\\data/generated/2026/02/7a28c2147afccda8f993496a102f2938.json"
+    "urlJson": "\\data/generated/2026/02/7a28c2147afccda8f993496a102f2938.json",
+    "showhide": true
   },
   {
     "url": "\\news/2026/01/track-only-members-non-flying",
     "date": "2026-01-05T00:00:00.000Z",
     "hash": "9fab97d80a55dc310eaaf30a218bc8f6",
-    "urlJson": "\\data/generated/2026/01/9fab97d80a55dc310eaaf30a218bc8f6.json"
+    "urlJson": "\\data/generated/2026/01/9fab97d80a55dc310eaaf30a218bc8f6.json",
+    "showhide": true
   },
   {
     "url": "\\news/2025/01/gmfc-and-the-caa-awareness-for-members",
     "date": "2025-01-01T00:00:00.000Z",
     "hash": "b4991984287c893bff44ccef93b81ce2",
-    "urlJson": "\\data/generated/2025/01/b4991984287c893bff44ccef93b81ce2.json"
+    "urlJson": "\\data/generated/2025/01/b4991984287c893bff44ccef93b81ce2.json",
+    "showhide": true
   },
   {
     "url": "\\news/2025/01/monthly-club-days",
     "date": "2025-01-01T00:00:00.000Z",
     "hash": "fd338a7fdd97a4e62082031c341d7138",
-    "urlJson": "\\data/generated/2025/01/fd338a7fdd97a4e62082031c341d7138.json"
+    "urlJson": "\\data/generated/2025/01/fd338a7fdd97a4e62082031c341d7138.json",
+    "showhide": true
   }
 ]
