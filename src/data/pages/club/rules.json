@@ -1,7 +1,7 @@
 {
   "content": {
     "hero": {
-      "generatehero":true,
+      "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
       "text": "Club Rules",
       "weatherCoordinates": {
@@ -15,7 +15,24 @@
         "type": "wrappedTextLeft",
         "image": "https://siteimages.gmfc.uk/siteimages/clubhistory.jpg",
         "text": [
-          "Please note that some content of the following documents refers to the old club name of AMARC – all rules and procedures still apply now that the club has been renamed as Gordano Model Flying Club or GMFC for short."
+          "Please note that some content of the rules documents refers to the old club name of AMARC – all rules and procedures still apply now that the club has been renamed as Gordano Model Flying Club or GMFC for short."
+        ],
+        "sectionmenu": [
+          {
+            "title": "GMFC Flying Rules",
+            "icon":"fa-plane",
+            "url": "rules/flying.html"
+          },
+          {
+            "title": "GMFC General Rules",
+            "icon":"fa-book-open",
+            "url": "rules/general.html"
+          },
+          {
+            "title": "Disciplinary Procedure",
+            "icon":"fa-gavel",
+            "url": "rules/disciplinaryprocedure.html"
+          }
         ],
         "pdfs": [
           {

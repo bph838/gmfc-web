@@ -162,6 +162,9 @@ export function renderSection(
 
     //If there are any pdf links to render
     renderPDFLinks(renderedDiv, data);
+
+    //If there are any in page menu items to render
+    renderInPageMenu(renderedDiv, data);
   }
 
   return section;
@@ -203,12 +206,12 @@ function renderWrapTextLeftClickSize(parent, data) {
   return innerdiv;
 }
 
-export function renderPDFLinks(pageSection, data) {
+export function renderPDFLinks(parent, data) {
   console.log("Checking for PDF links to render");
   if (data.pdfs && data.pdfs.length > 0) {
     const pdfsDiv = document.createElement("div");
     pdfsDiv.className = "pdfLinks";
-    pageSection.appendChild(pdfsDiv);
+    parent.appendChild(pdfsDiv);
 
     data.pdfs.forEach((pdf) => {
       const pdfDiv = document.createElement("div");
@@ -229,6 +232,33 @@ export function renderPDFLinks(pageSection, data) {
       spanPDF.innerHTML = pdf.text;
       spanPDF.class = "pdfimagedesc";
       pdfLink.appendChild(spanPDF);
+    });
+  }
+}
+
+export function renderInPageMenu(parent, data) {
+  console.log("Checking for sectionmenu menu items to render");
+  if (data.sectionmenu && data.sectionmenu.length > 0) {
+    const sectionmenuDiv = document.createElement("nav");
+    sectionmenuDiv.className = "menu-grid";
+    sectionmenuDiv.ariaLabel = "Page sections";
+    parent.appendChild(sectionmenuDiv);
+
+    data.sectionmenu.forEach((item) => {
+      const menu = document.createElement("a");
+      menu.className = "menu-tile";
+      menu.href = item.url;
+      sectionmenuDiv.appendChild(menu);
+
+      createSpan(menu, "tile-dot");
+      const icon = document.createElement("i");
+      icon.classList.add("fa-solid");
+      if (item.icon) {
+        icon.classList.add(item.icon);
+      }
+      icon.classList.add("tile-icon");
+      menu.appendChild(icon);
+      createSpan(menu, "tile-label", item.title);
     });
   }
 }
