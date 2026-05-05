@@ -21,17 +21,17 @@
           {
             "title": "GMFC Flying Rules",
             "icon":"fa-plane",
-            "url": "rules/flying.html"
+            "url": "/club/rules/flying"
           },
           {
             "title": "GMFC General Rules",
             "icon":"fa-book-open",
-            "url": "rules/general.html"
+            "url": "/club/rules/general"
           },
           {
             "title": "Disciplinary Procedure",
             "icon":"fa-gavel",
-            "url": "rules/disciplinaryprocedure.html"
+            "url": "/club/rules/disciplinaryprocedure"
           }
         ],
         "pdfs": [

@@ -1,4 +1,4 @@
-import { createDiv, createH1, createSpan } from "@framework/dom";
+import { createDiv, createH1, createSpan, emptyDiv } from "@framework/dom";
 import { setSiteImage } from "@framework/utils";
 import { renderAlerts } from "@components/alerts";
 import {
@@ -55,6 +55,9 @@ export function renderHero(data) {
         "container-h1",
       );
       createH1(heroTextDiv, data.text);
+    } else {
+      emptyDiv(ch1);
+      createH1(ch1, data.text);
     }
   }
 

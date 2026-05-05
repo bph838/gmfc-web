@@ -88,7 +88,7 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         "@components": path.resolve(__dirname, "src/js/components"),
-        "@framework": path.resolve(__dirname, "src/js/framework"),
+        "@framework": path.resolve(__dirname, "src/js/framework"),        
         "@data": path.resolve(__dirname, "src/data"),
         "@lapmonitor":path.resolve(__dirname, "src/lapmonitor"),
         "@jdbpages": path.resolve(__dirname, "src/data/pages"),
