@@ -80,6 +80,8 @@ class DynamicHtmlManagerPlugin {
         let keywords = pageData.keywords;
         let description = pageData.description;
         let chunks = pageData.chunks;
+        let pageImage = pageData.image;
+       
 
         // Programmatically add a new HtmlWebpackPlugin to the compiler
         new HtmlWebpackPlugin({
@@ -93,14 +95,14 @@ class DynamicHtmlManagerPlugin {
             keywords: keywords,
             description: description,
             site: site,
-            image: pageData.image,
+            image: pageImage,
             month: pageData.month,
             year: pageData.year,
             hash: pageData.hash,
             title: pageData.title,
             urlJson: pageData.urlJson,
-            month:0,
-            year:0,
+            month: 0,
+            year: 0,
           },
         }).apply(compiler);
       });

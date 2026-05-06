@@ -50,10 +50,16 @@ class ProcessNewsSeperatedPlugin {
             const fileName = `${item.hash}.json`;
             const filePath = path.join(targetDir, fileName);
 
+            let pageImage = item.image;
+            if (!pageImage) {
+              if (item.click_image && item.click_image.image)
+                pageImage = item.click_image.image;
+            }
+
             const postContent = {
               title: item.title,
               date: item.date,
-              image: item.image || null,
+              image: pageImage || null,
               click_image: item.click_image || null,
               type: item.type,
               showhide: item.showhide ?? true,
@@ -74,7 +80,7 @@ class ProcessNewsSeperatedPlugin {
               title: item.title,
               date: item.date,
               hash: item.hash,
-              image: item.image,
+              image: pageImage || null,
               showhide: showhide,
               click_image: item.click_image,
               link: `/${year}/${month}/${fileName}`,

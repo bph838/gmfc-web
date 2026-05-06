@@ -115,7 +115,7 @@ module.exports = (env, argv) => {
         sourceFile: "./src/data/site/alerts.json",
         outputFile: "./src/data/alerts.json",
       }),
-      new ProcessNewsPlugin({
+      new ProcessNewsPlugin({ 
         sourceFile: "./src/data/site/news-raw.json",
         outputFile: "./src/data/generated/news-step-1.json",
       }),
