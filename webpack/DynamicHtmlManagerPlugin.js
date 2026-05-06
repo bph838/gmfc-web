@@ -42,7 +42,7 @@ class DynamicHtmlManagerPlugin {
           outputFilename += "index.html";
         }
 
-        let pageurl = "https://www.gmfc.uk/" + outputFilename;
+        let pageurl = "https://www.gmfc.uk/" + checkWebPath(outputFilename);
         let keywords = pageData.keywords;
         let description = pageData.description;
         let chunks = pageData.chunks;
@@ -76,12 +76,11 @@ class DynamicHtmlManagerPlugin {
           outputFilename += "index.html";
         }
 
-        let pageurl = "https://www.gmfc.uk/" + outputFilename;
+        let pageurl = "https://www.gmfc.uk/" + checkWebPath(outputFilename);
         let keywords = pageData.keywords;
         let description = pageData.description;
         let chunks = pageData.chunks;
         let pageImage = pageData.image;
-       
 
         // Programmatically add a new HtmlWebpackPlugin to the compiler
         new HtmlWebpackPlugin({
@@ -114,6 +113,10 @@ class DynamicHtmlManagerPlugin {
       console.error("[DynamicHtmlManagerPlugin] Error:", err);
     }
   }
+}
+
+function checkWebPath(urlPart) {
+  return urlPart.replace(/^\/+/, "");
 }
 
 module.exports = DynamicHtmlManagerPlugin;
