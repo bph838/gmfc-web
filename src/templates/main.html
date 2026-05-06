@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="index, follow">
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml">    
+    <meta name="robots" content="index, follow" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <link rel="canonical" href='<%=  pageurl %>'  />
-    <meta name="keywords" content='<%=  keywords %>' />        
-    <meta name="author" content='<%= site.sitename %>'>
-    <meta name="description" content='<%= description %>'>    
-  
+    <link rel="canonical" href="<%=  pageurl %>" />
+    <meta name="keywords" content="<%=  keywords %>" />
+    <meta name="author" content="<%= site.sitename %>" />
+    <meta name="description" content="<%= description %>" />
+
     <%= partials.favicon %>
     <link
       rel="stylesheet"
@@ -24,30 +24,36 @@
     />
     <link rel="stylesheet" href="/styles/styles.css" />
     <%= partials.google_analytics %>
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gmfc.uk">
-    <meta property="og:description" content="Gordano Model Flying Club has its own flying field in the Gordano Valley, between Portishead and Clevedon. Members can fly all year round in daylight hours.">
-    <meta property="og:image" content="https://siteimages.gmfc.uk/hero/hero-helicopter.jpg">
-    <meta name="geo.position" content="51.459563;-2.790968">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%=  pageurl %>" />
+    <meta
+      property="og:description"
+      content="Gordano Model Flying Club has its own flying field in the Gordano Valley, between Portishead and Clevedon. Members can fly all year round in daylight hours."
+    />
+    <meta
+      property="og:image"
+      content="https://siteimages.gmfc.uk/hero/hero-helicopter.jpg"
+    />
+    <meta name="geo.position" content="51.459563;-2.790968" />
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Club",
-  "name": "Gordano Model Flying Club",
-  "image": "https://siteimages.gmfc.uk/siteimages/logo.png",  
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 51.459563,
-    "longitude": -2.790968
-  },
-  "url": "https://www.gmfc.uk"
-}
-</script>
+      {
+        "@context": "https://schema.org",
+        "@type": "Club",
+        "name": "Gordano Model Flying Club",
+        "image": "https://siteimages.gmfc.uk/siteimages/logo.png",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 51.459563,
+          "longitude": -2.790968
+        },
+        "url": "https://www.gmfc.uk"
+      }
+    </script>
   </head>
   <body>
     <%= partials.navigation %>
     <main>
-      <div id="hero" style="display:none"></div>
+      <div id="hero" style="display: none"></div>
       <div id="contentarea"></div>
     </main>
     <%= partials.footer %>
