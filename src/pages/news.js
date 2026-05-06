@@ -14,6 +14,8 @@ import {
   setMeta,
   isAbsoluteUrl,
   getLongMonthName,
+  setSiteImage,
+  setSiteTitle,
 } from "@framework/utils";
 const { SITE_TITLE, SITE_ADDRESS } = require("@components/constants");
 
@@ -22,12 +24,12 @@ import menu from "@data/generated/menu.json";
 
 const newsItemUrl = "news";
 
-setupMenuCommands("page-news",menu);
+setupMenuCommands("page-news", menu);
 console.log("Rending news");
 renderNews(data);
 
 function renderNews(data) {
-  if (data.content.hero) renderHero(data.content.hero);
+  if (data.content.hero) renderHero(data.content.hero,false);
 
   const contentarea = fetchContextArea(data);
   if (!contentarea) return;
@@ -73,7 +75,7 @@ function renderNews(data) {
       .then(renderFinish());
   } else {
     const newUrl = data.newsUrl;
-    
+
     renderNewsBreadline(sectionsdiv, 0, 0, "none");
     fetchJson(newUrl)
       .then((news_items) => {
@@ -101,7 +103,8 @@ function renderNewsItem(parent, urlJson, url) {
     console.log("Processing news: ");
     console.log(news);
     let showhide = news.showhide ?? true;
-    if (showhide) renderSection(newholderdiv, news, url, "sectionline", {}, true);
+    if (showhide)
+      renderSection(newholderdiv, news, url, "sectionline", {}, true);
   });
 }
 
@@ -111,6 +114,13 @@ function renderSingleNewsItem(parent, urlJson) {
   fetchJson(urlJson).then((news) => {
     console.log("Processing news: ");
     console.log(news);
+    if (news.image) {
+      setSiteImage(news.image);
+    }
+    if (news.title) {
+      setSiteTitle(news.title);
+    }
+
     const date = new Date(news.date);
 
     let year = date.getUTCFullYear();
@@ -171,7 +181,7 @@ function renderNewsBreadline(parent, year, monthd, type = "yearmonth") {
         `<a href="${newsYearMonthUrl}">${getLongMonthName(month)}</a>`,
       );
       break;
-    case "none":      
+    case "none":
       createListItem(ol, "breadcrumb-item", `<a href="${newsUrl}">News</a>`);
       break;
   }

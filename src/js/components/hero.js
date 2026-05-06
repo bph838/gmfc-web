@@ -7,7 +7,7 @@ import {
   getDaylight,
 } from "@components/weatherinfo";
 
-export function renderHero(data) {
+export function renderHero(data,setimage=true) {
   console.log("renderHero called");
 
   const hero = document.getElementById("hero");
@@ -37,7 +37,7 @@ export function renderHero(data) {
     }
   }
 
-  if (sitepic.length >= 0) {
+  if (sitepic.length >= 0 && setimage) {
     setSiteImage(sitepic);
   }
 

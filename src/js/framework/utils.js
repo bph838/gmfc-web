@@ -201,6 +201,10 @@ export function formatLaptime(secs) {
 export function setSiteImage(url) {
   setMeta("og:image", url);
 }
+export function setSiteTitle(title) {
+  setMeta("og:title", title);
+}
+
 
 export function isAbsoluteUrl(url) {
   try {
