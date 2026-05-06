@@ -19,12 +19,12 @@
         ],
         "sectionmenu": [
           {
-            "title": "Club Flying Rules",
+            "title": "Club Rules",
             "icon":"fa-plane",
             "url": "/club/rules/flying"
           },
           {
-            "title": "Quick Rules Guide",
+            "title": "Quick Guide",
             "icon":"fa-book-open",
             "url": "/club/rules/quickguide"
           },

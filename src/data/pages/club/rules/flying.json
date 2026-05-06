@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Flying Rules",
+      "text": "Club Rules",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
