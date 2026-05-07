@@ -45,11 +45,13 @@ module.exports = (env, argv) => {
       aboutus: "./src/pages/aboutus.js",
       gallery: "./src/pages/gallery.js",
       clubleaderboard: "./src/pages/club/leaderboard.js",
-      clubleaderboardinstructions:"./src/pages/club/leaderboard/instructions.js",
-      clubrules: "./src/pages/club/rules.js",      
-      clubrulesflying: "./src/pages/club/rules/flying.js",      
-      clubrulesquickguide: "./src/pages/club/rules/quickguide.js",     
-      clubrulesdisciplinaryprocedure: "./src/pages/club/rules/disciplinaryprocedure.js",  
+      clubleaderboardinstructions:
+        "./src/pages/club/leaderboard/instructions.js",
+      clubrules: "./src/pages/club/rules.js",
+      clubrulesflying: "./src/pages/club/rules/flying.js",
+      clubrulesquickguide: "./src/pages/club/rules/quickguide.js",
+      clubrulesdisciplinaryprocedure:
+        "./src/pages/club/rules/disciplinaryprocedure.js",
       clubmerch: "./src/pages/club/merch.js",
       clubmember: "./src/pages/club/member.js",
       clubhistory: "./src/pages/club/history.js",
@@ -88,9 +90,9 @@ module.exports = (env, argv) => {
     resolve: {
       alias: {
         "@components": path.resolve(__dirname, "src/js/components"),
-        "@framework": path.resolve(__dirname, "src/js/framework"),        
+        "@framework": path.resolve(__dirname, "src/js/framework"),
         "@data": path.resolve(__dirname, "src/data"),
-        "@lapmonitor":path.resolve(__dirname, "src/lapmonitor"),
+        "@lapmonitor": path.resolve(__dirname, "src/lapmonitor"),
         "@jdbpages": path.resolve(__dirname, "src/data/pages"),
         "@siteliveurl": "https://www.gmfc.uk/",
       },
@@ -115,7 +117,7 @@ module.exports = (env, argv) => {
         sourceFile: "./src/data/site/alerts.json",
         outputFile: "./src/data/alerts.json",
       }),
-      new ProcessNewsPlugin({ 
+      new ProcessNewsPlugin({
         sourceFile: "./src/data/site/news-raw.json",
         outputFile: "./src/data/generated/news-step-1.json",
       }),

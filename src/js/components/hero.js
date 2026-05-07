@@ -7,7 +7,7 @@ import {
   getDaylight,
 } from "@components/weatherinfo";
 
-export function renderHero(data,setimage=true) {
+export function renderHero(data, setimage = true) {
   console.log("renderHero called");
 
   const hero = document.getElementById("hero");
@@ -151,6 +151,7 @@ export function renderHero(data,setimage=true) {
   }
 
   hero.style.display = "block";
+  
 }
 
 function getImageForHero(herotype) {

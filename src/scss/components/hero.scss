@@ -1,6 +1,7 @@
 @use "../response" as *;
 
 .hero {
+  z-index: 1000;
   display: flex !important;
   align-items: center;
   color: #fff !important;
@@ -174,6 +175,15 @@
       margin-right: 0.5em;
     }
   }
+}
+
+.navbar-collapse.show {
+  z-index: 1060 !important;
+  position: relative;
+}
+
+nav {
+  z-index: 1060 !important;
 }
 
 #navbar-alert {
