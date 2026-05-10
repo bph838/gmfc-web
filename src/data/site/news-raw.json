@@ -143,7 +143,7 @@
     "title": "Friends & Family Day 2026",
     "date": "2026-05-02",
     "type": "wraptextleftclicksize",    
-    "showhide":false,
+    "showhide":true,
     "click_image": {
       "thumbnail": "https://siteimages.gmfc.uk/news/friendsandfamily-2026-tn.png",
       "image": "https://siteimages.gmfc.uk/news/friendsandfamily-2026.png",
