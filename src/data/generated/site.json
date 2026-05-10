@@ -127,8 +127,28 @@
       "keywords": "Gordano Model Flying Club, GMFC, RC helicopters, RC Planes, Remote Controlled, Gordano Model Flying Club website, RC Crawler, RC Crawler Course, RC Race track, Bristol RC Club, North Somerset RC Club, Gordano RC Club, Model helicopter, Model RC Club, Bristol Model RC Club, Somerset Model RC Club",
       "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
       "chunks": "clubmember",
+      "template": "main.html",
+      "date": "2026-05-10T17:52:28.018Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Club - Member",
+      "page": "@/club/member/existing.html",
+      "url": "@/club/member/existing",
+      "keywords": "Gordano Model Flying Club, GMFC, RC helicopters, RC Planes, Remote Controlled, Gordano Model Flying Club website, RC Crawler, RC Crawler Course, RC Race track, Bristol RC Club, North Somerset RC Club, Gordano RC Club, Model helicopter, Model RC Club, Bristol Model RC Club, Somerset Model RC Club",
+      "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
+      "chunks": "clubmemberexisting",
       "template": "member.html",
-      "date": "2026-03-02T14:40:54.564Z"
+      "date": "2026-05-10T17:32:01.789Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Club - Prospective",
+      "page": "@/club/member/prospective.html",
+      "url": "@/club/member/prospective",
+      "keywords": "Gordano Model Flying Club, GMFC, RC helicopters, RC Planes, Remote Controlled, Gordano Model Flying Club website, RC Crawler, RC Crawler Course, RC Race track, Bristol RC Club, North Somerset RC Club, Gordano RC Club, Model helicopter, Model RC Club, Bristol Model RC Club, Somerset Model RC Club",
+      "description": "Gordano Model Flying Club is an active model flying club offering members events, news, calendars, gallery and community activities for RC enthusiasts in Gordano and beyond.",
+      "chunks": "clubmemberprospective",
+      "template": "main.html",
+      "date": "2026-05-10T17:52:51.991Z"
     },
     {
       "title": "Gordano Model Flying Club - Club - Leaderboard",

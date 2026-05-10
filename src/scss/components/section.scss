@@ -404,9 +404,13 @@ $header-scale-pc: 3;
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
   gap: 14px;
   padding: 1rem 0;
+  justify-content: center; // centres columns within the grid
+  max-width: 400px; // prevents grid from spanning full width
+  margin: 0 auto;
+
   .menu-tile {
     display: flex;
     flex-direction: column;

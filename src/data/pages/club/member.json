@@ -3,8 +3,31 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Members"
+      "text": "Member Options",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
     },
-    "sections": [{}]  
+    "sections": [
+      {
+        "title": "Member Options",
+        "type": "noImage",
+        "image": "https://siteimages.gmfc.uk/siteimages/member.jpg",
+        "text": [""],
+        "sectionmenu": [
+          {
+            "title": "Existing Members",
+            "icon": "fa-plane",
+            "url": "/club/member/existing"
+          },
+          {
+            "title": "Prospective Members",
+            "icon": "fa-book-open",
+            "url": "/club/member/prospective"
+          }
+        ]
+      }
+    ]
   }
 }
