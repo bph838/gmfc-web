@@ -3,8 +3,23 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Prospective Members"
+      "text": "Prospective Members",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
     },
-    "sections": [{}]  
+    "sections": [
+      {
+        "title": "Welcome",
+        "type": "wrappedTextLeft",
+        "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
+        "text": [
+          "Welcome! It looks like you're interested in joining the Gordano Model Flying Club — and we're glad you're here.",
+          "As part of our joining process, we ask that all new members come along and meet us first — it's a great opportunity for us to get to know each other.",
+          "Please <a href='\\aboutus#contactus' target='_self'>contact us</a> and we'll get a time sorted for you to come down to the club — we'd love to show you around!"
+        ]
+      }
+    ]
   }
 }

@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Member Options",
+      "text": "Membership",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -11,7 +11,7 @@
     },
     "sections": [
       {
-        "title": "Member Options",
+        "title": "Membership",
         "type": "noImage",
         "image": "https://siteimages.gmfc.uk/siteimages/member.jpg",
         "text": [""],
