@@ -83,6 +83,9 @@ export function renderHero(data, setimage = true) {
     "herochange",
     `<i class="fa-solid fa-helicopter"></i>`,
   );
+  const dronespanParent = createSpan(herochangediv, "herochangedronespan");
+  const dronespanDiv = createDiv(dronespanParent,"herochangedrone")
+
   const racecarspan = createSpan(
     herochangediv,
     "herochange",
@@ -105,6 +108,9 @@ export function renderHero(data, setimage = true) {
   });
   crawlerspan.addEventListener("pointerup", (event) => {
     changeHeroImage("crawler");
+  });
+  dronespanDiv.addEventListener("pointerup", (event) => {
+    changeHeroImage("drone");
   });
 
   //render any alerts
@@ -151,7 +157,6 @@ export function renderHero(data, setimage = true) {
   }
 
   hero.style.display = "block";
-  
 }
 
 function getImageForHero(herotype) {
@@ -169,6 +174,9 @@ function getImageForHero(herotype) {
       break;
     case "crawler":
       imageurl = "https://siteimages.gmfc.uk/hero/hero-crawl.jpg";
+      break;
+    case "drone":
+      imageurl = "https://siteimages.gmfc.uk/hero/hero-drone.jpg";
       break;
   }
   return imageurl;
