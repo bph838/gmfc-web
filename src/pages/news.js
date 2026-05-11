@@ -29,7 +29,7 @@ console.log("Rending news");
 renderNews(data);
 
 function renderNews(data) {
-  if (data.content.hero) renderHero(data.content.hero,false);
+  if (data.content.hero) renderHero(data.content.hero, false);
 
   const contentarea = fetchContextArea(data);
   if (!contentarea) return;
@@ -98,13 +98,14 @@ function fetchNews(parent, news_section, year = null, month = null) {
 
 function renderNewsItem(parent, urlJson, url) {
   console.log("Fetching news item: ");
-  const newholderdiv = createDiv(parent);
+  const newholderdiv = createDiv(parent, "section_generated_news");
   fetchJson(urlJson).then((news) => {
     console.log("Processing news: ");
     console.log(news);
     let showhide = news.showhide ?? true;
     if (showhide)
       renderSection(newholderdiv, news, url, "sectionline", {}, true);
+    else newholderdiv.classList.remove("section_generated_news");
   });
 }
 

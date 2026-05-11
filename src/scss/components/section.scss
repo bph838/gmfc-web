@@ -57,6 +57,15 @@ $hoverTiltOffset: 60;
   }
 }
 
+.section_generated_news {
+  &::after {
+    @include line_break;
+  }
+  &:last-child::after {
+    content: none; // remove the separator for the last sect
+  }
+}
+
 .section_content {
   display: flex;
   flex-wrap: wrap;

@@ -29,6 +29,22 @@
           "Grab a flask and some sandwiches, pull up a chair, and enjoy the flying. You'll pick up a wealth of knowledge just by being there. The tips and advice that could genuinely save you time, money, and a few crashes along the way!",
           "The RC hobby can feel overwhelming at first, but don't let that put you off. Everyone starts somewhere, and you'll be surprised how quickly it all starts to click."
         ]
+      },
+      {
+        "title": "Prerequisites",
+        "type": "noImage",
+        "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
+        "text": [
+          ""          
+        ]
+      },
+       {
+        "title": "Safety ",
+        "type": "noImage",
+        "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
+        "text": [
+          ""          
+        ]
       }
     ]
   }
