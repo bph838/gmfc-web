@@ -24,10 +24,12 @@
         "title": "Training",
         "type": "noImage",
         "text": [
-          "We'd love nothing more than to have a full-time trainer on hand, but like most clubs, we rely on something far more valuable,<strong> our members</strong>.",
-          "The experienced flyers in our club are a fantastic bunch, and they're always happy to pass on their knowledge. The best way to tap into that is simply to come down and have a chat.",
-          "Grab a flask and some sandwiches, pull up a chair, and enjoy the flying. You'll pick up a wealth of knowledge just by being there. The tips and advice that could genuinely save you time, money, and a few crashes along the way!",
-          "The RC hobby can feel overwhelming at first, but don't let that put you off. Everyone starts somewhere, and you'll be surprised how quickly it all starts to click."
+          "Nothing would please us more if we could employ a full-time trainer, sadly that’s not really an option.",
+          "The training that takes place at the club happens because people have formed relationships with people that are willing to assist.  The best way to form these relationships is to come down to the club and chat with the flyers.",
+          "There is nothing to worry about, pack a flask and some sandwiches and pop down. The information you will learn will be priceless and honestly will save you money.",
+          "The RC hobby can be a minefield to start with, but you soon pick it up.",
+          "A simulator is well worth the investment.  There are different simulators on the market and even some free ones.  <a href='https://www.realflight.com/realflight-evolution-rc-flight-simulator/' target=rf >Realflight</a> will appear at the top of many people’s simulator list, and can be bought with a controller.  Come down to the club and chat with the flyers, get a feel for what is being used."
+
         ]
       },
       {
@@ -35,15 +37,19 @@
         "type": "noImage",
         "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
         "text": [
-          ""          
+          "To be a flying member of Gordano Model Flying Club we require you to be a member of the <a href='https://bmfa.club/' target='bmfa'>British Model Flying Association (BFMA)</a> and register with the <a href='https://register-drones.caa.co.uk/my-registration' target='caa'>CAA</a>.",
+          "When you register with the CAA you will be given a Flyer ID, if you want to fly though you will need to get an <a href='https://www.caa.co.uk/drones/open-category/getting-started-with-drones-and-model-aircraft/get-an-operator-id/' target='caa'>Operator ID</a>.  You are required to display your Operator ID on any craft you fly.  Nothing to worry about, it’s an online test that with a little studying you will be fine.",
+          "You are required to display your Operator ID on any craft you fly.  "
         ]
       },
-       {
+      {
         "title": "Safety ",
         "type": "noImage",
         "image": "https://siteimages.gmfc.uk/siteimages/siteflying.jpg",
         "text": [
-          ""          
+          "Getting into RC as a newcomer or returning after a break can feel like stepping into a whole new world. Today's craft perform at a level that simply wasn't possible before, driven by remarkable advances in battery and motor technology",
+          "We mainly use <a href='https://en.wikipedia.org/wiki/Lithium_polymer_battery' target='wiki'>Lithium polymer (LiPo)</a> batteries for our electric models.  These are <strong>not</strong> like the AAA’s you have a home.",
+          "Please come to the club and chat with the members there, learning the basics of battery safety early on is recommended."
         ]
       }
     ]
