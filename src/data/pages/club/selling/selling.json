@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": true,
       "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Lots for sale",
+      "text": "Stuff for sale",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -16,5 +16,6 @@
         "text": [""]
       }
     ]
-  }
+  },
+  "externalPath": "https://gmfc-images-selling.s3.eu-west-2.amazonaws.com/"
 }
