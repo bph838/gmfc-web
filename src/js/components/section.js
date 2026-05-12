@@ -335,7 +335,7 @@ export function renderImageGallery(parent, data) {
   });
 }
 
-function renderSectionNoImage(pageSection, data) {
+export function renderSectionNoImage(pageSection, data) {
   if (!data.text) {
     console.error("Unable to render renderSectionNoImage");
     return;
@@ -655,4 +655,11 @@ function renderSectionGallery(parent, data) {
     setGalleryData(gdata, externalPath);
     renderGallery(sections, "gallery_all", displayDates);
   });
+}
+
+export function renderSellingGallery(parent, data, externalPath) {
+  const sections = createDiv(parent, "sections", "gallery_section_holder");
+
+  setGalleryData(data, externalPath);
+  renderGallery(sections, "gallery_all", false);
 }

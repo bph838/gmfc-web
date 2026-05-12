@@ -1,6 +1,10 @@
 import { setupMenuCommands } from "@components/menu";
 import { renderHero } from "@components/hero";
-import { renderSection } from "@components/section";
+import {
+  renderSection,
+  renderSectionNoImage,
+  renderSellingGallery,
+} from "@components/section";
 import {
   createDiv,
   fetchContextArea,
@@ -16,9 +20,17 @@ import data from "@data/pages/club/selling/selling.json";
 import menu from "@data/generated/menu.json";
 
 const externalPath = data.externalPath;
+const params = Object.fromEntries(
+  window.location.hash
+    .slice(1)
+    .split("&")
+    .map((p) => p.split("=")),
+);
+console.log(params.lot);
 
 setupMenuCommands("page-clubselling", menu);
-renderClubSelling(data);
+if (params.lot) renderClubSellingLot(data, params.lot);
+else renderClubSelling(data);
 renderFinish();
 
 function renderClubSelling(data) {
@@ -28,6 +40,8 @@ function renderClubSelling(data) {
   const contentarea = fetchContextArea(data);
   if (!contentarea) return;
   const sectionsdiv = createDiv(contentarea, "sections");
+
+  const salediv = createDiv(sectionsdiv, "section-sales");
 
   //need to read _index.json
   let saleUrl = "/data/pages/club/selling/generated/_index.json";
@@ -41,15 +55,15 @@ function renderClubSelling(data) {
         const now = new Date();
         if (expires >= new Date()) {
           itemsFound = true;
-          const sellDiv = createDiv(sectionsdiv, "selling_item");
-          const href = `/club/selling/index.html#item=${hash}`;
-          createLink(sellDiv, href, null, title);
+          const sellDiv = createDiv(salediv, "selling_item");
+          const href = `/club/selling/index.html#lot=${hash}`;
+          createLink(sellDiv, href, null, title, "_self");
         }
       });
     }
 
     if (!itemsFound) {
-      createParagraph(sectionsdiv, "There are no items to list at the moment");
+      createParagraph(salediv, "There are no items to list at the moment");
     }
   });
 
@@ -58,4 +72,32 @@ function renderClubSelling(data) {
     console.log(section);
     renderSection(sectionsdiv, section);
   });*/
+}
+
+function renderClubSellingLot(data, lotHash) {
+  console.log(data);
+  if (data.content.hero) renderHero(data.content.hero);
+
+  const contentarea = fetchContextArea(data);
+  if (!contentarea) return;
+  const sectionsdiv = createDiv(contentarea, "sections");
+
+  let saleUrl = `/data/pages/club/selling/generated/${lotHash}.json`;
+  fetchJson(saleUrl).then((selling_item) => {
+    if (selling_item.title) {
+      let heroTitleDiv = document.getElementById("container-h1");
+      let heroTitle = heroTitleDiv.getElementsByTagName("h1")[0];
+      let CurrentTitle = heroTitle.textContent;
+      heroTitle.textContent = `${CurrentTitle} - ${selling_item.title}`;
+    }
+
+    console.log("Processing selling item: ");
+    console.log(selling_item);
+
+    const textdiv = createDiv(sectionsdiv, "section");
+    renderSectionNoImage(textdiv, selling_item);
+
+    const gallerytdiv = createDiv(sectionsdiv, "section");
+    renderSellingGallery(gallerytdiv, selling_item.images, externalPath);
+  });
 }

@@ -1,9 +1,9 @@
 {
   "content": {
     "hero": {
-      "generatehero": true,
-      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
-      "text": "Stuff for sale",
+      "generatehero": false,
+      "image": "https://siteimages.gmfc.uk/hero/hero-selling.jpg",
+      "text": "Items for Sale",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -17,5 +17,5 @@
       }
     ]
   },
-  "externalPath": "https://gmfc-images-selling.s3.eu-west-2.amazonaws.com/"
+  "externalPath": "https://gmfc-images-selling.s3.eu-west-2.amazonaws.com"
 }
