@@ -91,7 +91,7 @@
       "url": "@/club/rules",
       "jdb": "@jdbpages/club/rules.json",
       "datetype": "filemodified",
-      "date": "2026-05-06T07:32:35.875Z"
+      "date": "2026-05-12T11:58:25.619Z"
     },
     {
       "title": "Gordano Model Flying Club | Rules",
@@ -101,17 +101,17 @@
       "url": "@/club/rules",
       "jdb": "@jdbpages/club/rules.json",
       "datetype": "filemodified",
-      "date": "2026-05-06T07:32:35.875Z"
+      "date": "2026-05-12T11:58:25.619Z"
     },
     {
-      "title": "Gordano Model Flying Club | Quick Guide",
-      "page": "@/club/rules/quickguide.html",
+      "title": "Gordano Model Flying Club | Flying Guide",
+      "page": "@/club/rules/flyingguide.html",
       "template": "main.html",
-      "chunks": "clubrulesquickguide",
-      "url": "@/club/rules/quickguide",
-      "jdb": "@jdbpages/club/rules/quickguide.json",
+      "chunks": "clubrulesflyingguide",
+      "url": "@/club/rules/flyingguide",
+      "jdb": "@jdbpages/club/rules/flyingguide.json",
       "datetype": "filemodified",
-      "date": "2026-05-06T07:33:18.032Z"
+      "date": "2026-05-12T12:00:21.801Z"
     },
     {
       "title": "Gordano Model Flying Club  | Flying Rules",

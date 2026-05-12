@@ -4,7 +4,7 @@ import { renderSection } from "@components/section";
 import { createDiv, fetchContextArea, renderFinish } from "@framework/dom";
 import { renderRulesBreadcrumb } from "../rules.js";
 
-import data from "@data/pages/club/rules/quickguide.json";
+import data from "@data/pages/club/rules/flyingguide.json";
 import menu from "@data/generated/menu.json";
 
 setupMenuCommands("page-clubrules", menu);
