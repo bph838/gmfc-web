@@ -3,7 +3,7 @@
     "hero": {
       "generatehero": false,
       "image": "https://siteimages.gmfc.uk/hero/hero-selling.jpg",
-      "text": "Items for Sale",
+      "text": "For Sale",
       "weatherCoordinates": {
         "latitude": 51.459563,
         "longitude": -2.790968
@@ -11,9 +11,13 @@
     },
     "sections": [
       {
-        "title": "",
+        "title": "Instructions",
         "type": "noImage",
-        "text": [""]
+        "text": [
+          "Occasionally, members of the public contact us looking to sell a job lot of RC equipment, often following the passing of a loved one or a change in circumstances.",
+          "If we receive such items, we'll display them here for two weeks, giving our members the first opportunity to purchase.",
+          "If anything catches your eye, please contact the secretary, who will be happy to pass on the seller's details."
+        ]
       }
     ]
   },

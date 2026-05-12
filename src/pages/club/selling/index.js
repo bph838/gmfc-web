@@ -40,6 +40,10 @@ function renderClubSelling(data) {
   const contentarea = fetchContextArea(data);
   if (!contentarea) return;
   const sectionsdiv = createDiv(contentarea, "sections");
+  data.content.sections?.forEach((section) => {
+    console.log(section);
+    renderSection(sectionsdiv, section);
+  });
 
   const salediv = createDiv(sectionsdiv, "section-sales");
 
@@ -67,11 +71,7 @@ function renderClubSelling(data) {
     }
   });
 
-  /*
-  data.content.sections?.forEach((section) => {
-    console.log(section);
-    renderSection(sectionsdiv, section);
-  });*/
+  
 }
 
 function renderClubSellingLot(data, lotHash) {
