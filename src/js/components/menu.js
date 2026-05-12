@@ -14,7 +14,7 @@ import {
   createLink,
   emptyDiv,
 } from "@framework/dom";
-import { getLongMonthName } from "@framework/utils";
+import { getLongMonthName,fetchJson } from "@framework/utils";
 const { SITE_TITLE } = require("@components/constants");
 
 export function setupMenuCommands(activeClass = "page-home", menujson = null) {
@@ -39,6 +39,8 @@ export function setupMenuCommands(activeClass = "page-home", menujson = null) {
   initCopyrightYear();
   initMenuName(SITE_TITLE);
   initMenu(menujson);
+
+  checkItemsForSale();
 }
 
 function initMenu(menujson) {
@@ -78,5 +80,15 @@ function initMenu(menujson) {
       const liMonth = createListItem(menuMonthsEl,"nav-item");
       const aMonth = createLink(liMonth, yearUrl, "dropdown-item", yearText);
     });*/
+  });
+}
+
+function checkItemsForSale() {
+  let saleUrl = "/data/pages/club/selling/generated/_index.json";
+  fetchJson(saleUrl).then((selling_items) => {
+    if(!selling_items||selling_items.length===0){
+      document.getElementById('clubsellingitemsmenu').remove();
+      document.getElementById('clubsellingitemsdiv').remove();
+    }
   });
 }
