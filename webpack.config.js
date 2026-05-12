@@ -54,8 +54,8 @@ module.exports = (env, argv) => {
         "./src/pages/club/rules/disciplinaryprocedure.js",
       clubmerch: "./src/pages/club/merch.js",
       clubmember: "./src/pages/club/member.js",
-      clubmemberexisting:"./src/pages/club/member/existing.js",
-      clubmemberprospective:"./src/pages/club/member/prospective.js",
+      clubmemberexisting: "./src/pages/club/member/existing.js",
+      clubmemberprospective: "./src/pages/club/member/prospective.js",
       clubhistory: "./src/pages/club/history.js",
       clubweather: "./src/pages/club/weather.js",
       clubwildlife: "./src/pages/club/wildlife/wildlife.js",
@@ -142,7 +142,12 @@ module.exports = (env, argv) => {
             from: "src/data",
             to: "data",
             globOptions: {
-              ignore: ["**/dynamic/**", "**/documents/**", "**/site.json"],
+              ignore: [
+                "**/dynamic/**",
+                "**/documents/**",
+                "**/site.json",
+                "**/lots/**",
+              ],
             },
           },
           {
