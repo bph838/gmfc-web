@@ -23,6 +23,8 @@ const ExcelToCsvAndJsonPlugin = require("./webpack/ExcelToCsvAndJsonPlugin.js");
 const DynamicHtmlManagerPlugin = require("./webpack/DynamicHtmlManagerPlugin");
 const DynamicHtmlNewsPlugin = require("./webpack/DynamicHtmlNewsPlugin");
 
+const JsonHashCopyPlugin = require("./webpack/JsonHashCopyPlugin.js");
+
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const loadPartials = require("./webpack/load-partials");
@@ -134,6 +136,10 @@ module.exports = (env, argv) => {
         siteSource: "./src/data/generated/site.json",
         outputFile: "./src/data/generated/news-processed.json",
         newsOutput: "./src/data/news.json",
+      }),
+      new JsonHashCopyPlugin({
+        inputDir: "./src/data/pages/club/selling/lots/",
+        outputDir: "./src/data/pages/club/selling/generated/",
       }),
 
       new CopyWebpackPlugin({
