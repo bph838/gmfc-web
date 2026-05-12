@@ -212,6 +212,16 @@
       "jdb": "@jdbpages/club/wildlife/wildlife.json",
       "datetype": "filemodified",
       "date": "2026-04-22T17:39:26.824Z"
+    },
+    {
+      "title": "Gordano Model Flying Club - Club - Items for sale",
+      "page": "@/club/selling/index.html",
+      "template": "main.html",
+      "chunks": "clubselling",
+      "url": "@/club/selling/",
+      "jdb": "@jdbpages/club/selling/selling.json",
+      "datetype": "filemodified",
+      "date": "2026-05-12T07:22:49.054Z"
     }
   ]
 }

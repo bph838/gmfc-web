@@ -1,0 +1,20 @@
+{
+  "content": {
+    "hero": {
+      "generatehero": true,
+      "image": "https://siteimages.gmfc.uk/hero/hero-plane.jpg",
+      "text": "Lots for sale",
+      "weatherCoordinates": {
+        "latitude": 51.459563,
+        "longitude": -2.790968
+      }
+    },
+    "sections": [
+      {
+        "title": "Lot for sale",
+        "type": "noImage",
+        "text": [""]
+      }
+    ]
+  }
+}

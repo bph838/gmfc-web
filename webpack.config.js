@@ -59,6 +59,7 @@ module.exports = (env, argv) => {
       clubhistory: "./src/pages/club/history.js",
       clubweather: "./src/pages/club/weather.js",
       clubwildlife: "./src/pages/club/wildlife/wildlife.js",
+      clubselling: "./src/pages/club/selling/index.js",
       styles: "./src/scss/styles.scss",
     },
     output: {
