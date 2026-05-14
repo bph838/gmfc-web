@@ -56,7 +56,6 @@ function renderClubSelling(data) {
         const hash = item.hash;
         const title = item.title;
         const expires = new Date(item.expires);
-        const now = new Date();
         if (expires >= new Date()) {
           itemsFound = true;
           const sellDiv = createDiv(salediv, "selling_item");
@@ -70,8 +69,6 @@ function renderClubSelling(data) {
       createParagraph(salediv, "There are no items to list at the moment");
     }
   });
-
-  
 }
 
 function renderClubSellingLot(data, lotHash) {
@@ -84,20 +81,33 @@ function renderClubSellingLot(data, lotHash) {
 
   let saleUrl = `/data/pages/club/selling/generated/${lotHash}.json`;
   fetchJson(saleUrl).then((selling_item) => {
-    if (selling_item.title) {
-      let heroTitleDiv = document.getElementById("container-h1");
-      let heroTitle = heroTitleDiv.getElementsByTagName("h1")[0];
-      let CurrentTitle = heroTitle.textContent;
-      heroTitle.textContent = `${CurrentTitle} - ${selling_item.title}`;
+    const expiry = new Date(selling_item.date);
+    expiry.setDate(expiry.getDate() + Number(selling_item.period));
+    console.log(expiry);
+    const now = new Date();
+
+    if (now > expiry) {
+      const textdiv = createDiv(sectionsdiv, "section");
+      const text = {
+        text: ["These items are no longer available"],
+      };
+      renderSectionNoImage(textdiv, text);
+    } else {
+      if (selling_item.title) {
+        let heroTitleDiv = document.getElementById("container-h1");
+        let heroTitle = heroTitleDiv.getElementsByTagName("h1")[0];
+        let CurrentTitle = heroTitle.textContent;
+        heroTitle.textContent = `${CurrentTitle} - ${selling_item.title}`;
+      }
+
+      console.log("Processing selling item: ");
+      console.log(selling_item);
+
+      const textdiv = createDiv(sectionsdiv, "section");
+      renderSectionNoImage(textdiv, selling_item);
+
+      const gallerytdiv = createDiv(sectionsdiv, "section");
+      renderSellingGallery(gallerytdiv, selling_item.images, externalPath);
     }
-
-    console.log("Processing selling item: ");
-    console.log(selling_item);
-
-    const textdiv = createDiv(sectionsdiv, "section");
-    renderSectionNoImage(textdiv, selling_item);
-
-    const gallerytdiv = createDiv(sectionsdiv, "section");
-    renderSellingGallery(gallerytdiv, selling_item.images, externalPath);
   });
 }

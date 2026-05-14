@@ -14,7 +14,7 @@ import {
   createLink,
   emptyDiv,
 } from "@framework/dom";
-import { getLongMonthName,fetchJson } from "@framework/utils";
+import { getLongMonthName, fetchJson } from "@framework/utils";
 const { SITE_TITLE } = require("@components/constants");
 
 export function setupMenuCommands(activeClass = "page-home", menujson = null) {
@@ -86,9 +86,19 @@ function initMenu(menujson) {
 function checkItemsForSale() {
   let saleUrl = "/data/pages/club/selling/generated/_index.json";
   fetchJson(saleUrl).then((selling_items) => {
-    if(!selling_items||selling_items.length===0){
-      document.getElementById('clubsellingitemsmenu').remove();
-      document.getElementById('clubsellingitemsdiv').remove();
+    if (!selling_items || selling_items.length === 0) {
+      document.getElementById("clubsellingitemsmenu").remove();
+      document.getElementById("clubsellingitemsdiv").remove();
+    }
+    let found = 0;
+    selling_items.forEach((element) => {
+      const expires = new Date(element.expires);
+      const now = new Date();
+      if (expires > now) found++;
+    });
+    if (found === 0) {
+      document.getElementById("clubsellingitemsmenu").remove();
+      document.getElementById("clubsellingitemsdiv").remove();
     }
   });
 }
